@@ -45,7 +45,9 @@ docs/curriculum-source.md  the original outline; the taxonomy derives from it
 docs/content-style-guide.md  how to write an item — read before writing content
 scripts/parse-taxonomy.mjs  regenerates the skeleton from the source outline
 scripts/validate-content.mjs  the schema, enforced
-scripts/build-index.mjs    compiles content into src/generated/index.json
+scripts/build-index.mjs    compiles content into src/generated/catalog.json (loaded up
+                            front) plus src/generated/chapters/chNN.json (bodies, loaded
+                            on demand)
 src/                       React 19 + Vite + Tailwind 4, TypeScript
 .claude/agents/            subagent definitions
 ```

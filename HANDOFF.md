@@ -82,15 +82,34 @@ flagged as inspector-oriented rather than installer-oriented. These are stage 3
 already, so the ordering handles most of it, but the content should be written
 for building services when it is reached.
 
-## First technical task
+## First technical task — done
 
-**Split the generated index.** `src/generated/index.json` currently ships every
-item body in one file. At one written item it is 267 KB. At 800 full-depth
-items it would be several megabytes, all downloaded before the first paint.
+**Split the generated index.** `build-index.mjs` now emits two things instead
+of one `index.json`:
 
-The fix: emit a catalog (ids, titles, summaries, terms — enough for search and
-navigation) loaded up front, plus per-chapter body chunks loaded on demand via
-dynamic import. Do this before content volume makes it painful.
+- `src/generated/catalog.json` — ids, titles, summaries, terms, sources,
+  stage, status, everything search and navigation need, for all 1146 items,
+  written or stub. No item bodies. Statically imported, loaded up front.
+- `src/generated/chapters/chNN.json` — one file per chapter, `id -> body`,
+  authored items only. `App.tsx` loads a chapter's chunk on demand via
+  `import.meta.glob` when a reader opens an item in it, and only that
+  chapter's chunk.
+
+Verified in a browser (Playwright against `vite`): opening the one written
+item (`02.3.01`) fetches `catalog.json` plus `chapters/ch02.json` only — no
+other chapter chunk loads. Search and the Corpus filter still work against
+the catalog alone. Stub items and the chapter list trigger no extra fetch at
+all.
+
+At the current one-written-item state the byte counts are close (the old
+single file was 360,786 bytes; catalog.json is 342,667 bytes plus a 6,674
+byte `ch02.json`) because catalog metadata for 1146 items, not body text,
+dominates the file today. The split doesn't pay off yet, it pays off going
+forward: `catalog.json` stays roughly flat as content is written, while body
+text — which will run several KB per item — moves into chunks a reader only
+downloads for the chapter they open.
+
+`npm run check` passes. Taxonomy and schema untouched.
 
 ## Then, in order
 

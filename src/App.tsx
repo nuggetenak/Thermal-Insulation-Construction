@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
-import data from './generated/index.json';
+import data from './generated/catalog.json';
 import images from '../content/_images.json';
 import { search } from './search';
 import type { Chapter, Item, Source } from './types';
@@ -12,6 +12,19 @@ const imageById = new Map(
   (images.images as { id: string }[]).map((i) => [i.id, i as Record<string, string>]),
 );
 const licences = images.licences as Record<string, { attribution: boolean }>;
+
+// One entry per chapter chunk (src/generated/chapters/chNN.json), each a lazy
+// loader for that chapter's { id -> body } map. Catalog items carry no body;
+// ItemView fetches its chapter's chunk on demand so opening one item never
+// downloads bodies for the other 1100+.
+const chapterBodyLoaders = import.meta.glob<{ default: Record<string, string> }>(
+  './generated/chapters/*.json',
+);
+
+function loadChapterBodies(chapterNo: string): Promise<Record<string, string>> {
+  const loader = chapterBodyLoaders[`./generated/chapters/ch${chapterNo}.json`];
+  return loader ? loader().then((m) => m.default) : Promise.resolve({});
+}
 
 const STAGES = [
   { n: 1, label: 'Before you fly', note: 'What keeps you safe and useful in month one' },
@@ -339,6 +352,20 @@ function ChapterView() {
 function ItemView() {
   const { id } = useParams();
   const item = id ? itemById.get(id) : undefined;
+  const [body, setBody] = useState<string | null>(null);
+
+  useEffect(() => {
+    setBody(null);
+    if (!item || item.status === 'stub') return;
+    let cancelled = false;
+    loadChapterBodies(item.chapter).then((bodies) => {
+      if (!cancelled) setBody(bodies[item.id] ?? '');
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [item]);
+
   if (!item) return <NotFound />;
 
   const chapter = chapters.find((c) => c.no === item.chapter)!;
@@ -360,9 +387,11 @@ function ItemView() {
             already link to it.
           </p>
         </div>
+      ) : body === null ? (
+        <p className="mt-5 text-[14px] text-muted">Loading…</p>
       ) : (
         <>
-          <article className="prose-body mt-4">{renderBody(item.body)}</article>
+          <article className="prose-body mt-4">{renderBody(body)}</article>
 
           {item.sources?.length > 0 && (
             <section className="mt-8 border-t border-band pt-4">

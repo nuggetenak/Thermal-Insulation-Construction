@@ -3,11 +3,19 @@
  * build-index.mjs
  *
  * Compiles the taxonomy plus whatever content has actually been authored into
- * src/generated/index.json, which the app imports directly.
+ * two kinds of output under src/generated/, which the app imports:
  *
- * The app never reads the content directory at runtime. One generated file
- * means one network request, offline caching is trivial, and search can be
- * built over a single in-memory structure.
+ *  - catalog.json: ids, titles, summaries, terms, sources, stage, status —
+ *    everything search and navigation need, for every item, written or not.
+ *    No item bodies. This is what loads up front.
+ *  - chapters/chNN.json: one file per chapter, mapping item id -> body, for
+ *    the items in that chapter that have been authored. The app loads a
+ *    chapter's bodies on demand, via dynamic import, only when a reader
+ *    opens an item in it.
+ *
+ * The app never reads the content directory at runtime. Splitting the body
+ * text out of the catalog means the up-front download stays small as content
+ * volume grows — a reader pays for the chapter they open, not the whole book.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'node:fs';
@@ -17,7 +25,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = resolve(ROOT, 'content');
 const OUT_DIR = resolve(ROOT, 'src/generated');
-const OUT = resolve(OUT_DIR, 'index.json');
+const CATALOG_OUT = resolve(OUT_DIR, 'catalog.json');
+const CHAPTERS_OUT_DIR = resolve(OUT_DIR, 'chapters');
 
 function walk(dir, out = []) {
   if (!existsSync(dir)) return out;
@@ -76,6 +85,7 @@ const taxonomy = JSON.parse(readFileSync(resolve(CONTENT, '_taxonomy.json'), 'ut
 const registry = JSON.parse(readFileSync(resolve(CONTENT, '_sources.json'), 'utf8')).sources;
 
 const authored = new Map();
+const bodies = new Map();
 const glossary = [];
 
 for (const full of walk(CONTENT)) {
@@ -95,20 +105,21 @@ for (const full of walk(CONTENT)) {
     sources: readList(fm, 'sources'),
     seeAlso: readList(fm, 'seeAlso'),
     terms,
-    body,
   });
+  bodies.set(id, body);
   for (const t of terms) glossary.push({ ...t, sourceId: id });
 }
 
 // Merge: every taxonomy item appears, authored or not. An unwritten item is
-// still browsable and still a valid cross-reference target.
+// still browsable and still a valid cross-reference target. No body here —
+// bodies live in the per-chapter chunks below.
 const chapters = taxonomy.chapters.map((c) => ({
   ...c,
   sections: c.sections.map((s) => ({
     ...s,
     items: s.items.map((i) => {
       const a = authored.get(i.id);
-      return a ? { ...i, ...a } : { ...i, status: 'stub', body: '', sources: [], terms: [] };
+      return a ? { ...i, ...a } : { ...i, status: 'stub', sources: [], terms: [] };
     }),
   })),
 }));
@@ -117,8 +128,10 @@ const written = [...authored.values()].filter((a) => a.status !== 'stub').length
 const total = taxonomy.counts.items;
 
 mkdirSync(OUT_DIR, { recursive: true });
+mkdirSync(CHAPTERS_OUT_DIR, { recursive: true });
+
 writeFileSync(
-  OUT,
+  CATALOG_OUT,
   JSON.stringify(
     {
       generatedAt: new Date().toISOString(),
@@ -133,6 +146,22 @@ writeFileSync(
   'utf8',
 );
 
+// One chunk per chapter, id -> body, authored items only. A chapter with
+// nothing written yet still gets an (empty) chunk, so the app's loader never
+// has to special-case a missing file.
+for (const c of taxonomy.chapters) {
+  const chapterBodies = {};
+  for (const item of c.sections.flatMap((s) => s.items)) {
+    const body = bodies.get(item.id);
+    if (body) chapterBodies[item.id] = body;
+  }
+  writeFileSync(
+    resolve(CHAPTERS_OUT_DIR, `ch${c.no}.json`),
+    JSON.stringify(chapterBodies, null, 0) + '\n',
+    'utf8',
+  );
+}
+
 console.log(
-  `index built: ${written}/${total} items written, ${glossary.length} glossary terms, ${registry.length} sources`,
+  `index built: ${written}/${total} items written, ${glossary.length} glossary terms, ${registry.length} sources, ${taxonomy.chapters.length} chapter chunks`,
 );
