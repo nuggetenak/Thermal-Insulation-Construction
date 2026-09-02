@@ -126,6 +126,35 @@
       "retrieved": "2026-09-02",
       "recheckAfter": null,
       "note": "Peer-reviewed survey. Source for typical lambda ranges by material and for the rise of conductivity with temperature."
+    },
+    {
+      "id": "jniosh-ladder-falls",
+      "title": "墜落災害防止のための移動はしごの使用方法等について",
+      "titleEn": "Use of portable ladders for the prevention of falls from height",
+      "publisher": "独立行政法人 労働安全衛生総合研究所 (JNIOSH) / 一般社団法人 全国建設業労災互助会",
+      "url": "https://www.jniosh.johas.go.jp/publication/pdf/ladder.pdf",
+      "language": "ja",
+      "tier": 2,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-09-01",
+      "note": "National occupational-safety research institute, co-published with a construction mutual-aid association. Analyses 103 fatal ladder falls in construction over ten years, split by work type and by whether the victim was climbing or working. States the three-point climbing rule — three of the four hand and foot points stay on the ladder. Source for the 103 / 52 / 29 / 22 breakdown, the 設備工事 share, the five recurring failure patterns, and the 75-degree set-up angle. Tier 2 rather than 1: it is analysis and guidance, not regulation. Copyright of the publishing bodies — describe the findings, never reproduce text or figures."
+    },
+    {
+      "id": "kensaibou-low-height",
+      "title": "低所での作業　あなたは油断していませんか？（はしご・脚立・可搬式作業台）",
+      "titleEn": "Working at low height — leaflet on ladders, stepladders and mobile work platforms",
+      "publisher": "建設業労働災害防止協会 (JCOSHA)",
+      "url": "https://www.kensaibou.or.jp/safe_tech/leaflet/files/7f8cfb3e8da875aaf223e2a7c20f9858ce0032a1.pdf",
+      "language": "ja",
+      "tier": 2,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-09-01",
+      "note": "Industry association leaflet, footer dated 2025.3. States three-point contact as a rule for climbing (3点支持), plus: do not climb holding objects, do not come down facing away from the ladder, and use a ladder for access rather than as a place to work. Also the source for the 2013-2022 fatality averages, the helmet findings, and the 75-degree / 60 cm set-up figures. The filename is a content hash, so the URL may break when the leaflet is revised — re-check at the recheck date. Paraphrase only."
     }
+
   ]
 }
