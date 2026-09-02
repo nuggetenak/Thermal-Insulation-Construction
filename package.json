@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "content": "node scripts/parse-taxonomy.mjs && node scripts/build-index.mjs",
     "validate": "node scripts/parse-taxonomy.mjs && node scripts/check-ids.mjs && node scripts/validate-content.mjs",
-    "check": "npm run validate && npm run content && tsc -b && vite build"
+    "check": "npm run validate && npm test && npm run content && tsc -b && vite build",
+    "test": "node scripts/test-guardrails.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

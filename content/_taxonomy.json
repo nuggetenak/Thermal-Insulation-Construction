@@ -15593,20 +15593,20 @@
         },
         {
           "no": "38.2",
-          "title": "Vapour barrier on ductwork",
-          "slug": "vapour-barrier-on-ductwork",
+          "title": "Vapor barrier on ductwork",
+          "slug": "vapor-barrier-on-ductwork",
           "items": [
             {
               "id": "38.2.01",
-              "title": "Where the vapour barrier sits on a duct",
+              "title": "Where the vapor barrier sits on a duct",
               "japanese": null,
-              "slug": "where-the-vapour-barrier-sits-on-a-duct",
+              "slug": "where-the-vapor-barrier-sits-on-a-duct",
               "stage": 2,
               "kind": "article",
               "safetyCritical": false,
               "chapter": "38",
               "section": "38.2",
-              "path": "content/ch38/38.2.01-where-the-vapour-barrier-sits-on-a-duct.md",
+              "path": "content/ch38/38.2.01-where-the-vapor-barrier-sits-on-a-duct.md",
               "status": "stub"
             },
             {
@@ -15995,15 +15995,15 @@
             },
             {
               "id": "39.3.03",
-              "title": "The vapour barrier and which side it goes on",
+              "title": "The vapor barrier and which side it goes on",
               "japanese": null,
-              "slug": "the-vapour-barrier-and-which-side-it-goes-on",
+              "slug": "the-vapor-barrier-and-which-side-it-goes-on",
               "stage": 1,
               "kind": "article",
               "safetyCritical": true,
               "chapter": "39",
               "section": "39.3",
-              "path": "content/ch39/39.3.03-the-vapour-barrier-and-which-side-it-goes-on.md",
+              "path": "content/ch39/39.3.03-the-vapor-barrier-and-which-side-it-goes-on.md",
               "status": "stub"
             },
             {

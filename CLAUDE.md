@@ -38,7 +38,10 @@ not smoothed over.
    "no source consulted states this", never "I could not find".
 8. **Never regenerate `content/_ids.lock` to silence an error.** That lock is
    what makes ids permanent. If it fails, something renumbered — find out what.
-9. **Run `npm run validate` before every commit.** It is fast and it catches
+9. **Use the canonical term.** `content/_terms.lock.json` fixes the English name
+   for things with several names. Jacketing, not cladding. Insulation, not
+   lagging. Supervisor, not foreman. Vapor, not vapour.
+10. **Run `npm run validate` before every commit.** It is fast and it catches
    the drift that a human reviewer will not.
 
 ## Repository map
@@ -49,6 +52,8 @@ content/_sources.json      source registry — hand-maintained; cite by id only
 content/_images.json       image registry — licence enforced, cite by id only
 content/_approved.json     owner-only approval register; agents never edit this
 content/_ids.lock          permanent id set; CI fails if an id moves
+content/_terms.lock.json   canonical English terms; variants are rejected
+scripts/test-guardrails.mjs  tests the validator itself, not the content
 content/chNN/              authored markdown, one file per item
 docs/curriculum-source.md  the original outline; the taxonomy derives from it
 docs/content-style-guide.md  how to write an item — read before writing content
@@ -64,8 +69,9 @@ src/                       React 19 + Vite + Tailwind 4, TypeScript
 ## Commands
 
 ```
-npm run validate   # schema + cross-references + safety sourcing
-npm run check      # validate, then typecheck, then build. CI runs this.
+npm run validate   # ids, schema, cross-references, terminology, sourcing
+npm test           # tests the guardrails themselves
+npm run check      # everything above, then typecheck and build. CI runs this.
 npm run dev        # local dev server
 ```
 

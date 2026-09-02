@@ -183,9 +183,9 @@ Chapters are appended, never renumbered, so every existing id stays valid.
 
 ### Duct-mounted sensors, probes and test points
 
-## 38.2 Vapour barrier on ductwork
+## 38.2 Vapor barrier on ductwork
 
-### Where the vapour barrier sits on a duct
+### Where the vapor barrier sits on a duct
 
 ### Sealing facing joints and overlaps
 
@@ -253,7 +253,7 @@ Chapters are appended, never renumbered, so every existing id stays valid.
 
 ### Continuity: why a break defeats the whole system
 
-### The vapour barrier and which side it goes on
+### The vapor barrier and which side it goes on
 
 ### Sealing at supports, hangers and penetrations
 

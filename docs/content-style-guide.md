@@ -102,6 +102,29 @@ the field is simply not available.
 
 Set `review` when you believe an item is finished.
 
+### Canonical terminology
+
+`content/_terms.lock.json` fixes the English name for things this trade calls
+several names. The validator rejects a variant and tells you the canonical word.
+
+Jacketing is never cladding. Insulation is never lagging. Thermal resistance is
+never R-value. Condensation control is never anti-sweat. The supervisor is never
+the foreman. American spelling throughout, so vapor barrier rather than vapour.
+
+None of these choices is more correct than its alternatives. The point is that
+chapter 09 and chapter 41, written months apart in different sessions, use the
+same word for the same thing.
+
+If a variant is deliberate — usually to tell the reader what else people call
+it — declare it:
+
+```yaml
+allowVariants: ["lagging"]
+```
+
+That makes it a visible decision rather than drift. If you need a term the
+lockfile does not cover, add it to the lockfile in the same commit.
+
 ### Term ownership
 
 A Japanese term is introduced **once**, in the item it belongs to, with its full

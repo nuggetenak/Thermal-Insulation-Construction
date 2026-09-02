@@ -24,6 +24,7 @@ const TAXONOMY = resolve(CONTENT, '_taxonomy.json');
 const SOURCES = resolve(CONTENT, '_sources.json');
 const IMAGES = resolve(CONTENT, '_images.json');
 const APPROVED = resolve(CONTENT, '_approved.json');
+const TERMS_LOCK = resolve(CONTENT, '_terms.lock.json');
 
 const errors = [];
 const warnings = [];
@@ -174,6 +175,7 @@ function main() {
   }
 
   const approved = new Set(JSON.parse(readFileSync(APPROVED, 'utf8')).approved || []);
+  const canonical = JSON.parse(readFileSync(TERMS_LOCK, 'utf8')).canonical || [];
   const imageData = JSON.parse(readFileSync(IMAGES, 'utf8'));
   const imageById = new Map((imageData.images || []).map((i) => [i.id, i]));
 
@@ -355,6 +357,24 @@ function main() {
       const img = imageById.get(ref);
       if (img.origin === 'generated' && known.safetyCritical) {
         err(file, `image "${ref}" is AI-generated and cannot appear in a safety-critical chapter`);
+      }
+    }
+
+    // --- terminology --------------------------------------------------------
+    // The same thing must be called the same name in chapter 09 and chapter 41,
+    // written months apart by different sessions. Nothing else enforces that.
+    const allowed = new Set((data.allowVariants || []).map((v) => v.toLowerCase()));
+    for (const entry of canonical) {
+      for (const variant of entry.avoid) {
+        if (allowed.has(variant.toLowerCase())) continue;
+        const re = new RegExp(`(?<![\\w-])${variant.replace(/[.*+?^$()|[\]\\]/g, '\\$&')}(?![\\w-])`, 'gi');
+        const hits = body.match(re);
+        if (hits) {
+          err(
+            file,
+            `uses "${hits[0]}" — the canonical term is "${entry.en}". If the variant is deliberate, add allowVariants: ["${variant}"] to frontmatter.`,
+          );
+        }
       }
     }
 

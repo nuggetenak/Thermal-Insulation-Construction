@@ -16,6 +16,8 @@ Updated: 2026-09-02
 | Id stability lock (CI-enforced) | done |
 | Approval register, outside agent reach | done |
 | Voice / length / term-ownership guards | done |
+| Canonical terminology lockfile | done |
+| Guardrail test suite (16 tests) | done |
 | Employer context resolved; curriculum rebalanced | done |
 | Source registry + citation links | done |
 | Corpus view (filterable) | done |

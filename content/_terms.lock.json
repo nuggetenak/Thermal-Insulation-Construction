@@ -1,0 +1,110 @@
+{
+  "_comment": "Canonical terminology. Across 1146 items written in hundreds of separate sessions, nothing else keeps the same thing called the same name. 'avoid' lists real synonyms a competent writer would otherwise reach for; the validator rejects them and names the replacement. To use a variant deliberately — usually to tell the reader that other people say it — add allowVariants: [word] to that item's frontmatter. That makes it a visible decision instead of drift.",
+  "canonical": [
+    {
+      "en": "jacketing",
+      "ja": "外装",
+      "reading": "がいそう",
+      "definition": "The outer protective covering fitted over insulation.",
+      "avoid": ["cladding", "lagging sheet", "outer finish", "outer jacket", "sheeting"]
+    },
+    {
+      "en": "insulation",
+      "ja": "断熱材",
+      "reading": "だんねつざい",
+      "definition": "The material that slows heat transfer. Never 'lagging', which is ambiguous between the material and the whole trade.",
+      "avoid": ["lagging"]
+    },
+    {
+      "en": "thermal conductivity",
+      "ja": "熱伝導率",
+      "reading": "ねつでんどうりつ",
+      "definition": "The lambda value of a material, in W/(m·K). Spell it out; do not assume the reader knows the symbol.",
+      "avoid": ["k-value", "k value", "heat conductivity"]
+    },
+    {
+      "en": "thermal resistance",
+      "ja": "熱抵抗",
+      "reading": "ねつていこう",
+      "definition": "Resistance to heat flow. Do not call it R-value; that convention carries assumptions about units and thickness that vary by country.",
+      "avoid": ["R-value", "R value"]
+    },
+    {
+      "en": "vapor barrier",
+      "ja": "防湿層",
+      "reading": "ぼうしつそう",
+      "definition": "The layer preventing water vapour reaching a cold surface. American spelling throughout the project, matching the existing chapter 16 title.",
+      "avoid": ["vapour barrier", "vapour retarder", "vapor retarder", "moisture barrier"]
+    },
+    {
+      "en": "condensation control",
+      "ja": "防露",
+      "reading": "ぼうろ",
+      "definition": "Preventing condensation forming on cold surfaces. Named in the employer's own scope, so it gets one consistent English name.",
+      "avoid": ["anti-condensation", "anti-sweat", "sweat prevention", "dew prevention"]
+    },
+    {
+      "en": "hot insulation",
+      "ja": "保温",
+      "reading": "ほおん",
+      "definition": "Insulation to retain heat in a system hotter than its surroundings.",
+      "avoid": ["heat insulation", "heat retention"]
+    },
+    {
+      "en": "cold insulation",
+      "ja": "保冷",
+      "reading": "ほれい",
+      "definition": "Insulation on a system colder than its surroundings.",
+      "avoid": ["cool insulation", "cold retention", "cryogenic insulation"]
+    },
+    {
+      "en": "pipe section",
+      "ja": "筒",
+      "reading": "とう",
+      "definition": "Preformed cylindrical insulation that fits a pipe.",
+      "avoid": ["pipe cover", "pipe shell", "moulded section", "half section"]
+    },
+    {
+      "en": "blanket",
+      "ja": "ブランケット",
+      "reading": "ブランケット",
+      "definition": "Flexible roll or mat insulation, as used on ductwork and large surfaces.",
+      "avoid": ["quilt", "mat", "felt"]
+    },
+    {
+      "en": "banding",
+      "ja": "バンド",
+      "reading": "バンド",
+      "definition": "Metal strap fastened around insulation or jacketing.",
+      "avoid": ["strapping", "strap band", "bandings"]
+    },
+    {
+      "en": "work at height",
+      "ja": "高所作業",
+      "reading": "こうしょさぎょう",
+      "definition": "Work where a fall could cause injury. Singular 'height', matching regulatory usage.",
+      "avoid": ["working at heights", "work at heights", "height work"]
+    },
+    {
+      "en": "work platform",
+      "ja": "作業床",
+      "reading": "さぎょうゆか",
+      "definition": "A platform to stand and work on, as required by regulation above stated heights.",
+      "avoid": ["working platform", "work deck"]
+    },
+    {
+      "en": "method statement",
+      "ja": "施工要領書",
+      "reading": "せこうようりょうしょ",
+      "definition": "The document stating how a specific job is to be carried out on a specific site.",
+      "avoid": ["work procedure document", "RAMS"]
+    },
+    {
+      "en": "supervisor",
+      "ja": "職長",
+      "reading": "しょくちょう",
+      "definition": "The person directing the crew on site. Use consistently; readers need one word for the person they ask.",
+      "avoid": ["foreman", "gaffer", "chargehand", "team leader"]
+    }
+  ]
+}
