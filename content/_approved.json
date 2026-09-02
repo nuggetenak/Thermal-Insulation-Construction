@@ -1,4 +1,4 @@
 {
-  "_comment": "Items the owner has read and approved. Approval is deliberately NOT a field in the content file, so an agent cannot mark its own work approved. Only the owner edits this list. An id here means: a human read it and accepted it as correct.",
+  "_comment": "A reading record, not a gate. An id here means: a human read that item and accepted it as correct. Nothing waits on this file — writing, review and release all proceed without it. It is deliberately NOT a field in the content file, and only the owner edits it, so an agent cannot record acceptance of its own work.",
   "approved": []
 }

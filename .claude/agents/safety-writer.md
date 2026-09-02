@@ -31,8 +31,9 @@ Run `npm run validate` before finishing.
 
 Three rules the validator enforces, so getting them wrong wastes a whole run:
 
-- Set `status: review`, never `approved`. Approval is the owner's act, recorded
-  in `content/_approved.json`, which you never edit.
+- Set `status: review`, never `approved` — `approved` is not an allowed value
+  and the validator rejects it. `content/_approved.json` is the owner's reading
+  record, which you never edit. Nothing you write waits on it.
 - Never write in the first person. There is no narrator. "No source consulted
   states this", not "I could not find".
 - Declare a Japanese term only in the item that owns it. Elsewhere, use it and

@@ -14,10 +14,10 @@ Updated: 2026-09-02
 | GitHub Actions CI + Pages deploy | done |
 | Agent definitions | done |
 | Id stability lock (CI-enforced) | done |
-| Approval register, outside agent reach | done |
+| Reading register, outside agent reach | done |
 | Voice / length / term-ownership guards | done |
 | Canonical terminology lockfile | done |
-| Guardrail test suite (16 tests) | done |
+| Guardrail test suite (19 tests) | done |
 | Split index into catalog + lazy chunks | done |
 | Offline / PWA service worker | done |
 | Dark mode, furigana toggle | done |
@@ -39,7 +39,7 @@ Updated: 2026-09-02
 
 | Stage | Written | Total |
 |---|---|---|
-| 1 — Before you fly | 1 | 386 |
+| 1 — Before you fly | 5 | 386 |
 | 2 — First year | 1 | 389 |
 | 3 — Becoming skilled | 0 | 209 |
 | 4 — Later (stubs only) | 0 | 162 |
@@ -47,18 +47,35 @@ Updated: 2026-09-02
 1146 items total, up from 974. Ductwork, 防露, occupied buildings, building
 services plant and systems, new build sequence, and an industrial delta chapter.
 
-Exemplars approved by the owner on 2026-09-02. Content writing is unblocked.
-These two files are the quality bar — open one and match it before writing.
+Six items are written, all at `status: review`:
+
+| Item | Stage | Where |
+|---|---|---|
+| `01.1.01` general construction workflow | 1 | section 01.1, PR #4 |
+| `01.1.02` mechanical equipment trades overview | 1 | section 01.1, PR #4 |
+| `01.1.03` relationship between the trades | 1 | section 01.1, PR #4 |
+| `01.1.04` subcontractor and site organization | 1 | section 01.1, PR #4 |
+| `02.3.01` why insulation reduces heat flow | 2 | general-craft exemplar |
+| `09.1.03` three-point contact | 1 | safety-critical exemplar, PR #2 |
+
+Section 01.1 is complete. 01.2 onward is the next writing work.
+
+Two of the six are the exemplars — the quality bar. Open one and match it
+before writing.
 
 - `02.3.01` — general craft, chapter 02.
 - `09.1.03` — safety-critical, chapter 09. Different shape: the sourcing
   requirement bites, and the places where no source exists are stated in the
   text rather than filled in.
 
-The `approved` status on `09.1.03` records the owner's decision. It was not
-produced by the every-line review CLAUDE.md asks for on a `safetyCritical`
-chapter, and no `reviews/` record exists for it. Worth a fact-checker pass
-before the rest of chapter 09 is written against it.
+Nothing is approved, and nothing needs to be. `content/_approved.json` is
+empty, `approved` is no longer an allowed status value, and the register is a
+reading record — an id in it means a human read that item and accepted it — not
+a permission to proceed. Writing is not gated on it.
+
+What has not happened is review. `09.1.03` has never had the every-line review
+CLAUDE.md asks for on a `safetyCritical` chapter. A fact-checker pass over it is the
+outstanding work; reports land in `reviews/`.
 
 ## How to update this file
 

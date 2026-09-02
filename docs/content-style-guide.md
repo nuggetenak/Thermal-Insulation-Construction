@@ -1,8 +1,9 @@
 # Content style guide
 
-Read this before writing any item. Then open an item with `status: approved`
-and match it. Consistency across 800 items comes from imitating a real example,
-not from remembering rules.
+Read this before writing any item. Then open one of the two exemplars —
+`content/ch02/02.3.01` for general craft, `content/ch09/09.1.03` for
+safety-critical — and match it. Consistency across 800 items comes from
+imitating a real example, not from remembering rules.
 
 ## Who you are writing for
 
@@ -88,19 +89,33 @@ chapter: "02"          # quoted — leading zeros matter
 section: "02.3"
 stage: 2
 kind: article
-status: draft          # stub | draft | review — never "approved"''")
+status: draft          # stub | draft | review. Never "approved" — see below.
+summary: "..."         # one sentence, under 30 words, plain language
+terms:                 # every Japanese term used in the body
+  - term: 保温
+    reading: ほおん     # kana only, validator enforces this
+    meaning: hot insulation
+seeAlso: ["02.3.02"]   # taxonomy ids only; validator checks they exist
+confidence: verified   # verified | standard-practice | needs-confirmation
+sourceBasis: cited     # general | cited
+sources:
+  - mhlw-exam-scope    # ids from content/_sources.json, never free text
+---
+```
 
-s = s.replace(### Approval is not yours to give
+### Approval is not yours to give
 
 `status` accepts `stub`, `draft` and `review`. It does not accept `approved`,
 and the validator rejects it.
 
-Approval is recorded in `content/_approved.json`, edited by the owner alone. An
-id in that file means a human read the item and accepted it as correct. An agent
-marking its own work approved would make the whole review tier meaningless, so
-the field is simply not available.
+`content/_approved.json` is edited by the owner alone. An id in that file means
+a human read the item and accepted it as correct. It is a reading record, not a
+gate — no writing waits on it, and an item at `review` is not blocked by its
+absence from it. What the arrangement prevents is an agent recording acceptance
+of its own work, which would make the whole review tier meaningless.
 
-Set `review` when you believe an item is finished.
+Set `review` when you believe an item is finished. That is as far as you take
+it.
 
 ### Canonical terminology
 
@@ -135,20 +150,6 @@ owns it.
 every item that mentions them re-declares them, the generated glossary fills
 with near-duplicates that quietly disagree about the meaning. The validator warns
 when a term is declared in more than one item.
-
-### Sourcing
-summary: "..."         # one sentence, under 30 words, plain language
-terms:                 # every Japanese term used in the body
-  - term: 保温
-    reading: ほおん     # kana only, validator enforces this
-    meaning: hot insulation
-seeAlso: ["02.3.02"]   # taxonomy ids only; validator checks they exist
-confidence: verified   # verified | standard-practice | needs-confirmation
-sourceBasis: cited     # general | cited
-sources:
-  - mhlw-exam-scope    # ids from content/_sources.json, never free text
----
-```
 
 ### Sourcing
 
@@ -208,7 +209,7 @@ fine and expected — the target exists in the taxonomy from day one.
 ## Length is earned, not capped
 
 There is no maximum. An item may run to 1700 words if it has 1700 words of
-substance. The approved safety exemplar does exactly that, and every hundred
+substance. The safety exemplar does exactly that, and every hundred
 words of it carries a figure, a source, a named failure mode, or an honest
 statement of what is not known.
 

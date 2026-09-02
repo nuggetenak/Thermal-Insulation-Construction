@@ -32,8 +32,10 @@ not smoothed over.
    Other files link to them. Append, never renumber.
 5. **Never hand-write an ID.** Take it from the taxonomy. `npm run validate`
    rejects invented IDs.
-6. **Never set `status: approved`.** Approval is recorded by the owner in
-   `content/_approved.json`. Use `review` when you think an item is finished.
+6. **Never set `status: approved`.** It is not an allowed status value.
+   `content/_approved.json` is the owner's reading record — an id there means a
+   human read that item and accepted it. It is not a gate and nothing waits on
+   it. Use `review` when you think an item is finished.
 7. **Never write in the first person.** This reference has no narrator. Say
    "no source consulted states this", never "I could not find".
 8. **Never regenerate `content/_ids.lock` to silence an error.** That lock is
@@ -50,7 +52,7 @@ not smoothed over.
 content/_taxonomy.json     generated skeleton — all 974 ids, never edited by hand
 content/_sources.json      source registry — hand-maintained; cite by id only
 content/_images.json       image registry — licence enforced, cite by id only
-content/_approved.json     owner-only approval register; agents never edit this
+content/_approved.json     owner-only reading record; agents never edit this
 content/_ids.lock          permanent id set; CI fails if an id moves
 content/_terms.lock.json   canonical English terms; variants are rejected
 scripts/test-guardrails.mjs  tests the validator itself, not the content
@@ -126,5 +128,6 @@ two sessions writing different chapters will both append to them and collide.
 
 ## Writing content
 
-Read `docs/content-style-guide.md` first. Then read an approved item as an
-example. Match it. Do not invent a new structure.
+Read `docs/content-style-guide.md` first. Then read an exemplar as an example —
+`02.3.01` for general craft, `09.1.03` for safety-critical. Match it. Do not
+invent a new structure.
