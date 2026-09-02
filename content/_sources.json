@@ -1,0 +1,103 @@
+{
+  "_comment": "Hand-maintained source registry. Content items cite these by id, never by free text. Adding a source here is how it becomes citable. Tier 1 = official government or certification authority. Tier 2 = industry association or manufacturer technical data. Tier 3 = general technical reference. 'quotable: false' means the text is paid or restricted — describe its scope in your own words, never reproduce it.",
+  "sources": [
+    {
+      "id": "mhlw-exam-scope",
+      "title": "熱絶縁施工技能検定試験の試験科目及びその範囲並びにその細目",
+      "titleEn": "Scope and detail of the thermal insulation trade skill test",
+      "publisher": "厚生労働省 (MHLW)",
+      "url": "https://www.mhlw.go.jp/general/seido/syokunou/ginou/aramashi/dl/syokusyu_098.pdf",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "Governs 学科 and 実技 scope for 1級/2級 保温保冷工事作業. Reissued annually — re-verify each year before treating exam content as current."
+    },
+    {
+      "id": "javada-past-practical",
+      "title": "技能検定 実技試験問題 公開",
+      "titleEn": "JAVADA published past practical examination problems",
+      "publisher": "中央職業能力開発協会 (JAVADA)",
+      "url": "https://kentei.javada.or.jp/list02.html",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "Search 熱絶縁施工／保温保冷工事作業. Use as a scope and style guide only. Never reproduce problem text."
+    },
+    {
+      "id": "mhlw-ginou-jisshu",
+      "title": "技能実習評価試験基準 — 熱絶縁施工職種（保温保冷工事作業）",
+      "titleEn": "Technical Intern Training evaluation test criteria",
+      "publisher": "厚生労働省 (MHLW)",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/jinzaikaihatsu/global_cooperation/index.html",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "Relevant to the 技能実習 route and to exam exemption when transitioning to 特定技能 ライフライン・設備."
+    },
+    {
+      "id": "jis-a9501",
+      "title": "JIS A 9501 保温保冷工事施工標準",
+      "titleEn": "JIS A 9501 — Standard practice for thermal insulation work",
+      "publisher": "日本産業標準調査会 (JISC)",
+      "url": "https://www.jisc.go.jp/",
+      "language": "ja",
+      "tier": 1,
+      "access": "paid",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2028-01-01",
+      "note": "PAID STANDARD. Cite the number and describe what it governs. Never reproduce clauses, tables or specified values. Named in the 学科 scope."
+    },
+    {
+      "id": "jtia",
+      "title": "日本保温保冷工業協会",
+      "titleEn": "Japan Thermal Insulation Industry Association",
+      "publisher": "日本保温保冷工業協会",
+      "url": "https://www.jtia.or.jp/",
+      "language": "ja",
+      "tier": 2,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-09-01",
+      "note": "Industry association. Public material on trade practice and materials. Paraphrase only."
+    },
+    {
+      "id": "mhlw-anzen",
+      "title": "労働安全衛生法 関係法令",
+      "titleEn": "Industrial Safety and Health Act and related regulations",
+      "publisher": "厚生労働省 (MHLW)",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/anzen/index.html",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "Governs work at height, PPE, scaffolding and site safety. Primary anchor for chapters 08 and 09."
+    },
+    {
+      "id": "general-heat-transfer",
+      "title": "Standard heat-transfer physics",
+      "titleEn": "Standard heat-transfer physics",
+      "publisher": "General technical knowledge",
+      "url": null,
+      "language": "en",
+      "tier": 3,
+      "access": "open",
+      "quotable": true,
+      "retrieved": "2026-09-02",
+      "recheckAfter": null,
+      "note": "Conduction, convection, radiation and thermal resistance as taught in any engineering text. Use for physics, never for trade procedure or Japanese regulation."
+    }
+  ]
+}

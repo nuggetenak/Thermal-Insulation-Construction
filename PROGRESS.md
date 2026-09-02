@@ -13,6 +13,9 @@ Updated: 2026-09-02
 | React app shell, routing, search | done |
 | GitHub Actions CI + Pages deploy | done |
 | Agent definitions | done |
+| Source registry + citation links | done |
+| Corpus view (filterable) | done |
+| Sources index page | done |
 | Split index for scale (see HANDOFF task 1) | not started |
 | Offline / PWA | not started |
 | Calculators | not started |

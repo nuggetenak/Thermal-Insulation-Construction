@@ -42,6 +42,21 @@ function readField(fm, key) {
   return m ? m[1].trim().replace(/^["']|["']$/g, '') : null;
 }
 
+function readList(fm, key) {
+  const inline = new RegExp(`^${key}:\\s*\\[(.*)\\]`, 'm').exec(fm);
+  if (inline) {
+    return inline[1]
+      .split(',')
+      .map((x) => x.trim().replace(/^["']|["']$/g, ''))
+      .filter(Boolean);
+  }
+  const block = new RegExp(`^${key}:\\s*$([\\s\\S]*?)(?=^\\w+:|$(?![\\s\\S]))`, 'm').exec(fm);
+  if (!block) return [];
+  return [...block[1].matchAll(/^\s+- (.+)$/gm)].map((m) =>
+    m[1].trim().replace(/^["']|["']$/g, ''),
+  );
+}
+
 function readTerms(fm) {
   const terms = [];
   const block = /^terms:\s*$([\s\S]*?)(?=^\w+:|\Z)/m.exec(fm);
@@ -58,6 +73,7 @@ function readTerms(fm) {
 }
 
 const taxonomy = JSON.parse(readFileSync(resolve(CONTENT, '_taxonomy.json'), 'utf8'));
+const registry = JSON.parse(readFileSync(resolve(CONTENT, '_sources.json'), 'utf8')).sources;
 
 const authored = new Map();
 const glossary = [];
@@ -75,6 +91,9 @@ for (const full of walk(CONTENT)) {
     status: readField(fm, 'status') || 'draft',
     summary: readField(fm, 'summary') || '',
     confidence: readField(fm, 'confidence'),
+    sourceBasis: readField(fm, 'sourceBasis') || 'general',
+    sources: readList(fm, 'sources'),
+    seeAlso: readList(fm, 'seeAlso'),
     terms,
     body,
   });
@@ -89,7 +108,7 @@ const chapters = taxonomy.chapters.map((c) => ({
     ...s,
     items: s.items.map((i) => {
       const a = authored.get(i.id);
-      return a ? { ...i, ...a } : { ...i, status: 'stub', body: '' };
+      return a ? { ...i, ...a } : { ...i, status: 'stub', body: '', sources: [], terms: [] };
     }),
   })),
 }));
@@ -105,6 +124,7 @@ writeFileSync(
       generatedAt: new Date().toISOString(),
       counts: { ...taxonomy.counts, written },
       glossary: glossary.sort((a, b) => a.term.localeCompare(b.term, 'ja')),
+      sources: registry,
       chapters,
     },
     null,
@@ -113,4 +133,6 @@ writeFileSync(
   'utf8',
 );
 
-console.log(`index built: ${written}/${total} items written, ${glossary.length} glossary terms`);
+console.log(
+  `index built: ${written}/${total} items written, ${glossary.length} glossary terms, ${registry.length} sources`,
+);

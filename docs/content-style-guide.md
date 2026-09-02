@@ -84,10 +84,37 @@ terms:                 # every Japanese term used in the body
     meaning: hot insulation
 seeAlso: ["02.3.02"]   # taxonomy ids only; validator checks they exist
 confidence: verified   # verified | standard-practice | needs-confirmation
+sourceBasis: cited     # general | cited
 sources:
-  - "..."              # required for safety-critical items
+  - mhlw-exam-scope    # ids from content/_sources.json, never free text
 ---
 ```
+
+### Sourcing
+
+`sourceBasis` is the audit trail. A reviewer must be able to see at a glance
+which claims are grounded and which need checking with a supervisor.
+
+- `general` — standard physics, arithmetic, or trade knowledge that any
+  competent reference would agree on. Still list what it rests on.
+- `cited` — the claim comes from a specific document. `sources` must not be
+  empty.
+
+`sources` holds **ids from `content/_sources.json`**, never prose. If the
+source you need is not in the registry, add it there first. The validator
+rejects unknown ids.
+
+Safety-critical chapters must cite at least one **tier 1 or tier 2** source —
+an official document or an industry association, not general knowledge.
+
+Every registry entry carries `quotable`. When it is `false`, the document is
+paid or restricted: describe what it covers, never reproduce its text. JIS
+A 9501 is the case you will meet most.
+
+Registry entries also carry `recheckAfter`. Official exam documents are
+reissued annually, and the validator warns once a source is past that date.
+When you see that warning, re-verify before writing anything that depends on
+it.
 
 ### Why terms are structured
 
@@ -138,6 +165,8 @@ Diagrams must be original SVG drawn from geometry, never traced or scraped.
 
 - A procedure written with confidence by someone who was guessing
 - A number with no source in a safety-critical chapter
+- A source written as prose instead of a registry id
+- Reproduced text from a source marked `quotable: false`
 - Filler under a required heading
 - A Japanese term in the prose that is missing from `terms`
 - Reproduced standard text

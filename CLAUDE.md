@@ -23,18 +23,23 @@ not smoothed over.
    is a legitimate and often correct thing to write.
 2. **Never reproduce standard text.** JIS, ASTM, ISO, API and ASME documents
    are paid. You may describe what a standard covers and why it exists, in your
-   own words. You may never quote its clauses, tables or values.
-3. **Never renumber an ID.** IDs in `content/_taxonomy.json` are permanent.
+   own words. You may never quote its clauses, tables or values. The registry
+   marks these `quotable: false`.
+3. **Cite by registry id.** `sources` in frontmatter holds ids from
+   `content/_sources.json`. Add the source to the registry before citing it.
+   Free-text sources are rejected.
+4. **Never renumber an ID.** IDs in `content/_taxonomy.json` are permanent.
    Other files link to them. Append, never renumber.
-4. **Never hand-write an ID.** Take it from the taxonomy. `npm run validate`
+5. **Never hand-write an ID.** Take it from the taxonomy. `npm run validate`
    rejects invented IDs.
-5. **Run `npm run validate` before every commit.** It is fast and it catches
+6. **Run `npm run validate` before every commit.** It is fast and it catches
    the drift that a human reviewer will not.
 
 ## Repository map
 
 ```
 content/_taxonomy.json     generated skeleton — all 974 ids, never edited by hand
+content/_sources.json      source registry — hand-maintained; cite by id only
 content/chNN/              authored markdown, one file per item
 docs/curriculum-source.md  the original outline; the taxonomy derives from it
 docs/content-style-guide.md  how to write an item — read before writing content

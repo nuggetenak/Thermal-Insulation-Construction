@@ -4,6 +4,21 @@ export interface Term {
   meaning: string | null;
 }
 
+export interface Source {
+  id: string;
+  title: string;
+  titleEn: string;
+  publisher: string;
+  url: string | null;
+  language: string;
+  tier: number;
+  access: 'open' | 'paid' | 'registration';
+  quotable: boolean;
+  retrieved: string;
+  recheckAfter: string | null;
+  note: string;
+}
+
 export interface Item {
   id: string;
   title: string;
@@ -18,6 +33,9 @@ export interface Item {
   status: 'stub' | 'draft' | 'review' | 'approved';
   summary?: string;
   confidence?: string | null;
+  sourceBasis?: 'general' | 'cited';
+  sources: string[];
+  seeAlso?: string[];
   terms: Term[];
   body: string;
 }

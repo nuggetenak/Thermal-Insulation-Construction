@@ -2,9 +2,11 @@ import { useMemo, useState } from 'react';
 import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import data from './generated/index.json';
 import { search } from './search';
-import type { Chapter, Item } from './types';
+import type { Chapter, Item, Source } from './types';
 
 const chapters = data.chapters as unknown as Chapter[];
+const sources = data.sources as unknown as Source[];
+const sourceById = new Map(sources.map((s) => [s.id, s]));
 
 const STAGES = [
   { n: 1, label: 'Before you fly', note: 'What keeps you safe and useful in month one' },
@@ -90,7 +92,14 @@ function Header() {
         <Link to="/" className="text-[15px] font-semibold tracking-tight">
           保温保冷工事
         </Link>
-        <span className="text-[13px] text-muted">Thermal insulation construction</span>
+        <nav className="ml-auto flex gap-3 text-[13px]">
+          <Link to="/corpus" className="text-muted hover:text-ink">
+            Corpus
+          </Link>
+          <Link to="/sources" className="text-muted hover:text-ink">
+            Sources
+          </Link>
+        </nav>
       </div>
     </header>
   );
@@ -257,6 +266,48 @@ function ItemView() {
         <>
           <article className="prose-body mt-4">{renderBody(item.body)}</article>
 
+          {item.sources?.length > 0 && (
+            <section className="mt-8 border-t border-band pt-4">
+              <h2 className="text-[13px] font-semibold text-muted">
+                {item.sourceBasis === 'cited' ? 'Sources' : 'Grounded in'}
+              </h2>
+              <ul className="mt-2 space-y-2.5">
+                {item.sources.map((sid) => {
+                  const src = sourceById.get(sid);
+                  if (!src) return null;
+                  return (
+                    <li key={sid} className="text-[14px]">
+                      {src.url ? (
+                        <a
+                          href={src.url}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="text-cold underline underline-offset-2"
+                        >
+                          {src.title}
+                        </a>
+                      ) : (
+                        <span>{src.title}</span>
+                      )}
+                      <span className="text-muted"> — {src.publisher}</span>
+                      {src.access === 'paid' && (
+                        <span className="ml-1.5 rounded-sm bg-band px-1 py-0.5 text-[11px] text-muted">
+                          paid document
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+              {item.confidence === 'needs-confirmation' && (
+                <p className="mt-3 border-l-2 border-hot pl-3 text-[14px]">
+                  Parts of this item are not confirmed. Check with your supervisor before relying
+                  on it on a live job.
+                </p>
+              )}
+            </section>
+          )}
+
           {item.terms?.length > 0 && (
             <section className="mt-8 border-t border-band pt-4">
               <h2 className="text-[13px] font-semibold text-muted">Japanese in this item</h2>
@@ -275,6 +326,148 @@ function ItemView() {
           )}
         </>
       )}
+    </div>
+  );
+}
+
+function Corpus() {
+  const [q, setQ] = useState('');
+  const [stage, setStage] = useState(0);
+  const [written, setWritten] = useState(false);
+  const navigate = useNavigate();
+
+  const rows = useMemo(() => {
+    let list = q.trim() ? search(q, allItems) : allItems;
+    if (stage) list = list.filter((i) => i.stage === stage);
+    if (written) list = list.filter((i) => i.status !== 'stub');
+    return list;
+  }, [q, stage, written]);
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-6">
+      <h1 className="text-[19px] font-semibold tracking-tight">Corpus</h1>
+      <p className="mt-1 text-[14px] text-muted">
+        Every item in the curriculum, filterable. Same content as the chapters, arranged for
+        looking things up rather than reading through.
+      </p>
+
+      <input
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="Filter — English or 日本語"
+        className="mt-4 w-full rounded-md border border-band bg-panel px-3 py-2.5 text-[15px] placeholder:text-steel"
+        autoComplete="off"
+      />
+
+      <div className="mt-2.5 flex flex-wrap gap-1.5">
+        {[0, 1, 2, 3, 4].map((n) => (
+          <button
+            key={n}
+            onClick={() => setStage(n)}
+            className={`rounded-md border px-2.5 py-1 text-[13px] ${
+              stage === n ? 'border-ink bg-ink text-paper' : 'border-band bg-panel text-muted'
+            }`}
+          >
+            {n === 0 ? 'All stages' : `Stage ${n}`}
+          </button>
+        ))}
+        <button
+          onClick={() => setWritten(!written)}
+          className={`rounded-md border px-2.5 py-1 text-[13px] ${
+            written ? 'border-ink bg-ink text-paper' : 'border-band bg-panel text-muted'
+          }`}
+        >
+          Written only
+        </button>
+      </div>
+
+      <p className="mt-3 text-[13px] text-muted">{rows.length} items</p>
+
+      <ul className="mt-1 divide-y divide-band border-y border-band">
+        {rows.slice(0, 250).map((i) => (
+          <li key={i.id}>
+            <button
+              onClick={() => navigate(`/item/${i.id}`)}
+              className="flex w-full items-center gap-3 py-2.5 text-left"
+            >
+              <StageBar stage={i.stage} />
+              <span className="flex-1 text-[15px]">{i.title}</span>
+              <span className="text-[12px] tabular-nums text-steel">{i.id}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      {rows.length > 250 && (
+        <p className="mt-3 text-[13px] text-muted">
+          Showing the first 250. Narrow the filter to see more.
+        </p>
+      )}
+    </div>
+  );
+}
+
+function Sources() {
+  const citedBy = useMemo(() => {
+    const m = new Map<string, Item[]>();
+    for (const i of allItems) for (const sid of i.sources ?? []) {
+      m.set(sid, [...(m.get(sid) ?? []), i]);
+    }
+    return m;
+  }, []);
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-6">
+      <h1 className="text-[19px] font-semibold tracking-tight">Sources</h1>
+      <p className="mt-1 text-[14px] text-muted">
+        Everything content on this site is grounded in. Official Japanese documents are the
+        authority for anything about certification, regulation or site safety.
+      </p>
+
+      <ul className="mt-5 space-y-5">
+        {sources.map((s) => {
+          const users = citedBy.get(s.id) ?? [];
+          return (
+            <li key={s.id} className="border-t border-band pt-4">
+              <h2 className="text-[15px] font-semibold">
+                {s.url ? (
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="text-cold underline underline-offset-2"
+                  >
+                    {s.title}
+                  </a>
+                ) : (
+                  s.title
+                )}
+              </h2>
+              {s.titleEn !== s.title && (
+                <p className="text-[13px] text-muted">{s.titleEn}</p>
+              )}
+              <p className="mt-1 text-[13px] text-muted">
+                {s.publisher} · tier {s.tier}
+                {s.access === 'paid' && ' · paid document'}
+                {!s.quotable && ' · describe only, never quote'}
+              </p>
+              <p className="mt-1.5 text-[14px]">{s.note}</p>
+              {users.length > 0 && (
+                <p className="mt-1.5 text-[13px] text-muted">
+                  Cited by{' '}
+                  {users.map((u, n) => (
+                    <span key={u.id}>
+                      {n > 0 && ', '}
+                      <Link to={`/item/${u.id}`} className="text-cold underline underline-offset-2">
+                        {u.id}
+                      </Link>
+                    </span>
+                  ))}
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
@@ -299,6 +492,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/chapter/:no" element={<ChapterView />} />
           <Route path="/item/:id" element={<ItemView />} />
+          <Route path="/corpus" element={<Corpus />} />
+          <Route path="/sources" element={<Sources />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

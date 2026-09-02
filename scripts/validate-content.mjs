@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = resolve(ROOT, 'content');
 const TAXONOMY = resolve(CONTENT, '_taxonomy.json');
+const SOURCES = resolve(CONTENT, '_sources.json');
 
 const errors = [];
 const warnings = [];
@@ -36,6 +37,7 @@ const REQUIRED_FIELDS = ['id', 'title', 'chapter', 'section', 'stage', 'kind', '
 const VALID_STATUS = ['stub', 'draft', 'review', 'approved'];
 const VALID_KIND = ['article', 'vocabulary', 'practical', 'diagnostic'];
 const VALID_CONFIDENCE = ['verified', 'standard-practice', 'needs-confirmation'];
+const VALID_SOURCE_BASIS = ['general', 'cited'];
 
 /**
  * Required body headings per content kind. These are what make 800 items feel
@@ -157,7 +159,21 @@ function main() {
   const items = taxonomy.chapters.flatMap((c) => c.sections.flatMap((s) => s.items));
   const byId = new Map(items.map((i) => [i.id, i]));
 
-  const files = walk(CONTENT).filter((f) => basename(f) !== '_taxonomy.json');
+  const registry = JSON.parse(readFileSync(SOURCES, 'utf8')).sources;
+  const sourceById = new Map(registry.map((s) => [s.id, s]));
+
+  // Official exam documents are reissued annually. Nobody will remember to
+  // re-check them, so the build does it.
+  const today = new Date().toISOString().slice(0, 10);
+  for (const src of registry) {
+    if (src.recheckAfter && src.recheckAfter < today) {
+      warn('content/_sources.json', `source "${src.id}" is past its recheck date (${src.recheckAfter}) — re-verify before relying on it`);
+    }
+  }
+
+  const files = walk(CONTENT).filter(
+    (f) => !['_taxonomy.json', '_sources.json'].includes(basename(f)),
+  );
   const seenIds = new Set();
 
   for (const full of files) {
@@ -232,15 +248,42 @@ function main() {
       }
     }
 
-    // --- safety gate --------------------------------------------------------
+    // --- sourcing -----------------------------------------------------------
+    // The audit trail: a reviewer must see at a glance which claims are
+    // grounded and which are worth checking with a supervisor.
+    if (!data.sourceBasis) {
+      err(file, 'missing "sourceBasis" — must be "general" or "cited"');
+    } else if (!VALID_SOURCE_BASIS.includes(data.sourceBasis)) {
+      err(file, `sourceBasis "${data.sourceBasis}" must be one of: ${VALID_SOURCE_BASIS.join(', ')}`);
+    }
+
+    const cited = data.sources || [];
+    for (const sid of cited) {
+      const src = sourceById.get(sid);
+      if (!src) {
+        err(file, `sources references unknown id "${sid}" — add it to content/_sources.json first`);
+        continue;
+      }
+      if (src.quotable === false && /^>\s/m.test(body)) {
+        warn(file, `cites "${sid}" which is not quotable — check no text was reproduced`);
+      }
+    }
+    if (data.sourceBasis === 'cited' && cited.length === 0) {
+      err(file, 'sourceBasis is "cited" but no sources are listed');
+    }
+
     // Nobody in this group has trade experience, so a confident wrong
     // procedure cannot be caught by the reader. Sourcing is mandatory here.
     if (known.safetyCritical) {
       if (!data.confidence) {
         err(file, 'safety-critical item must declare a "confidence" field');
       }
-      if (!data.sources || data.sources.length === 0) {
-        err(file, 'safety-critical item must cite at least one source');
+      if (cited.length === 0) {
+        err(file, 'safety-critical item must cite at least one source from the registry');
+      }
+      const hasAuthority = cited.some((sid) => (sourceById.get(sid)?.tier ?? 9) <= 2);
+      if (cited.length > 0 && !hasAuthority) {
+        err(file, 'safety-critical item must cite at least one tier 1 or tier 2 source');
       }
     }
 
