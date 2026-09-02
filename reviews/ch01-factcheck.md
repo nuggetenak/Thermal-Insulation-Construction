@@ -30,13 +30,30 @@ the primary source, not inferred. Findings 9 onward are not, and say so.
 `01.1.03` states four actionable rules and traces all four to one document. If
 that document was misread, four confident wrong rules ship together.
 
-**It was not misread. All four rules are in the document, and the item states
-them accurately.** The specific concern behind this review is closed.
+**It was not misread. All four rules are in the document.** No rule is invented,
+none is attributed to a source that does not carry it, and the failure this
+review was called to look for did not happen. That much is closed.
 
-What the primary text does show is a different and smaller problem: three
-places where the item is *narrower or broader than the clause it rests on*, and
-one sentence that is presented as specification content when it is trade
-inference. Those are findings 1, 3, 4 and 5.
+**The item does not state all four with equal accuracy, though**, and the
+difference matters more than the headline does. Read findings 1, 3 and 5 before
+concluding anything from this section:
+
+- Rule one is exact, but the *painting* sentence beside it is trade inference in
+  specification voice — the clause orders testing before painting and testing
+  before insulation, and says nothing about which of those two comes first
+  (finding 1).
+- Rule two is real but stated as a chilled-water rule when the specification
+  carries it again for water supply, drainage and hot water supply. The item
+  understates its own scope, in the direction that leaves a reader not applying
+  it (finding 3).
+- Rule three is confirmed verbatim, and rule four's prohibition is confirmed —
+  but rule four drops the exception written into the same clause, and folds a
+  second, different clause about electrical wiring into it (finding 5).
+
+So: the four rules are in the document, two of them are stated exactly, and two
+carry errors of scope that a reader would act on. "The document was not misread"
+and "the item needs no correction" are different claims, and only the first is
+true.
 
 ---
 

@@ -271,18 +271,30 @@ function main() {
     // correct — the app renders an unwritten item as an honest "not written"
     // placeholder, and a reference is meant to point at its own shape before it
     // is filled in. So the rule is only that the id must exist in the taxonomy.
-    const ID_IN_HREF = /\d{2}\.\d+\.\d{2}/;
+    // The id must stand alone. The renderer's pattern has no digit boundaries, so
+    // a typo with one digit too many — 01.1.011 — still contains a valid id and
+    // routes the reader to 01.1.01, quietly delivering a different item from the
+    // one the link names. Requiring the boundaries here turns that silent
+    // substitution into a build failure.
+    const ID_IN_HREF = /(?<!\d)\d{2}\.\d+\.\d{2}(?!\d)/;
+    const ID_LOOSE = /\d{2}\.\d+\.\d{2}/;
     for (const m of body.matchAll(/(?<!!)\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
       const href = m[2];
       const found = ID_IN_HREF.exec(href);
       if (found) {
-        // Matches how the renderer picks the id: first id-shaped token in the href.
         if (!byId.has(found[0])) {
           err(
             file,
             `body links to "${found[0]}" (${href}) which is not in the taxonomy — that renders as a live link to nothing. Linking to an unwritten item is fine; inventing an id is not.`,
           );
         }
+      } else if (ID_LOOSE.test(href)) {
+        // Digits either side of something id-shaped. The app would read an id
+        // out of it and go there, which is worse than failing to link at all.
+        err(
+          file,
+          `body link "${href}" carries a malformed id — the app would read "${ID_LOOSE.exec(href)[0]}" out of it and send the reader there instead`,
+        );
       } else if (/(^|\/)ch\d\d\//.test(href)) {
         // An item path carrying no readable id. The renderer cannot linkify it,
         // so it renders as literal markdown in the middle of a sentence.

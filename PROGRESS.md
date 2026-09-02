@@ -17,7 +17,7 @@ Updated: 2026-09-02
 | Reading register, outside agent reach | done |
 | Voice / length / term-ownership guards | done |
 | Canonical terminology lockfile | done |
-| Guardrail test suite (21 tests) | done |
+| Guardrail test suite (23 tests) | done |
 | Split index into catalog + lazy chunks | done |
 | Offline / PWA service worker | done |
 | Dark mode, furigana toggle | done |

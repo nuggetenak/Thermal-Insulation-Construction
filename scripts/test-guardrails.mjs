@@ -101,6 +101,12 @@ test('rejects a body link to an id that is not in the taxonomy', () =>
 test('accepts a body link to a real but unwritten item', () =>
   write({}, BODY.replace('## Common mistakes', 'Inspection is covered in [01.3.04](../ch01/01.3.04-inspection.md).\n\n## Common mistakes')),
   null);
+test('rejects a body link whose id has a digit too many', () =>
+  write({}, BODY.replace('## Common mistakes', 'Inspection is covered in [01.3.04](../ch01/01.3.041-inspection.md).\n\n## Common mistakes')),
+  'malformed id');
+test('rejects a body link whose id has a digit too many in front', () =>
+  write({}, BODY.replace('## Common mistakes', 'Inspection is covered in [01.3.04](../ch01/101.3.04-inspection.md).\n\n## Common mistakes')),
+  'malformed id');
 test('rejects a body link into a chapter directory with an unreadable id', () =>
   write({}, BODY.replace('## Common mistakes', 'Inspection is covered in [01.3.4](../ch01/01.3.4-inspection.md).\n\n## Common mistakes')),
   'carries no id the app can read');
