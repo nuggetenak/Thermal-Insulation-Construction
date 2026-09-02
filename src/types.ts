@@ -37,7 +37,8 @@ export interface Item {
   sources: string[];
   seeAlso?: string[];
   terms: Term[];
-  body: string;
+  /** Not present in the catalog. Loaded on demand per chapter — see loadChapterBodies. */
+  body?: string;
 }
 
 export interface Section {
