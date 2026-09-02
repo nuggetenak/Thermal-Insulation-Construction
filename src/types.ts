@@ -36,6 +36,7 @@ export interface Item {
   sourceBasis?: 'general' | 'cited';
   sources: string[];
   seeAlso?: string[];
+  headings?: string[];
   terms: Term[];
   /** Not present in the catalog. Loaded on demand per chapter — see loadChapterBodies. */
   body?: string;

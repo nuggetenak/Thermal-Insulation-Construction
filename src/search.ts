@@ -43,6 +43,7 @@ function indexOf(item: Item): Set<string> {
       item.japanese ?? '',
       item.summary ?? '',
       item.id,
+      ...(item.headings ?? []),
       ...(item.terms ?? []).flatMap((x) => [x.term, x.reading ?? '', x.meaning ?? '']),
     ].join(' ');
     t = tokenise(haystack);

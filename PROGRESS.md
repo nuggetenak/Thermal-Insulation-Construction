@@ -18,6 +18,11 @@ Updated: 2026-09-02
 | Voice / length / term-ownership guards | done |
 | Canonical terminology lockfile | done |
 | Guardrail test suite (16 tests) | done |
+| Split index into catalog + lazy chunks | done |
+| Offline / PWA service worker | done |
+| Dark mode, furigana toggle | done |
+| Reading progress, prev/next, continue card | done |
+| Glossary and settings pages | done |
 | Employer context resolved; curriculum rebalanced | done |
 | Source registry + citation links | done |
 | Corpus view (filterable) | done |
@@ -27,8 +32,6 @@ Updated: 2026-09-02
 | Image needs list drafted | done |
 | Photographs sourced | not started |
 | SVG diagrams authored | not started |
-| Split index for scale (see HANDOFF task 1) | not started |
-| Offline / PWA | not started |
 | Calculators | not started |
 | Diagrams (original SVG) | not started |
 

@@ -1,0 +1,11 @@
+{
+  "name": "保温保冷工事 — Thermal Insulation Construction",
+  "short_name": "保温保冷",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f5f3",
+  "theme_color": "#1b5a73",
+  "description": "A working reference for thermal insulation construction.",
+  "icons": []
+}

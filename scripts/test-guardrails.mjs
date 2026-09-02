@@ -115,9 +115,16 @@ test('rejects a reproduced block of standard text', () =>
 let passed = 0;
 const failures = [];
 
+process.on('exit', () => rmSync(TMP, { recursive: true, force: true }));
+
 for (const { name, setup, expect } of tests) {
   rmSync(TMP, { recursive: true, force: true });
-  setup();
+  try {
+    setup();
+  } catch (e) {
+    failures.push(`${name}\n    fixture setup threw: ${e.message}`);
+    continue;
+  }
   const { failed, output } = validate();
 
   if (expect === null) {

@@ -15,6 +15,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Content schema, cross-references, safety sourcing, then typecheck + build.
-      # Anything that fails here never reaches main.
+      # Ids, content schema, cross-references, terminology, safety sourcing, the
+      # guardrail tests themselves, then typecheck and build. Anything that
+      # fails here never reaches main.
       - run: npm run check

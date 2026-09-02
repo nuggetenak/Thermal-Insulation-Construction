@@ -16,6 +16,19 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* Dark theme. This gets read in plant rooms and ceiling voids where a white
+   screen is genuinely unpleasant, and at night after a shift. */
+:root.dark {
+  --color-paper: #14181c;
+  --color-panel: #1b2126;
+  --color-band: #2c343b;
+  --color-ink: #e6eaed;
+  --color-muted: #9aa5ad;
+  --color-steel: #6d7880;
+  --color-hot: #e07a55;
+  --color-cold: #6bb4d0;
+}
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);
@@ -36,6 +49,19 @@ body {
 .prose-body a { color: var(--color-cold); text-decoration: underline; text-underline-offset: 2px; }
 
 :focus-visible { outline: 2px solid var(--color-cold); outline-offset: 2px; }
+
+.prose-body h3 { font-size: 1rem; font-weight: 650; margin: 1.5rem 0 0.4rem; }
+.prose-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.875rem; }
+.prose-body pre {
+  background: var(--color-band); border-radius: 6px; padding: 0.75rem;
+  overflow-x: auto; font-size: 0.85rem; margin: 1rem 0;
+}
+.prose-body code { font-size: 0.9em; }
+
+/* Furigana. Readings sit above the kanji and can be switched off entirely for
+   anyone who no longer needs them. */
+ruby rt { font-size: 0.55em; color: var(--color-muted); }
+:root.no-furigana rt { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

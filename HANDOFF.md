@@ -82,9 +82,39 @@ flagged as inspector-oriented rather than installer-oriented. These are stage 3
 already, so the ordering handles most of it, but the content should be written
 for building services when it is reached.
 
+## Known risks that are not solved
+
+Recorded so nobody rediscovers them the hard way.
+
+**Japanese readings are unverified.** Readings are generated, and no automated
+check can catch a wrong one. 施工 is せこう in this trade rather than the obvious
+しこう, and that class of error accumulates silently. The glossary page exists
+partly so a native speaker can review the whole set in one pass. Get this done
+before the glossary passes a few hundred terms.
+
+**Full-text search does not cover article bodies.** Bodies live in lazy chapter
+chunks, so search covers titles, summaries, headings and Japanese terms only.
+Headings carry most of the meaning, so this is usually enough. Fixing it
+properly means a build-time inverted index, which is worth doing only if
+searching turns out to miss things people actually look for.
+
+**Two sessions editing shared registries will conflict.** `_sources.json`,
+`_images.json` and `_terms.lock.json` are single files. Two cloud sessions
+writing different chapters can both append and collide. Run one content session
+at a time, or expect to resolve a merge.
+
+**Reading progress is per device.** localStorage, no account, no sync. Four
+people on four phones each have their own. Clearing browser data loses it.
+This is a deliberate trade against building any backend.
+
+**The markdown renderer is homegrown.** It handles headings, lists, tables,
+images, bold and links. It does not handle nested lists, footnotes, or inline
+HTML. If content needs something it does not support, extend the renderer
+rather than working around it in the prose.
+
 ## First technical task — done
 
-**Split the generated index.** `build-index.mjs` now emits two things instead
+**(Done, session 1.)** Split the generated index. `build-index.mjs` now emits two things instead
 of one `index.json`:
 
 - `src/generated/catalog.json` — ids, titles, summaries, terms, sources,

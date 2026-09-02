@@ -102,6 +102,9 @@ for (const full of walk(CONTENT)) {
     summary: readField(fm, 'summary') || '',
     confidence: readField(fm, 'confidence'),
     sourceBasis: readField(fm, 'sourceBasis') || 'general',
+    // Headings carry most of an item's meaning at a fraction of its size, so
+    // the catalog can support useful search without shipping every body.
+    headings: [...body.matchAll(/^#{2,3}\s+(.+)$/gm)].map((m) => m[1].trim()),
     sources: readList(fm, 'sources'),
     seeAlso: readList(fm, 'seeAlso'),
     terms,

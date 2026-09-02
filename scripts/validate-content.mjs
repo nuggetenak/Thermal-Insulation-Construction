@@ -168,11 +168,7 @@ function main() {
   // Official exam documents are reissued annually. Nobody will remember to
   // re-check them, so the build does it.
   const today = new Date().toISOString().slice(0, 10);
-  for (const src of registry) {
-    if (src.recheckAfter && src.recheckAfter < today) {
-      warn('content/_sources.json', `source "${src.id}" is past its recheck date (${src.recheckAfter}) — re-verify before relying on it`);
-    }
-  }
+  const staleSources = registry.filter((s) => s.recheckAfter && s.recheckAfter < today);
 
   const approved = new Set(JSON.parse(readFileSync(APPROVED, 'utf8')).approved || []);
   const canonical = JSON.parse(readFileSync(TERMS_LOCK, 'utf8')).canonical || [];
@@ -332,9 +328,18 @@ function main() {
       warn(file, `body is only ${wordCount} words — thin for full-depth content`);
     }
 
+    // Chapter 24 teaches Japanese phrases, and glossing 分かりません as
+    // "I don't understand" is not narration. Strip code spans and quoted
+    // example phrases before checking voice and terminology.
+    const prose = body
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/`[^`]*`/g, ' ')
+      .replace(/"[^"\n]{0,120}"/g, ' ')
+      .replace(/\u201c[^\u201d\n]{0,120}\u201d/g, ' ');
+
     // Voice. The reference has no narrator. Across 1146 items written in
     // separate sessions, "I" refers to nobody the reader can identify.
-    const firstPerson = body.match(/(?:^|[\s("'])(I|I'm|I've|I'd|my|me|we|our|us)(?=[\s.,;:!?)"'])/g);
+    const firstPerson = prose.match(/(?:^|[\s("'])(I|I'm|I've|I'd|my|me|we|our|us)(?=[\s.,;:!?)"'])/g);
     if (firstPerson) {
       const sample = [...new Set(firstPerson.map((m) => m.trim()))].slice(0, 4).join(', ');
       err(file, `first-person voice found (${sample}) — this reference has no narrator. Write "no source consulted states this", not "I could not find".`);
@@ -368,7 +373,7 @@ function main() {
       for (const variant of entry.avoid) {
         if (allowed.has(variant.toLowerCase())) continue;
         const re = new RegExp(`(?<![\\w-])${variant.replace(/[.*+?^$()|[\]\\]/g, '\\$&')}(?![\\w-])`, 'gi');
-        const hits = body.match(re);
+        const hits = prose.match(re);
         if (hits) {
           err(
             file,
@@ -385,6 +390,33 @@ function main() {
     if (longQuote) {
       err(file, 'long quoted passage detected — paraphrase instead, never reproduce standard text');
     }
+  }
+
+  // A stale source is only actionable if you know what depends on it.
+  for (const src of staleSources) {
+    const dependents = [];
+    for (const full of files) {
+      const { data } = parseFrontmatter(readFileSync(full, 'utf8'), full);
+      if ((data?.sources || []).includes(src.id)) dependents.push(data.id);
+    }
+    warn(
+      'content/_sources.json',
+      `source "${src.id}" is past its recheck date (${src.recheckAfter}). ` +
+        (dependents.length
+          ? `Re-verify, then review: ${dependents.join(', ')}`
+          : 'Nothing cites it yet.'),
+    );
+  }
+
+  // Orphans: an item nobody links to is reachable only by browsing its chapter.
+  const linked = new Set();
+  for (const full of files) {
+    const { data } = parseFrontmatter(readFileSync(full, 'utf8'), full);
+    for (const ref of data?.seeAlso || []) linked.add(ref);
+  }
+  const orphans = [...seenIds].filter((id) => !linked.has(id));
+  if (orphans.length > 8) {
+    warn('content', `${orphans.length} written items are not linked from any other item — cross-references are how a reference gets used`);
   }
 
   // Term ownership: a term is introduced once, in the item that owns it, and

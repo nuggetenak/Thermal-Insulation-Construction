@@ -118,6 +118,12 @@ one usage pool.
 - **Spot review:** general craft chapters.
 - **Validator only:** stage 4 stubs.
 
+## Running sessions
+
+Run **one content session at a time**. `content/_sources.json`,
+`content/_images.json` and `content/_terms.lock.json` are single shared files;
+two sessions writing different chapters will both append to them and collide.
+
 ## Writing content
 
 Read `docs/content-style-guide.md` first. Then read an approved item as an

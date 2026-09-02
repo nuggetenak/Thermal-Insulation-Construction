@@ -8,11 +8,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run content && tsc -b && vite build",
+    "build": "npm run content && tsc -b && vite build && node scripts/build-sw.mjs",
     "preview": "vite preview",
     "content": "node scripts/parse-taxonomy.mjs && node scripts/build-index.mjs",
     "validate": "node scripts/parse-taxonomy.mjs && node scripts/check-ids.mjs && node scripts/validate-content.mjs",
-    "check": "npm run validate && npm test && npm run content && tsc -b && vite build",
+    "check": "npm run validate && npm test && npm run content && tsc -b && vite build && node scripts/build-sw.mjs",
     "test": "node scripts/test-guardrails.mjs"
   },
   "dependencies": {

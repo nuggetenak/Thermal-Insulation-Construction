@@ -3,6 +3,8 @@ import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import data from './generated/catalog.json';
 import images from '../content/_images.json';
 import { search } from './search';
+import { getRead, markRead, unmarkRead, getPrefs, setPrefs } from './reader';
+import type { Prefs } from './reader';
 import type { Chapter, Item, Source } from './types';
 
 const chapters = data.chapters as unknown as Chapter[];
@@ -35,6 +37,16 @@ const STAGES = [
 
 const allItems: Item[] = chapters.flatMap((c) => c.sections.flatMap((s) => s.items));
 const itemById = new Map(allItems.map((i) => [i.id, i]));
+const itemOrder = allItems.map((i) => i.id);
+const orderIndex = new Map(itemOrder.map((id, n) => [id, n]));
+
+/** Next unread item in reading order, preferring earlier stages. */
+function nextUnread(read: Set<string>): Item | undefined {
+  const byStage = [...allItems].sort(
+    (a, b) => a.stage - b.stage || orderIndex.get(a.id)! - orderIndex.get(b.id)!,
+  );
+  return byStage.find((i) => i.status !== 'stub' && !read.has(i.id));
+}
 
 /** Minimal inline markdown: headings, bold, links, lists. No dependency, no runtime parser cost. */
 function renderBody(md: string) {
@@ -207,8 +219,14 @@ function Header() {
           <Link to="/corpus" className="text-muted hover:text-ink">
             Corpus
           </Link>
+          <Link to="/glossary" className="text-muted hover:text-ink">
+            Glossary
+          </Link>
           <Link to="/sources" className="text-muted hover:text-ink">
             Sources
+          </Link>
+          <Link to="/settings" className="text-muted hover:text-ink" aria-label="Settings">
+            Settings
           </Link>
         </nav>
       </div>
@@ -218,6 +236,8 @@ function Header() {
 
 function Home() {
   const [q, setQ] = useState('');
+  const read = getRead();
+  const resume = nextUnread(read);
   const navigate = useNavigate();
   const results = useMemo(() => (q.trim() ? search(q, allItems) : []), [q]);
 
@@ -258,8 +278,23 @@ function Home() {
         </ul>
       ) : (
         <>
+          {resume && (
+            <Link
+              to={`/item/${resume.id}`}
+              className="mt-4 block rounded-md border border-band bg-panel p-3"
+            >
+              <span className="block text-[12px] text-muted">
+                {read.size > 0 ? 'Continue reading' : 'Start here'}
+              </span>
+              <span className="text-[15px] font-semibold">{resume.title}</span>
+              <span className="block text-[13px] text-muted">
+                Chapter {resume.chapter} · stage {resume.stage}
+              </span>
+            </Link>
+          )}
+
           <p className="mt-5 text-[14px] text-muted">
-            {written} of {data.counts.items} items written. Ordered by when you need them, not by
+            {read.size} read · {written} of {data.counts.items} items written. Ordered by when you need them, not by
             how a textbook would file them.
           </p>
 
@@ -304,6 +339,7 @@ function Home() {
 
 function ChapterView() {
   const { no } = useParams();
+  const read = getRead();
   const chapter = chapters.find((c) => c.no === no);
   if (!chapter) return <NotFound />;
 
@@ -336,8 +372,10 @@ function ChapterView() {
                   <span className="flex-1">{i.title}</span>
                   {i.status === 'stub' ? (
                     <span className="text-[12px] text-steel">not written</span>
-                  ) : (
+                  ) : read.has(i.id) ? (
                     <span className="text-[12px] text-cold">read</span>
+                  ) : (
+                    <span className="text-[12px] text-steel">new</span>
                   )}
                 </Link>
               </li>
@@ -353,6 +391,13 @@ function ItemView() {
   const { id } = useParams();
   const item = id ? itemById.get(id) : undefined;
   const [body, setBody] = useState<string | null>(null);
+  const [read, setRead] = useState(getRead);
+
+  // Scroll to top on navigation — otherwise moving to the next item lands the
+  // reader halfway down the new page.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   useEffect(() => {
     setBody(null);
@@ -369,6 +414,17 @@ function ItemView() {
   if (!item) return <NotFound />;
 
   const chapter = chapters.find((c) => c.no === item.chapter)!;
+  const pos = orderIndex.get(item.id) ?? 0;
+  const prev = itemOrder
+    .slice(0, pos)
+    .reverse()
+    .map((x) => itemById.get(x)!)
+    .find((x) => x.status !== 'stub');
+  const next = itemOrder
+    .slice(pos + 1)
+    .map((x) => itemById.get(x)!)
+    .find((x) => x.status !== 'stub');
+  const isRead = read.has(item.id);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-6">
@@ -378,6 +434,19 @@ function ItemView() {
       >
         {chapter.no}. {chapter.title}
       </Link>
+
+      {item.safetyCritical && item.status !== 'stub' && (
+        <p className="mt-3 border-l-2 border-hot pl-3 text-[13px]">
+          Safety-critical. Your site's method statement and your KY meeting govern what you
+          actually do.
+        </p>
+      )}
+
+      {item.status === 'review' && (
+        <p className="mt-3 text-[13px] text-muted">
+          Draft — written and validated, not yet signed off by a person.
+        </p>
+      )}
 
       {item.status === 'stub' ? (
         <div className="mt-5 rounded-md border border-band bg-panel p-4">
@@ -392,6 +461,17 @@ function ItemView() {
       ) : (
         <>
           <article className="prose-body mt-4">{renderBody(body)}</article>
+
+          <div className="mt-8 flex items-center gap-2 border-t border-band pt-4">
+            <button
+              onClick={() => setRead(isRead ? unmarkRead(item.id) : markRead(item.id))}
+              className={`rounded-md border px-3 py-1.5 text-[14px] ${
+                isRead ? 'border-ink bg-ink text-paper' : 'border-band bg-panel'
+              }`}
+            >
+              {isRead ? 'Read' : 'Mark as read'}
+            </button>
+          </div>
 
           {item.sources?.length > 0 && (
             <section className="mt-8 border-t border-band pt-4">
@@ -451,6 +531,27 @@ function ItemView() {
               </dl>
             </section>
           )}
+
+          <nav className="mt-8 flex gap-2 border-t border-band pt-4">
+            {prev && (
+              <Link
+                to={`/item/${prev.id}`}
+                className="flex-1 rounded-md border border-band bg-panel p-2.5 text-[14px]"
+              >
+                <span className="block text-[12px] text-muted">Previous</span>
+                {prev.title}
+              </Link>
+            )}
+            {next && (
+              <Link
+                to={`/item/${next.id}`}
+                className="flex-1 rounded-md border border-band bg-panel p-2.5 text-right text-[14px]"
+              >
+                <span className="block text-[12px] text-muted">Next</span>
+                {next.title}
+              </Link>
+            )}
+          </nav>
         </>
       )}
     </div>
@@ -599,6 +700,133 @@ function Sources() {
   );
 }
 
+function Glossary() {
+  const [q, setQ] = useState('');
+  const terms = useMemo(() => {
+    const list = (data.glossary as { term: string; reading: string; meaning: string; sourceId: string }[]) ?? [];
+    if (!q.trim()) return list;
+    const n = q.trim().toLowerCase();
+    return list.filter(
+      (t) =>
+        t.term.includes(n) ||
+        (t.reading ?? '').includes(n) ||
+        (t.meaning ?? '').toLowerCase().includes(n),
+    );
+  }, [q]);
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-6">
+      <h1 className="text-[19px] font-semibold tracking-tight">Glossary</h1>
+      <p className="mt-1 text-[14px] text-muted">
+        Every Japanese term used on this site, with its reading. Each links to the item that
+        introduces it.
+      </p>
+      <input
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="Filter — kanji, kana or English"
+        className="mt-4 w-full rounded-md border border-band bg-panel px-3 py-2.5 text-[15px] placeholder:text-steel"
+        autoComplete="off"
+      />
+      <p className="mt-3 text-[13px] text-muted">{terms.length} terms</p>
+      <dl className="mt-1 divide-y divide-band border-y border-band">
+        {terms.map((t) => (
+          <div key={t.term + t.sourceId} className="flex items-baseline gap-3 py-2.5">
+            <dt className="text-[17px] font-semibold">
+              <ruby>
+                {t.term}
+                <rt>{t.reading}</rt>
+              </ruby>
+            </dt>
+            <dd className="flex-1 text-[14px] text-muted">{t.meaning}</dd>
+            <Link to={`/item/${t.sourceId}`} className="text-[12px] tabular-nums text-cold">
+              {t.sourceId}
+            </Link>
+          </div>
+        ))}
+      </dl>
+      {terms.length === 0 && (
+        <p className="mt-4 text-[14px] text-muted">
+          No terms match. The glossary fills in as items are written.
+        </p>
+      )}
+    </div>
+  );
+}
+
+function Settings() {
+  const [prefs, setLocal] = useState<Prefs>(getPrefs);
+  const [read, setRead] = useState(getRead);
+
+  const update = (next: Partial<Prefs>) => {
+    const merged = { ...prefs, ...next };
+    setLocal(setPrefs(merged));
+    document.documentElement.classList.toggle('no-furigana', !merged.furigana);
+  };
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-6">
+      <h1 className="text-[19px] font-semibold tracking-tight">Settings</h1>
+
+      <section className="mt-5 border-t border-band pt-4">
+        <h2 className="text-[15px] font-semibold">Appearance</h2>
+        <div className="mt-2 flex gap-1.5">
+          {(['light', 'dark', 'system'] as const).map((t) => (
+            <button
+              key={t}
+              onClick={() => update({ theme: t })}
+              className={`rounded-md border px-2.5 py-1 text-[13px] ${
+                prefs.theme === t ? 'border-ink bg-ink text-paper' : 'border-band bg-panel text-muted'
+              }`}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+        <p className="mt-1.5 text-[13px] text-muted">
+          Dark is easier in a plant room or a ceiling void.
+        </p>
+      </section>
+
+      <section className="mt-5 border-t border-band pt-4">
+        <h2 className="text-[15px] font-semibold">Furigana</h2>
+        <button
+          onClick={() => update({ furigana: !prefs.furigana })}
+          className={`mt-2 rounded-md border px-2.5 py-1 text-[13px] ${
+            prefs.furigana ? 'border-ink bg-ink text-paper' : 'border-band bg-panel text-muted'
+          }`}
+        >
+          {prefs.furigana ? 'Readings shown' : 'Readings hidden'}
+        </button>
+        <p className="mt-1.5 text-[13px] text-muted">
+          Turn readings off once you no longer need them.
+        </p>
+      </section>
+
+      <section className="mt-5 border-t border-band pt-4">
+        <h2 className="text-[15px] font-semibold">Reading progress</h2>
+        <p className="mt-1.5 text-[14px]">
+          {read.size} item{read.size === 1 ? '' : 's'} marked read.
+        </p>
+        <button
+          onClick={() => {
+            if (confirm('Clear reading progress on this device? This cannot be undone.')) {
+              for (const id of getRead()) unmarkRead(id);
+              setRead(new Set());
+            }
+          }}
+          className="mt-2 rounded-md border border-band bg-panel px-2.5 py-1 text-[13px] text-muted"
+        >
+          Clear progress
+        </button>
+        <p className="mt-1.5 text-[13px] text-muted">
+          Progress is stored on this device only. There is no account and nothing is uploaded.
+        </p>
+      </section>
+    </div>
+  );
+}
+
 function NotFound() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
@@ -621,6 +849,8 @@ export default function App() {
           <Route path="/item/:id" element={<ItemView />} />
           <Route path="/corpus" element={<Corpus />} />
           <Route path="/sources" element={<Sources />} />
+          <Route path="/glossary" element={<Glossary />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
