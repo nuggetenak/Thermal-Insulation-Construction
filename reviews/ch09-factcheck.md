@@ -1,7 +1,10 @@
 # 09.1.03 — fact-check (safety-critical, every line)
 
 Item reviewed: `09.1.03` three-point contact.
-Date: 2026-09-02. Read-only review. No content file was edited.
+Date: 2026-09-02. Read-only review: no content file was edited to produce it.
+The owner has since read it and asked for the gaps to be fixed — see
+**Resolution** at the end for what changed. The findings are left as written,
+so they describe the item as it stood before that.
 
 This is the every-line review CLAUDE.md requires for a `safetyCritical`
 chapter, which this item had never had. It was written to be checkable and it
@@ -213,3 +216,25 @@ both documents. All three are genuine, not laziness.
 - The cross-referenced items (`09.1.01`, `09.1.02`, `09.1.04`, `08.1.01`,
   `08.2.08`) are unwritten, so the item's claims about what they will cover
   could not be checked.
+
+---
+
+## Resolution — 2026-09-02
+
+The owner read this report and asked for the gaps to be fixed. Findings are
+left above exactly as written. What changed in the content:
+
+| Finding | Action |
+|---|---|
+| 1 — descending backwards attributed to a source that does not say it for ladders | Fixed. "Both sources name" is gone. The item now states that the institute says it for ladders directly, that the leaflet prints it among its 脚立 rules, and that for a leaning ladder the rule therefore rests on one source rather than two. The Common mistakes bullet carries the same split. The 脚立 section gained the two leaflet stepladder rules that belong there — no descending backwards, no carrying objects. |
+| 2 — "without qualification" overstates JNIOSH | Fixed. The item now shows the difference: the leaflet's rule is flat, the institute's is worded against loads that stop you keeping your body stable. It then tells the reader to take the flat version, and says why — judging what counts as a stable load is exactly the judgement a first-year worker does not have. |
+| 3 — 設備工事 presented as settled classification | Fixed. The item now names the study's three groups, says insulation work is normally counted in the third, and says plainly that the study does not break the groups down by trade, so no source consulted counts insulation workers separately. It also names who else is in that bucket. |
+| 4 — worker's duty not in the cited sources | Fixed, and strengthened. 労働安全衛生規則 article 526 was read directly from the e-Gov API: paragraph 1 is the employer's duty above 1.5 m, paragraph 2 is the worker's duty to use what is provided. Both are now stated with the article named, and paragraph 1's narrow exception is included with a note that invoking it is the employer's act, not the worker's assumption. `mhlw-anzen` was already cited and covers it. |
+| 5 — 2015 publication date not in the document | Fixed. The item now dates the study by its data window, fiscal 2004 to fiscal 2013, which the document does state, and says it carries no publication date that could be found. |
+| 6 — statistical tables reproduced under `quotable: false` | **Not changed, deliberately.** This is a policy question about what the registry flag means for an open-access safety publication, and it is the owner's to answer. Recorded, not resolved. |
+| 7 — paraphrases italicised like quotations | Fixed. Both are now plainly marked as translations. |
+| 8 — docs said four honest gaps | Fixed in the docs; there are three. |
+
+The item's figures and arithmetic were not touched, because nothing was wrong
+with them. The caveat at the top of this report still stands: the JNIOSH tables
+were read once, and a second extraction pass could not reach them.

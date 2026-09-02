@@ -1,7 +1,10 @@
 # 02.3.01 — fact-check
 
 Item reviewed: `02.3.01` why insulation reduces heat flow.
-Date: 2026-09-02. Read-only review. No content file was edited.
+Date: 2026-09-02. Read-only review: no content file was edited to produce it.
+The owner has since read it and asked for the gaps to be fixed — see
+**Resolution** at the end for what changed. The findings are left as written,
+so they describe the item as it stood before that.
 
 This is the general-craft exemplar. Every item written after it copies its
 shape, so an error here propagates by imitation rather than staying put. It
@@ -220,3 +223,29 @@ stated and not overstated.
   remain unverified against their own cited source. Finding 5 is open until
   someone with access checks them.
 - The reference temperature the writer intended for the table (finding 3).
+
+---
+
+## Resolution — 2026-09-02
+
+The owner read this report and asked for the gaps to be fixed. Findings are
+left above exactly as written. What changed in the content:
+
+| Finding | Action |
+|---|---|
+| 1 — wet lambda test condition | Fixed. The worked example now states what the wet figure is: four hours in a sealed box above 90 percent relative humidity, a little under nine percent moisture by weight, and dry and wet measured on two different instruments because the standard apparatus cannot measure a wet sample — which the study says itself. The item now tells the reader to read the four-fold drop as the size of the effect, not as a measurement of what rain does, and says plainly that no source consulted measures the rained-on case. |
+| 2 — summary inverts under a plain misreading | Fixed. The summary now reads "Water conducts heat about twenty-three times better than still air, which is why wet insulation stops working." The body sentence gained the two figures and an instruction to read it the way round it is written. |
+| 3 — temperature claimed but not stated | Fixed. The table now carries the condition above it — dry, around room temperature, roughly 20 to 25 °C — and says the air and water figures come from different references and are not at exactly the same temperature, so the ratio is an order-of-magnitude comparison. The sentence claiming "a stated mean temperature" is gone. |
+| 4 — polyurethane initial vs aged | Fixed. The row reads "from 0.022, when new", with a paragraph explaining that the blowing agent diffuses out over months and years and that the aged design value is higher. |
+| 5 — four rows unverifiable | Partly fixed, honestly rather than by assertion. ScienceDirect refused every route again in this session, so the figures were not changed and are not claimed as verified: the item now records that the rock wool, cellular glass and polyurethane rows come from a survey paper that could not be re-opened, that published ranges move with density and product, and that every row is an order of magnitude rather than a specification. `confidence` dropped from `verified` to `standard-practice`. |
+| 6 — steel figure unsourced | Fixed. The item now says the steel row is there for scale, that no source in the registry states it, and that nothing in this reference asks the reader to calculate with it. |
+| 7 — JIS A 9501 named but not cited | Fixed. `jis-a9501` added to `sources`, and the validator now rejects this class of gap generally — see below. |
+| 8 — cold-system condensation uncited | Fixed. Now marked as a claim no source consulted here measures, with the reasoning shown. |
+| 9 — CC-BY paper flagged `quotable: false` | **Not changed, deliberately.** The licence claim could not be re-verified in this session, and `quotable: false` is the safe direction: it costs nothing, since the item paraphrases throughout. Left for the owner. |
+| 10 — duplicated Common mistakes bullet | Fixed. The duplicate was replaced with a bullet warning against reading the wet-material figure as what rain does. |
+| 11, 12 | No action required. |
+
+**Also added, from finding 7.** `scripts/validate-content.mjs` now rejects an
+item that names a registry document in its prose without citing it, driven by a
+`namedAs` field on registry entries, with two guardrail tests. This is the
+check that would have caught finding 7 on the day it was written.

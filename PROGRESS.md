@@ -17,7 +17,7 @@ Updated: 2026-09-02
 | Reading register, outside agent reach | done |
 | Voice / length / term-ownership guards | done |
 | Canonical terminology lockfile | done |
-| Guardrail test suite (19 tests) | done |
+| Guardrail test suite (21 tests) | done |
 | Split index into catalog + lazy chunks | done |
 | Offline / PWA service worker | done |
 | Dark mode, furigana toggle | done |
@@ -75,9 +75,13 @@ a permission to proceed. Writing is not gated on it.
 
 All six have been fact-checked, adversarially, and the reports are in
 `reviews/`. That includes the every-line review CLAUDE.md asks for on a
-`safetyCritical` chapter, which `09.1.03` had never had. **Nothing found has
-been acted on** — the reports are for the owner to read and decide. No content
-file was edited.
+`safetyCritical` chapter, which `09.1.03` had never had.
+
+The owner has read them and the findings are fixed. Each report keeps its
+findings as written and carries a dated **Resolution** section saying what was
+done with each one, including the two left alone deliberately: whether
+`quotable: false` covers an open-access publication's statistics, and the same
+flag on a CC-BY paper. Both are policy questions, not errors.
 
 ## How to update this file
 

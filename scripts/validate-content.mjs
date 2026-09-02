@@ -366,6 +366,26 @@ function main() {
       .replace(/"[^"\n]{0,120}"/g, ' ')
       .replace(/\u201c[^\u201d\n]{0,120}\u201d/g, ' ');
 
+    // --- named but not cited ---------------------------------------------
+    // An item that discusses a document by name is making claims about that
+    // document, and those claims belong in the audit trail like any other.
+    // 02.3.01 named JIS A 9501 three times — that it governs Japanese practice,
+    // that it is paid, that it overrides this reference — without citing it,
+    // and nothing caught that, because the sourcing checks only ask whether the
+    // ids that ARE listed resolve. A registry entry declares the names it
+    // answers to in "namedAs"; using one of them means citing it.
+    for (const src of registry) {
+      for (const name of src.namedAs || []) {
+        if (cited.includes(src.id)) break;
+        if (!prose.includes(name)) continue;
+        err(
+          file,
+          `names "${name}" in the body but does not cite "${src.id}". A claim about a document is a claim like any other — add it to sources.`,
+        );
+        break;
+      }
+    }
+
     // Voice. The reference has no narrator. Across 1146 items written in
     // separate sessions, "I" refers to nobody the reader can identify.
     const firstPerson = prose.match(/(?:^|[\s("'])(I|I'm|I've|I'd|my|me|we|our|us)(?=[\s.,;:!?)"'])/g);

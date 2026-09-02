@@ -119,6 +119,15 @@ test('rejects a safety-critical item with no source', () =>
 test('rejects a safety-critical item sourced only from general knowledge', () =>
   write({ id: '"09.1.01"', title: '"Selection"', chapter: '"09"', section: '"09.1"', stage: '1', confidence: 'verified', sourceBasis: 'cited' }, BODY, ['sources:', '  - general-heat-transfer']),
   'tier 1 or tier 2');
+// A document discussed by name is a claim about that document. 02.3.01 named
+// JIS A 9501 three times without citing it and nothing noticed, because the
+// sourcing checks only validated the ids that were already listed.
+test('rejects an item that names a registry document without citing it', () =>
+  write({}, BODY.replace('## Common mistakes', 'Thickness in Japan is governed by JIS A 9501.\n\n## Common mistakes')),
+  'does not cite');
+test('accepts naming a registry document when it is cited', () =>
+  write({}, BODY.replace('## Common mistakes', 'Thickness in Japan is governed by JIS A 9501.\n\n## Common mistakes'), ['sources:', '  - jis-a9501']),
+  null);
 test('rejects an unknown source id', () => write({ sourceBasis: 'cited' }, BODY, ['sources:', '  - no-such-source']), 'unknown id');
 test('rejects a reproduced block of standard text', () =>
   write({}, BODY.replace('## Common mistakes', `> ${'reproduced clause text '.repeat(15)}\n\n## Common mistakes`)),

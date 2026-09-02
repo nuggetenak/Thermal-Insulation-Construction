@@ -178,9 +178,18 @@ downloads for the chapter they open.
    block. Read the report before writing the rest of chapter 09 against this
    item as a pattern.
 
-   All six written items have been fact-checked. `reviews/ch01-factcheck.md`
-   and `reviews/ch02-factcheck.md` carry the other two. Nothing in any of them
-   has been acted on — the reports are for the owner to read and decide.
+   All six written items have been fact-checked, and the findings have been
+   fixed. `reviews/ch01-factcheck.md` and `reviews/ch02-factcheck.md` carry the
+   other two reports. Each keeps its findings as written and ends with a dated
+   **Resolution** section recording what was done — including what was left
+   alone on purpose, so nobody re-raises it.
+
+   Two things worth carrying forward from that round. The MLIT specification
+   was read directly rather than searched, which overturned three findings that
+   a web-only pass had reported as unconfirmed — if an item rests on a large
+   Japanese PDF, open the PDF. And `02.3.01`'s lambda table still has three
+   rows nobody has verified against their own source, because ScienceDirect
+   refuses access; the item now says so in the text.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
    readers need it. **Section 01.1 done** (four items, PR #4); 01.2 onward

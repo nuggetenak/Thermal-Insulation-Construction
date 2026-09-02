@@ -1,7 +1,10 @@
 # Chapter 01 — fact-check
 
 Items reviewed: `01.1.01`, `01.1.02`, `01.1.03`, `01.1.04`.
-Date: 2026-09-02. Read-only review. No content file was edited.
+Date: 2026-09-02. Read-only review: no content file was edited to produce it.
+The owner has since read it and asked for the gaps to be fixed — see
+**Resolution** at the end for what changed. The findings are left as written,
+so they describe the items as they stood before that.
 
 Run in two passes. The first was the `fact-checker` agent, working from web
 sources. It could not open the primary document — the MLIT standard
@@ -324,3 +327,29 @@ Downloaded and text-searched, both editions of
 - **入契法** is not in the registry (finding 12).
 - The registry entries `mhlw-anzen`, `mhlw-jikangai-kensetsu` and `ccus` were
   not re-fetched live; only their listed URLs were taken at face value.
+
+---
+
+## Resolution — 2026-09-02
+
+The owner read this report and asked for the gaps to be fixed. Findings are
+left above exactly as written. What changed in the content:
+
+| Finding | Action |
+|---|---|
+| 1 — paint before insulate | Fixed. The item now says the clause orders testing before both and does not order the two against each other, marks the practical sequence as trade reasoning, and names the separate painting document as not consulted. |
+| 3 — fire compartment narrower and wider than stated | Fixed. The rock wool rule is no longer presented as a chilled-water rule: the item now states that the specification carries it twice, for chilled and chilled/hot water and again for water supply, drainage and hot water supply, and that this covers most of what the trade insulates. A sentence was added noting the compartments are defined by the Building Standard Act and are not something a worker identifies by eye. |
+| 5 — refrigerant exception and clause conflation | Fixed. The pre-insulated copper tube exception is stated, and the wiring rule is separated into its own bullet as a different clause. The Common mistakes bullet carries the exception too. |
+| 8 — 蒸気管等 narrower than the clause | Fixed. Now "steam pipework and lines like it". |
+| 9 — two cited sources grounded nothing | Fixed. `mlit-gyoshu-kubun` and `kensetsugyoho` removed from `01.1.03`. `jis-a9501` kept, because the item does discuss it. |
+| 10 — confidence label | Changed to `verified`. All four rules are confirmed clause text and the one inference is now marked as inference in the prose. |
+| 11 — 4週8休 unsourced | Fixed. `mlit-eizen-shukyu` added to the registry — the same MLIT department that issues the specification, defining 週休2日 as 4週8休以上の現場閉所 and publishing monitoring results — and cited in `01.1.01`. The item now says it is a monitored target on public work, not a description of the industry, and that its reach to a small subcontractor is unsettled. |
+| 12 — public-work threshold cited to the wrong statute | Fixed. `nyukeiho` added to the registry, verified through the e-Gov API: 第15条第1項 rewrites 建設業法第24条の8 for public works, removing the value threshold, widening the duty beyond 特定建設業者, and requiring public display. Cited in `01.1.04`, and the item now names the statute. |
+| 13 — 圧気工法 omitted | Not changed. Compressed-air work is not work this trade does, and the item is not wrong. |
+| 2, 4, 6, 7, 14, 15, 16 | No action required — these record claims that were confirmed. |
+
+**Also added, from finding 9's underlying cause.** Nothing checked whether an
+item that discusses a registry document by name actually cites it — the sourcing
+checks only validated the ids already listed. `scripts/validate-content.mjs` now
+rejects an item that names a document in its prose without citing it, driven by
+a `namedAs` field on registry entries, with two guardrail tests.
