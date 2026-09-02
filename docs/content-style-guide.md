@@ -63,6 +63,18 @@ without changing the validator first.
 ## Common mistakes
 ```
 
+### Optional sections
+
+Two extra sections are allowed, placed before `## Common mistakes`:
+
+- `## Worked example` — real numbers run through to a real answer. Use it
+  whenever a claim has arithmetic behind it. A number a reader can follow beats
+  a paragraph asserting the same thing.
+- `## Check yourself` — a few questions with answers, for study items.
+
+Do not invent other sections. Consistency across 800 items comes from a small
+fixed vocabulary of structure.
+
 `## Common mistakes` is required everywhere. Knowing the failure mode is most
 of the craft, and it is the part a textbook usually omits.
 

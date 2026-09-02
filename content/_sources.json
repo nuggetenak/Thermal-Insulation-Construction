@@ -98,6 +98,34 @@
       "retrieved": "2026-09-02",
       "recheckAfter": null,
       "note": "Conduction, convection, radiation and thermal resistance as taught in any engineering text. Use for physics, never for trade procedure or Japanese regulation."
+    },
+    {
+      "id": "wiley-wool-moisture",
+      "title": "A Study on Insulation Characteristics of Glass Wool and Mineral Wool Coated with a Polysiloxane Agent",
+      "titleEn": "A Study on Insulation Characteristics of Glass Wool and Mineral Wool Coated with a Polysiloxane Agent",
+      "publisher": "Advances in Materials Science and Engineering (Wiley)",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/2017/3938965",
+      "language": "en",
+      "tier": 3,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": null,
+      "note": "Peer-reviewed. Source for the conductivity of still air (0.026 W/m·K), water (0.598), and the measured degradation of glass wool at 12% moisture (0.0343 dry to 0.136 wet)."
+    },
+    {
+      "id": "lambda-overview",
+      "title": "An overview of factors influencing thermal conductivity of building insulation materials",
+      "titleEn": "An overview of factors influencing thermal conductivity of building insulation materials",
+      "publisher": "Journal of Building Engineering (Elsevier)",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2352710221004629",
+      "language": "en",
+      "tier": 3,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": null,
+      "note": "Peer-reviewed survey. Source for typical lambda ranges by material and for the rise of conductivity with temperature."
     }
   ]
 }

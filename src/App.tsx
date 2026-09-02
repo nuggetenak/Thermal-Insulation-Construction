@@ -40,7 +40,44 @@ function renderBody(md: string) {
     list = [];
   };
 
+  // Markdown tables: material property tables carry real numbers workers act on.
+  const renderTable = (rows: string[], key: string) => {
+    const cells = rows.map((r) =>
+      r.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()),
+    );
+    const [head, , ...body] = cells;
+    return (
+      <table key={key} className="my-4 w-full border-collapse text-[14px]">
+        <thead>
+          <tr>
+            {head.map((h, n) => (
+              <th key={n} className="border-b border-ink py-1.5 pr-3 text-left font-semibold">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {body.map((row, n) => (
+            <tr key={n}>
+              {row.map((c, m) => (
+                <td key={m} className="border-b border-band py-1.5 pr-3 tabular-nums">
+                  {c}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
   const lines = md.split('\n');
+  let table: string[] = [];
+  const flushTable = (key: string) => {
+    if (table.length >= 2) blocks.push(renderTable(table, key));
+    table = [];
+  };
   let para: string[] = [];
   const flushPara = (key: string) => {
     if (!para.length) return;
@@ -49,13 +86,30 @@ function renderBody(md: string) {
   };
 
   lines.forEach((line, n) => {
+    if (/^\|.*\|$/.test(line.trim())) {
+      flushPara('p' + n);
+      flush('u' + n);
+      table.push(line.trim());
+      return;
+    }
+    flushTable('t' + n);
+
+    const h3 = /^###\s+(.+)/.exec(line);
     const h2 = /^##\s+(.+)/.exec(line);
     const h1 = /^#\s+(.+)/.exec(line);
     const li = /^[-*]\s+(.+)/.exec(line);
 
-    if (h2 || h1 || li || !line.trim()) {
+    if (h2 || h1 || h3 || li || !line.trim()) {
       flushPara('p' + n);
       if (!li) flush('u' + n);
+    }
+    if (h3) {
+      blocks.push(
+        <h3 key={n} className="mt-6 mb-1.5 text-[15px] font-semibold">
+          {h3[1]}
+        </h3>,
+      );
+      return;
     }
     if (h1) blocks.push(<h1 key={n}>{h1[1]}</h1>);
     else if (h2) blocks.push(<h2 key={n}>{h2[1]}</h2>);
@@ -64,6 +118,7 @@ function renderBody(md: string) {
   });
   flushPara('pz');
   flush('uz');
+  flushTable('tz');
   return blocks;
 }
 
