@@ -13,6 +13,7 @@ Updated: 2026-09-02
 | React app shell, routing, search | done |
 | GitHub Actions CI + Pages deploy | done |
 | Agent definitions | done |
+| Employer context resolved; curriculum rebalanced | done |
 | Source registry + citation links | done |
 | Corpus view (filterable) | done |
 | Sources index page | done |
@@ -30,10 +31,13 @@ Updated: 2026-09-02
 
 | Stage | Written | Total |
 |---|---|---|
-| 1 — Before you fly | 0 | 301 |
-| 2 — First year | 1 | 317 |
+| 1 — Before you fly | 0 | 375 |
+| 2 — First year | 1 | 340 |
 | 3 — Becoming skilled | 0 | 194 |
 | 4 — Later (stubs only) | 0 | 162 |
+
+1071 items total, up from 974 after ductwork, 防露 and occupied-building work
+were added.
 
 Exemplar written: `02.3.01` — awaiting approval before content scales.
 

@@ -2,22 +2,22 @@
   "generatedFrom": "docs/curriculum-source.md",
   "generatedAt": "2026-09-02",
   "counts": {
-    "chapters": 37,
-    "sections": 206,
-    "items": 974,
+    "chapters": 40,
+    "sections": 224,
+    "items": 1071,
     "byStage": {
-      "1": 301,
-      "2": 317,
+      "1": 375,
+      "2": 340,
       "3": 194,
       "4": 162
     },
     "byKind": {
-      "article": 819,
+      "article": 916,
       "vocabulary": 57,
       "practical": 71,
       "diagnostic": 27
     },
-    "safetyCritical": 253
+    "safetyCritical": 272
   },
   "chapters": [
     {
@@ -540,6 +540,320 @@
               "chapter": "01",
               "section": "01.3",
               "path": "content/ch01/01.3.06-completion-and-handover.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "01.4",
+          "title": "Working inside occupied buildings",
+          "slug": "working-inside-occupied-buildings",
+          "items": [
+            {
+              "id": "01.4.01",
+              "title": "Why occupied-building work is different from a construction site",
+              "japanese": null,
+              "slug": "why-occupied-building-work-is-different-from-a-construction-",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.4",
+              "path": "content/ch01/01.4.01-why-occupied-building-work-is-different-from-a-construction-.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.4.02",
+              "title": "Hospitals: noise, dust, infection control, restricted hours",
+              "japanese": null,
+              "slug": "hospitals-noise-dust-infection-control-restricted-hours",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.4",
+              "path": "content/ch01/01.4.02-hospitals-noise-dust-infection-control-restricted-hours.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.4.03",
+              "title": "Schools: holiday-period work and term-time restrictions",
+              "japanese": null,
+              "slug": "schools-holiday-period-work-and-term-time-restrictions",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.4",
+              "path": "content/ch01/01.4.03-schools-holiday-period-work-and-term-time-restrictions.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.4.04",
+              "title": "Offices and commercial buildings: tenants, out-of-hours work",
+              "japanese": null,
+              "slug": "offices-and-commercial-buildings-tenants-out-of-hours-work",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.4",
+              "path": "content/ch01/01.4.04-offices-and-commercial-buildings-tenants-out-of-hours-work.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.4.05",
+              "title": "Access routes, lifts and protecting finished surfaces",
+              "japanese": null,
+              "slug": "access-routes-lifts-and-protecting-finished-surfaces",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.4",
+              "path": "content/ch01/01.4.05-access-routes-lifts-and-protecting-finished-surfaces.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.4.06",
+              "title": "Leaving a space usable at the end of each day",
+              "japanese": null,
+              "slug": "leaving-a-space-usable-at-the-end-of-each-day",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.4",
+              "path": "content/ch01/01.4.06-leaving-a-space-usable-at-the-end-of-each-day.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "01.5",
+          "title": "Ceiling voids and confined access",
+          "slug": "ceiling-voids-and-confined-access",
+          "items": [
+            {
+              "id": "01.5.01",
+              "title": "What a ceiling void contains and how services are arranged in it",
+              "japanese": null,
+              "slug": "what-a-ceiling-void-contains-and-how-services-are-arranged-i",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.5",
+              "path": "content/ch01/01.5.01-what-a-ceiling-void-contains-and-how-services-are-arranged-i.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.5.02",
+              "title": "Getting in and out safely",
+              "japanese": null,
+              "slug": "getting-in-and-out-safely",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.5",
+              "path": "content/ch01/01.5.02-getting-in-and-out-safely.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.5.03",
+              "title": "Working on your back and in restricted postures",
+              "japanese": null,
+              "slug": "working-on-your-back-and-in-restricted-postures",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.5",
+              "path": "content/ch01/01.5.03-working-on-your-back-and-in-restricted-postures.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.5.04",
+              "title": "Lighting and seeing what you are doing",
+              "japanese": null,
+              "slug": "lighting-and-seeing-what-you-are-doing",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.5",
+              "path": "content/ch01/01.5.04-lighting-and-seeing-what-you-are-doing.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.5.05",
+              "title": "Ceiling tiles and grid: damage you will be charged for",
+              "japanese": null,
+              "slug": "ceiling-tiles-and-grid-damage-you-will-be-charged-for",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.5",
+              "path": "content/ch01/01.5.05-ceiling-tiles-and-grid-damage-you-will-be-charged-for.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.5.06",
+              "title": "When a space counts as confined and the rules change",
+              "japanese": null,
+              "slug": "when-a-space-counts-as-confined-and-the-rules-change",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.5",
+              "path": "content/ch01/01.5.06-when-a-space-counts-as-confined-and-the-rules-change.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "01.6",
+          "title": "Working alongside other trades",
+          "slug": "working-alongside-other-trades",
+          "items": [
+            {
+              "id": "01.6.01",
+              "title": "Who else is in a services zone and what they are doing",
+              "japanese": null,
+              "slug": "who-else-is-in-a-services-zone-and-what-they-are-doing",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.6",
+              "path": "content/ch01/01.6.01-who-else-is-in-a-services-zone-and-what-they-are-doing.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.6.02",
+              "title": "Sequence: who insulates before and after whom",
+              "japanese": null,
+              "slug": "sequence-who-insulates-before-and-after-whom",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.6",
+              "path": "content/ch01/01.6.02-sequence-who-insulates-before-and-after-whom.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.6.03",
+              "title": "Damage caused to your work by trades following you",
+              "japanese": null,
+              "slug": "damage-caused-to-your-work-by-trades-following-you",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.6",
+              "path": "content/ch01/01.6.03-damage-caused-to-your-work-by-trades-following-you.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.6.04",
+              "title": "Damage you can cause to ductwork, cabling and sprinkler pipe",
+              "japanese": null,
+              "slug": "damage-you-can-cause-to-ductwork-cabling-and-sprinkler-pipe",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.6",
+              "path": "content/ch01/01.6.04-damage-you-can-cause-to-ductwork-cabling-and-sprinkler-pipe.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.6.05",
+              "title": "Raising a clash rather than working around it",
+              "japanese": null,
+              "slug": "raising-a-clash-rather-than-working-around-it",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.6",
+              "path": "content/ch01/01.6.05-raising-a-clash-rather-than-working-around-it.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "01.7",
+          "title": "Small-crew, multi-site working",
+          "slug": "small-crew-multi-site-working",
+          "items": [
+            {
+              "id": "01.7.01",
+              "title": "A two or three person crew versus a large site gang",
+              "japanese": null,
+              "slug": "a-two-or-three-person-crew-versus-a-large-site-gang",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.7",
+              "path": "content/ch01/01.7.01-a-two-or-three-person-crew-versus-a-large-site-gang.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.7.02",
+              "title": "Loading out for the day: getting materials to the job",
+              "japanese": null,
+              "slug": "loading-out-for-the-day-getting-materials-to-the-job",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.7",
+              "path": "content/ch01/01.7.02-loading-out-for-the-day-getting-materials-to-the-job.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.7.03",
+              "title": "Day trips across a region and what that means for planning",
+              "japanese": null,
+              "slug": "day-trips-across-a-region-and-what-that-means-for-planning",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.7",
+              "path": "content/ch01/01.7.03-day-trips-across-a-region-and-what-that-means-for-planning.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.7.04",
+              "title": "Working without a supervisor standing next to you",
+              "japanese": null,
+              "slug": "working-without-a-supervisor-standing-next-to-you",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.7",
+              "path": "content/ch01/01.7.04-working-without-a-supervisor-standing-next-to-you.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.7.05",
+              "title": "Handover when you are not the crew returning tomorrow",
+              "japanese": null,
+              "slug": "handover-when-you-are-not-the-crew-returning-tomorrow",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.7",
+              "path": "content/ch01/01.7.05-handover-when-you-are-not-the-crew-returning-tomorrow.md",
               "status": "stub"
             }
           ]
@@ -14525,6 +14839,1112 @@
               "chapter": "36",
               "section": "36.4",
               "path": "content/ch36/36.4.04-lessons-learned.md",
+              "status": "stub"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "37",
+      "title": "Ductwork — Fundamentals & Application",
+      "japanese": null,
+      "slug": "ductwork-fundamentals-application",
+      "stage": 1,
+      "safetyCritical": false,
+      "kind": "article",
+      "sections": [
+        {
+          "no": "37.1",
+          "title": "Duct construction",
+          "slug": "duct-construction",
+          "items": [
+            {
+              "id": "37.1.01",
+              "title": "What air ducts do in a building",
+              "japanese": null,
+              "slug": "what-air-ducts-do-in-a-building",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.1",
+              "path": "content/ch37/37.1.01-what-air-ducts-do-in-a-building.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.1.02",
+              "title": "Rectangular, round and spiral duct",
+              "japanese": null,
+              "slug": "rectangular-round-and-spiral-duct",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.1",
+              "path": "content/ch37/37.1.02-rectangular-round-and-spiral-duct.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.1.03",
+              "title": "Sheet metal gauges and why they vary",
+              "japanese": null,
+              "slug": "sheet-metal-gauges-and-why-they-vary",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.1",
+              "path": "content/ch37/37.1.03-sheet-metal-gauges-and-why-they-vary.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.1.04",
+              "title": "Flange systems and joint types you will meet",
+              "japanese": null,
+              "slug": "flange-systems-and-joint-types-you-will-meet",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.1",
+              "path": "content/ch37/37.1.04-flange-systems-and-joint-types-you-will-meet.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.1.05",
+              "title": "Stiffeners, cross-breaking and why duct faces are not flat",
+              "japanese": null,
+              "slug": "stiffeners-cross-breaking-and-why-duct-faces-are-not-flat",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.1",
+              "path": "content/ch37/37.1.05-stiffeners-cross-breaking-and-why-duct-faces-are-not-flat.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.1.06",
+              "title": "Reading duct sizes on a drawing",
+              "japanese": null,
+              "slug": "reading-duct-sizes-on-a-drawing",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.1",
+              "path": "content/ch37/37.1.06-reading-duct-sizes-on-a-drawing.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "37.2",
+          "title": "Why ductwork is insulated",
+          "slug": "why-ductwork-is-insulated",
+          "items": [
+            {
+              "id": "37.2.01",
+              "title": "Thermal loss and gain in supply and return air",
+              "japanese": null,
+              "slug": "thermal-loss-and-gain-in-supply-and-return-air",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.2",
+              "path": "content/ch37/37.2.01-thermal-loss-and-gain-in-supply-and-return-air.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.2.02",
+              "title": "Condensation on cold duct surfaces",
+              "japanese": null,
+              "slug": "condensation-on-cold-duct-surfaces",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.2",
+              "path": "content/ch37/37.2.02-condensation-on-cold-duct-surfaces.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.2.03",
+              "title": "Acoustic treatment and where it differs from thermal",
+              "japanese": null,
+              "slug": "acoustic-treatment-and-where-it-differs-from-thermal",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.2",
+              "path": "content/ch37/37.2.03-acoustic-treatment-and-where-it-differs-from-thermal.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.2.04",
+              "title": "Fire-rated duct enclosure as a separate scope",
+              "japanese": null,
+              "slug": "fire-rated-duct-enclosure-as-a-separate-scope",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.2",
+              "path": "content/ch37/37.2.04-fire-rated-duct-enclosure-as-a-separate-scope.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.2.05",
+              "title": "Which ducts get insulated and which do not",
+              "japanese": null,
+              "slug": "which-ducts-get-insulated-and-which-do-not",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.2",
+              "path": "content/ch37/37.2.05-which-ducts-get-insulated-and-which-do-not.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "37.3",
+          "title": "Duct insulation materials",
+          "slug": "duct-insulation-materials",
+          "items": [
+            {
+              "id": "37.3.01",
+              "title": "Glass wool duct blanket",
+              "japanese": null,
+              "slug": "glass-wool-duct-blanket",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.3",
+              "path": "content/ch37/37.3.01-glass-wool-duct-blanket.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.3.02",
+              "title": "Rigid duct board",
+              "japanese": null,
+              "slug": "rigid-duct-board",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.3",
+              "path": "content/ch37/37.3.02-rigid-duct-board.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.3.03",
+              "title": "Faced versus unfaced material",
+              "japanese": null,
+              "slug": "faced-versus-unfaced-material",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.3",
+              "path": "content/ch37/37.3.03-faced-versus-unfaced-material.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.3.04",
+              "title": "Internal duct liner and where it is used instead",
+              "japanese": null,
+              "slug": "internal-duct-liner-and-where-it-is-used-instead",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.3",
+              "path": "content/ch37/37.3.04-internal-duct-liner-and-where-it-is-used-instead.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.3.05",
+              "title": "Phenolic and other rigid boards",
+              "japanese": null,
+              "slug": "phenolic-and-other-rigid-boards",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.3",
+              "path": "content/ch37/37.3.05-phenolic-and-other-rigid-boards.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.3.06",
+              "title": "Choosing thickness from a specification",
+              "japanese": null,
+              "slug": "choosing-thickness-from-a-specification",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.3",
+              "path": "content/ch37/37.3.06-choosing-thickness-from-a-specification.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "37.4",
+          "title": "Fixing methods",
+          "slug": "fixing-methods",
+          "items": [
+            {
+              "id": "37.4.01",
+              "title": "Adhesive: types, coverage and cure",
+              "japanese": null,
+              "slug": "adhesive-types-coverage-and-cure",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.4",
+              "path": "content/ch37/37.4.01-adhesive-types-coverage-and-cure.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.4.02",
+              "title": "Stick pins and speed washers",
+              "japanese": null,
+              "slug": "stick-pins-and-speed-washers",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.4",
+              "path": "content/ch37/37.4.02-stick-pins-and-speed-washers.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.4.03",
+              "title": "Weld pins and pin welding tools",
+              "japanese": null,
+              "slug": "weld-pins-and-pin-welding-tools",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.4",
+              "path": "content/ch37/37.4.03-weld-pins-and-pin-welding-tools.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.4.04",
+              "title": "Banding and wire on ducts",
+              "japanese": null,
+              "slug": "banding-and-wire-on-ducts",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.4",
+              "path": "content/ch37/37.4.04-banding-and-wire-on-ducts.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.4.05",
+              "title": "Spacing rules and why they exist",
+              "japanese": null,
+              "slug": "spacing-rules-and-why-they-exist",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.4",
+              "path": "content/ch37/37.4.05-spacing-rules-and-why-they-exist.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.4.06",
+              "title": "Fixings on the underside of a duct",
+              "japanese": null,
+              "slug": "fixings-on-the-underside-of-a-duct",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.4",
+              "path": "content/ch37/37.4.06-fixings-on-the-underside-of-a-duct.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "37.5",
+          "title": "Rectangular duct application",
+          "slug": "rectangular-duct-application",
+          "items": [
+            {
+              "id": "37.5.01",
+              "title": "Measuring and cutting duct blanket",
+              "japanese": null,
+              "slug": "measuring-and-cutting-duct-blanket",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.5",
+              "path": "content/ch37/37.5.01-measuring-and-cutting-duct-blanket.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.5.02",
+              "title": "Wrapping sequence around a rectangular duct",
+              "japanese": null,
+              "slug": "wrapping-sequence-around-a-rectangular-duct",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.5",
+              "path": "content/ch37/37.5.02-wrapping-sequence-around-a-rectangular-duct.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.5.03",
+              "title": "Corners: keeping thickness and avoiding compression",
+              "japanese": null,
+              "slug": "corners-keeping-thickness-and-avoiding-compression",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.5",
+              "path": "content/ch37/37.5.03-corners-keeping-thickness-and-avoiding-compression.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.5.04",
+              "title": "Longitudinal and circumferential joints",
+              "japanese": null,
+              "slug": "longitudinal-and-circumferential-joints",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.5",
+              "path": "content/ch37/37.5.04-longitudinal-and-circumferential-joints.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.5.05",
+              "title": "Working around stiffeners and flanges",
+              "japanese": null,
+              "slug": "working-around-stiffeners-and-flanges",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.5",
+              "path": "content/ch37/37.5.05-working-around-stiffeners-and-flanges.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.5.06",
+              "title": "Duct hangers and supports: insulating around them",
+              "japanese": null,
+              "slug": "duct-hangers-and-supports-insulating-around-them",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.5",
+              "path": "content/ch37/37.5.06-duct-hangers-and-supports-insulating-around-them.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "37.6",
+          "title": "Round and spiral duct application",
+          "slug": "round-and-spiral-duct-application",
+          "items": [
+            {
+              "id": "37.6.01",
+              "title": "Wrapping round duct",
+              "japanese": null,
+              "slug": "wrapping-round-duct",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.6",
+              "path": "content/ch37/37.6.01-wrapping-round-duct.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.6.02",
+              "title": "Overlap and pull on a curved surface",
+              "japanese": null,
+              "slug": "overlap-and-pull-on-a-curved-surface",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.6",
+              "path": "content/ch37/37.6.02-overlap-and-pull-on-a-curved-surface.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.6.03",
+              "title": "Rigid section on round duct",
+              "japanese": null,
+              "slug": "rigid-section-on-round-duct",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.6",
+              "path": "content/ch37/37.6.03-rigid-section-on-round-duct.md",
+              "status": "stub"
+            },
+            {
+              "id": "37.6.04",
+              "title": "Joints on spiral duct",
+              "japanese": null,
+              "slug": "joints-on-spiral-duct",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "37",
+              "section": "37.6",
+              "path": "content/ch37/37.6.04-joints-on-spiral-duct.md",
+              "status": "stub"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "38",
+      "title": "Ductwork — Fittings, Finish & Defects",
+      "japanese": null,
+      "slug": "ductwork-fittings-finish-defects",
+      "stage": 2,
+      "safetyCritical": false,
+      "kind": "article",
+      "sections": [
+        {
+          "no": "38.1",
+          "title": "Fittings and features",
+          "slug": "fittings-and-features",
+          "items": [
+            {
+              "id": "38.1.01",
+              "title": "Elbows and bends",
+              "japanese": null,
+              "slug": "elbows-and-bends",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.01-elbows-and-bends.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.1.02",
+              "title": "Transitions and reducers",
+              "japanese": null,
+              "slug": "transitions-and-reducers",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.02-transitions-and-reducers.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.1.03",
+              "title": "Branches, tees and take-offs",
+              "japanese": null,
+              "slug": "branches-tees-and-take-offs",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.03-branches-tees-and-take-offs.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.1.04",
+              "title": "Dampers: fire, volume and access requirements",
+              "japanese": null,
+              "slug": "dampers-fire-volume-and-access-requirements",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.04-dampers-fire-volume-and-access-requirements.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.1.05",
+              "title": "Access doors and panels: never insulate them shut",
+              "japanese": null,
+              "slug": "access-doors-and-panels-never-insulate-them-shut",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.05-access-doors-and-panels-never-insulate-them-shut.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.1.06",
+              "title": "Flexible connections at plant",
+              "japanese": null,
+              "slug": "flexible-connections-at-plant",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.06-flexible-connections-at-plant.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.1.07",
+              "title": "Duct-mounted sensors, probes and test points",
+              "japanese": null,
+              "slug": "duct-mounted-sensors-probes-and-test-points",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.1",
+              "path": "content/ch38/38.1.07-duct-mounted-sensors-probes-and-test-points.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "38.2",
+          "title": "Vapour barrier on ductwork",
+          "slug": "vapour-barrier-on-ductwork",
+          "items": [
+            {
+              "id": "38.2.01",
+              "title": "Where the vapour barrier sits on a duct",
+              "japanese": null,
+              "slug": "where-the-vapour-barrier-sits-on-a-duct",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.2",
+              "path": "content/ch38/38.2.01-where-the-vapour-barrier-sits-on-a-duct.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.2.02",
+              "title": "Sealing facing joints and overlaps",
+              "japanese": null,
+              "slug": "sealing-facing-joints-and-overlaps",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.2",
+              "path": "content/ch38/38.2.02-sealing-facing-joints-and-overlaps.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.2.03",
+              "title": "Sealing at pins and washers",
+              "japanese": null,
+              "slug": "sealing-at-pins-and-washers",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.2",
+              "path": "content/ch38/38.2.03-sealing-at-pins-and-washers.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.2.04",
+              "title": "Terminating at flanges, hangers and penetrations",
+              "japanese": null,
+              "slug": "terminating-at-flanges-hangers-and-penetrations",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.2",
+              "path": "content/ch38/38.2.04-terminating-at-flanges-hangers-and-penetrations.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.2.05",
+              "title": "Why a single unsealed pinhole matters on a cold duct",
+              "japanese": null,
+              "slug": "why-a-single-unsealed-pinhole-matters-on-a-cold-duct",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.2",
+              "path": "content/ch38/38.2.05-why-a-single-unsealed-pinhole-matters-on-a-cold-duct.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "38.3",
+          "title": "Outer finish on ductwork",
+          "slug": "outer-finish-on-ductwork",
+          "items": [
+            {
+              "id": "38.3.01",
+              "title": "When ductwork needs metal jacketing",
+              "japanese": null,
+              "slug": "when-ductwork-needs-metal-jacketing",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.3",
+              "path": "content/ch38/38.3.01-when-ductwork-needs-metal-jacketing.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.3.02",
+              "title": "Sheet metal on rectangular duct",
+              "japanese": null,
+              "slug": "sheet-metal-on-rectangular-duct",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.3",
+              "path": "content/ch38/38.3.02-sheet-metal-on-rectangular-duct.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.3.03",
+              "title": "PVC and other finishes",
+              "japanese": null,
+              "slug": "pvc-and-other-finishes",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.3",
+              "path": "content/ch38/38.3.03-pvc-and-other-finishes.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.3.04",
+              "title": "Plant room and external duct finish",
+              "japanese": null,
+              "slug": "plant-room-and-external-duct-finish",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.3",
+              "path": "content/ch38/38.3.04-plant-room-and-external-duct-finish.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.3.05",
+              "title": "Finishing at duct penetrations through walls and floors",
+              "japanese": null,
+              "slug": "finishing-at-duct-penetrations-through-walls-and-floors",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.3",
+              "path": "content/ch38/38.3.05-finishing-at-duct-penetrations-through-walls-and-floors.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "38.4",
+          "title": "Duct defects and how they happen",
+          "slug": "duct-defects-and-how-they-happen",
+          "items": [
+            {
+              "id": "38.4.01",
+              "title": "Compressed insulation at corners and under banding",
+              "japanese": null,
+              "slug": "compressed-insulation-at-corners-and-under-banding",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.4",
+              "path": "content/ch38/38.4.01-compressed-insulation-at-corners-and-under-banding.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.4.02",
+              "title": "Gaps at joints and fittings",
+              "japanese": null,
+              "slug": "gaps-at-joints-and-fittings",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.4",
+              "path": "content/ch38/38.4.02-gaps-at-joints-and-fittings.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.4.03",
+              "title": "Facing torn during installation",
+              "japanese": null,
+              "slug": "facing-torn-during-installation",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.4",
+              "path": "content/ch38/38.4.03-facing-torn-during-installation.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.4.04",
+              "title": "Sagging on the underside of wide ducts",
+              "japanese": null,
+              "slug": "sagging-on-the-underside-of-wide-ducts",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.4",
+              "path": "content/ch38/38.4.04-sagging-on-the-underside-of-wide-ducts.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.4.05",
+              "title": "Condensation appearing after handover",
+              "japanese": null,
+              "slug": "condensation-appearing-after-handover",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.4",
+              "path": "content/ch38/38.4.05-condensation-appearing-after-handover.md",
+              "status": "stub"
+            },
+            {
+              "id": "38.4.06",
+              "title": "Access panels covered over",
+              "japanese": null,
+              "slug": "access-panels-covered-over",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "38",
+              "section": "38.4",
+              "path": "content/ch38/38.4.06-access-panels-covered-over.md",
+              "status": "stub"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "39",
+      "title": "防露 — Condensation Control in Buildings",
+      "japanese": "防露",
+      "slug": "condensation-control-in-buildings",
+      "stage": 1,
+      "safetyCritical": true,
+      "kind": "article",
+      "sections": [
+        {
+          "no": "39.1",
+          "title": "Why condensation happens",
+          "slug": "why-condensation-happens",
+          "items": [
+            {
+              "id": "39.1.01",
+              "title": "Dew point in plain terms",
+              "japanese": null,
+              "slug": "dew-point-in-plain-terms",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.1",
+              "path": "content/ch39/39.1.01-dew-point-in-plain-terms.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.1.02",
+              "title": "Humidity in Japanese buildings through the year",
+              "japanese": null,
+              "slug": "humidity-in-japanese-buildings-through-the-year",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.1",
+              "path": "content/ch39/39.1.02-humidity-in-japanese-buildings-through-the-year.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.1.03",
+              "title": "Surface temperature and why it matters more than air temperature",
+              "japanese": null,
+              "slug": "surface-temperature-and-why-it-matters-more-than-air-tempera",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.1",
+              "path": "content/ch39/39.1.03-surface-temperature-and-why-it-matters-more-than-air-tempera.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.1.04",
+              "title": "Where condensation forms first on a real installation",
+              "japanese": null,
+              "slug": "where-condensation-forms-first-on-a-real-installation",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.1",
+              "path": "content/ch39/39.1.04-where-condensation-forms-first-on-a-real-installation.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "39.2",
+          "title": "Systems at risk",
+          "slug": "systems-at-risk",
+          "items": [
+            {
+              "id": "39.2.01",
+              "title": "Chilled water pipework",
+              "japanese": null,
+              "slug": "chilled-water-pipework",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.2",
+              "path": "content/ch39/39.2.01-chilled-water-pipework.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.2.02",
+              "title": "Refrigerant pipework",
+              "japanese": null,
+              "slug": "refrigerant-pipework",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.2",
+              "path": "content/ch39/39.2.02-refrigerant-pipework.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.2.03",
+              "title": "Cold-water supply and drainage in warm spaces",
+              "japanese": null,
+              "slug": "cold-water-supply-and-drainage-in-warm-spaces",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.2",
+              "path": "content/ch39/39.2.03-cold-water-supply-and-drainage-in-warm-spaces.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.2.04",
+              "title": "Air conditioning supply ducts",
+              "japanese": null,
+              "slug": "air-conditioning-supply-ducts",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.2",
+              "path": "content/ch39/39.2.04-air-conditioning-supply-ducts.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.2.05",
+              "title": "Refrigeration and cold-storage plant",
+              "japanese": null,
+              "slug": "refrigeration-and-cold-storage-plant",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.2",
+              "path": "content/ch39/39.2.05-refrigeration-and-cold-storage-plant.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "39.3",
+          "title": "Preventing it",
+          "slug": "preventing-it",
+          "items": [
+            {
+              "id": "39.3.01",
+              "title": "Thickness selection for condensation control",
+              "japanese": null,
+              "slug": "thickness-selection-for-condensation-control",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.3",
+              "path": "content/ch39/39.3.01-thickness-selection-for-condensation-control.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.3.02",
+              "title": "Continuity: why a break defeats the whole system",
+              "japanese": null,
+              "slug": "continuity-why-a-break-defeats-the-whole-system",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.3",
+              "path": "content/ch39/39.3.02-continuity-why-a-break-defeats-the-whole-system.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.3.03",
+              "title": "The vapour barrier and which side it goes on",
+              "japanese": null,
+              "slug": "the-vapour-barrier-and-which-side-it-goes-on",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.3",
+              "path": "content/ch39/39.3.03-the-vapour-barrier-and-which-side-it-goes-on.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.3.04",
+              "title": "Sealing at supports, hangers and penetrations",
+              "japanese": null,
+              "slug": "sealing-at-supports-hangers-and-penetrations",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.3",
+              "path": "content/ch39/39.3.04-sealing-at-supports-hangers-and-penetrations.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.3.05",
+              "title": "Valves, flanges and fittings on cold lines",
+              "japanese": null,
+              "slug": "valves-flanges-and-fittings-on-cold-lines",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.3",
+              "path": "content/ch39/39.3.05-valves-flanges-and-fittings-on-cold-lines.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "39.4",
+          "title": "When it goes wrong",
+          "slug": "when-it-goes-wrong",
+          "items": [
+            {
+              "id": "39.4.01",
+              "title": "Diagnosing condensation after handover",
+              "japanese": null,
+              "slug": "diagnosing-condensation-after-handover",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.4",
+              "path": "content/ch39/39.4.01-diagnosing-condensation-after-handover.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.4.02",
+              "title": "Dripping in a ceiling void and the damage it causes",
+              "japanese": null,
+              "slug": "dripping-in-a-ceiling-void-and-the-damage-it-causes",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.4",
+              "path": "content/ch39/39.4.02-dripping-in-a-ceiling-void-and-the-damage-it-causes.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.4.03",
+              "title": "Corrosion under insulation on cold systems",
+              "japanese": null,
+              "slug": "corrosion-under-insulation-on-cold-systems",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.4",
+              "path": "content/ch39/39.4.03-corrosion-under-insulation-on-cold-systems.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.4.04",
+              "title": "Repair versus replacement",
+              "japanese": null,
+              "slug": "repair-versus-replacement",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.4",
+              "path": "content/ch39/39.4.04-repair-versus-replacement.md",
+              "status": "stub"
+            },
+            {
+              "id": "39.4.05",
+              "title": "What to tell a supervisor and when",
+              "japanese": null,
+              "slug": "what-to-tell-a-supervisor-and-when",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "39",
+              "section": "39.4",
+              "path": "content/ch39/39.4.05-what-to-tell-a-supervisor-and-when.md",
               "status": "stub"
             }
           ]

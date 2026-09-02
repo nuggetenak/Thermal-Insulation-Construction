@@ -95,6 +95,23 @@ Real photographs only. This is the chapter where a plausible fake is dangerous.
 - KY activity (危険予知) board
 - Helmet colour conventions on a Japanese site, if findable under licence
 
+### Chapters 37 to 39 — Ductwork and condensation (high priority)
+
+Ductwork is roughly half the daily work at this employer and the industrial
+photo sets found online will not cover it.
+
+- Rectangular duct, bare, showing flange and stiffener
+- Round and spiral duct, bare
+- Duct blanket being wrapped on rectangular duct
+- Stick pins and speed washers in place
+- Finished rectangular duct showing corner treatment
+- Duct elbow and transition, insulated
+- Fire damper and access panel, with insulation correctly stopped around them
+- Faced duct insulation with the vapour barrier sealed at a joint
+- Condensation on an uninsulated or failed cold duct
+- Ceiling void with services running through it
+- Plant room with chillers, pumps and insulated headers
+
 ### Chapters 11 to 17 — Work in progress and finished
 
 - Straight pipe insulation part-fitted, showing the joint
@@ -105,6 +122,10 @@ Real photographs only. This is the chapter where a plausible fake is dangerous.
 - Valve box, open and closed
 - A correctly sealed vapour barrier on a cold line
 - Corrosion under insulation, exposed — a real photograph, not a drawing
+
+Bias the whole set toward **building services**: plant rooms, ceiling voids,
+hospital and office risers, chilled water headers. Refinery pipe racks are the
+easiest images to find online and the least relevant to this job.
 
 ---
 

@@ -21,12 +21,13 @@ Not by textbook order — by when you need it.
 
 | Stage | Meaning | Items |
 |---|---|---|
-| 1 | Before you fly | 301 |
-| 2 | First year on the job | 317 |
+| 1 | Before you fly | 375 |
+| 2 | First year on the job | 340 |
 | 3 | Becoming skilled | 194 |
 | 4 | Later — certification, lead worker | 162 |
 
-974 items in total, derived from `docs/curriculum-source.md`.
+1071 items, derived from `docs/curriculum-source.md` plus
+`docs/curriculum-extensions.md`.
 
 ## Working on this
 

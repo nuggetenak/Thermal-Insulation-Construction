@@ -8,32 +8,55 @@ The foundation is built and deployed. One exemplar item is written. Content
 writing has **not** started, and should not start until the two open questions
 below are answered.
 
-## Open questions that block content
+## The employer, confirmed
 
-### 1. Building insulation or plant insulation?
+日建工業株式会社 (Nikken Kogyo), 山口県岩国市御庄4-105-5. Part of the 21-company
+みどりグループ. Founded 1963, **six employees**. Licensed 熱絶縁工事業.
 
-The previous scaffold's notes recorded that the employer, 日建工業 Nikken
-Kogyo (Midori Group, Iwakuni, Yamaguchi), does **building and facility**
-insulation — school air conditioning, boiler rooms, pipework in public
-buildings — rather than refinery or petrochemical plant insulation.
+Stated business: 保温・保冷・防露・断熱工事、各種ダクト工事設計. Work covers
+drainage and supply pipework, HVAC ducts, refrigeration and cold-storage plant,
+and heating plant, in offices, commercial buildings, hospitals and government
+buildings. One job listing states the scope as buildings **excluding factories**.
+Another mentions 工場, so a light industrial layer is retained rather than pruned.
 
-The curriculum outline this project derives from reads as plant-oriented in
-places: seismic movement joints, equipment insulation, heavy jacketing systems.
+Work area is Iwakuni outward across all of Yamaguchi and western Hiroshima. Day
+trips. Projects average about two months. Small-crew, multi-site, van-based —
+not one large site with a big gang.
 
-If the job really is building services work, a meaningful share of stage 2 and
-stage 3 is aimed at the wrong target. Writing 300 articles about refinery
-pipework for someone insulating school ductwork would be exactly the
-inconsistency this project is built to avoid.
+Partner-company tradesmen all hold 1級熱絶縁施工技能士, so certification is the
+cultural norm there. Still stage 4 for these four, but they should know from the
+start that it is the expected path rather than an optional extra.
 
-**Do not scale content writing until this is settled.** It is cheap to answer
-and expensive to get wrong.
+**Confirmed by the owner:** ductwork and pipework are roughly an even split.
+Whether the work is new build or occupied-building renovation did not come up in
+his interview, and whether there is any factory work is unknown.
 
-### 2. Which work category?
+### What that changed
 
-Also unresolved from the previous notes: whether the employer's work falls
-under 保温保冷工事作業 (general) or 吹付け硬質ウレタンフォーム断熱工事作業
-(sprayed rigid urethane foam). These are different skill sets. The taxonomy
-assumes the former.
+The original outline was written before any of this was known, and had **zero
+ductwork items out of 974** for roughly half the daily work. Three chapters were
+appended in `docs/curriculum-extensions.md`:
+
+- **37 and 38 — ductwork.** A different craft from pipe: board and blanket
+  instead of preformed sections, pins and washers instead of tie wire, different
+  corner and joint detail. 56 items.
+- **39 — 防露.** Was folded into chapter 16's 防湿. On chilled water and AC ducts
+  through a humid Japanese summer, condensation control is the daily craft, and
+  the employer names it in their own scope. 19 items, safety-critical.
+- **01.4 to 01.7 — occupied buildings.** Chapter 01 assumed a construction site.
+  Much of this work is inside live buildings: hospital ceiling voids, school
+  plant rooms in the holidays, offices around other trades. Chapter 01 went from
+  15 items to 37.
+
+Total is now 1071 items. Nothing was renumbered; every pre-existing id is intact.
+
+### Still worth demoting
+
+Not yet done: seismic and movement joints, refinery-scale geometry, the
+industrial QA/QC apparatus in chapter 20 that the previous scaffold already
+flagged as inspector-oriented rather than installer-oriented. These are stage 3
+already, so the ordering handles most of it, but the content should be written
+for building services when it is reached.
 
 ## First technical task
 

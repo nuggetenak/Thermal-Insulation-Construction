@@ -20,7 +20,12 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SOURCE = resolve(ROOT, 'docs/curriculum-source.md');
+const SOURCES = [
+  resolve(ROOT, 'docs/curriculum-source.md'),
+  // Additions made after the employer was confirmed. Kept in a separate file so
+  // the original outline stays an untouched record of what was planned before.
+  resolve(ROOT, 'docs/curriculum-extensions.md'),
+];
 const OUT = resolve(ROOT, 'content/_taxonomy.json');
 
 /**
@@ -35,6 +40,10 @@ const OUT = resolve(ROOT, 'content/_taxonomy.json');
  *   3 = becoming skilled      4 = parked (years away; stubs only)
  */
 const STAGE_BY_CHAPTER = {
+  '37': 1, // Ductwork fundamentals & application — roughly half the daily work
+  '38': 2, // Ductwork fittings, finish & defects
+  '39': 1, // 防露 condensation control — named in the employer's own scope
+
   '00': 1, // Orientation & Learning System
   '01': 1, // Construction & Site Fundamentals   <- under-weighted in source
   '06': 1, // Materials (identification + handling)
@@ -82,7 +91,7 @@ const STAGE_BY_CHAPTER = {
  * Every item in these chapters gets full human review before merge, and the
  * safety-writer agent handles them rather than the general craft writer.
  */
-const SAFETY_CRITICAL_CHAPTERS = ['07', '08', '09', '12', '14', '15', '16', '20', '27'];
+const SAFETY_CRITICAL_CHAPTERS = ['07', '08', '09', '12', '14', '15', '16', '20', '27', '39'];
 
 /** Content shape. Not everything is an article. */
 function inferKind(chapterNo) {
@@ -112,18 +121,24 @@ function extractJapanese(text) {
 }
 
 function parse() {
-  const raw = readFileSync(SOURCE, 'utf8');
-  const lines = raw.split(/\r?\n/);
-
   const chapters = [];
+  const byNo = new Map();
   let chapter = null;
   let section = null;
   let leafSeq = 0;
+
+  const lines = SOURCES.flatMap((f) => readFileSync(f, 'utf8').split(/\r?\n/));
 
   for (const line of lines) {
     const h1 = /^# (\d{2})\.\s+(.+?)\s*$/.exec(line);
     if (h1) {
       const [, no, title] = h1;
+      // A chapter reopened by the extensions file continues the existing one.
+      if (byNo.has(no)) {
+        chapter = byNo.get(no);
+        section = null;
+        continue;
+      }
       chapter = {
         no,
         title,
@@ -135,6 +150,7 @@ function parse() {
         sections: [],
       };
       chapters.push(chapter);
+      byNo.set(no, chapter);
       section = null;
       continue;
     }
