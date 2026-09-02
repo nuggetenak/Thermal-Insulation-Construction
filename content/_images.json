@@ -1,0 +1,11 @@
+{
+  "_comment": "Image registry. Every image used in content is listed here before it can be referenced. 'licence' is mandatory and drives attribution rendering — CC-BY and CC-BY-SA legally require credit, and the app renders it automatically from these fields so nobody has to remember. 'origin' records how the asset came to exist: photo | svg | generated. Generated images may only be used as illustration, never for identification, PPE, tools, defects or procedure. See docs/image-needs.md.",
+  "licences": {
+    "CC0": { "attribution": false, "shareAlike": false },
+    "PD": { "attribution": false, "shareAlike": false },
+    "CC-BY-4.0": { "attribution": true, "shareAlike": false },
+    "CC-BY-SA-4.0": { "attribution": true, "shareAlike": true },
+    "own-work": { "attribution": false, "shareAlike": false }
+  },
+  "images": []
+}

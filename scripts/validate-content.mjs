@@ -22,6 +22,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = resolve(ROOT, 'content');
 const TAXONOMY = resolve(CONTENT, '_taxonomy.json');
 const SOURCES = resolve(CONTENT, '_sources.json');
+const IMAGES = resolve(CONTENT, '_images.json');
 
 const errors = [];
 const warnings = [];
@@ -171,8 +172,30 @@ function main() {
     }
   }
 
+  const imageData = JSON.parse(readFileSync(IMAGES, 'utf8'));
+  const imageById = new Map((imageData.images || []).map((i) => [i.id, i]));
+
+  // A licence with an attribution requirement is a legal obligation, not a
+  // nicety. Catch a missing credit here rather than after publication.
+  for (const img of imageData.images || []) {
+    const lic = imageData.licences[img.licence];
+    if (!lic) {
+      err('content/_images.json', `image "${img.id}" has unknown licence "${img.licence}"`);
+      continue;
+    }
+    if (lic.attribution && !img.author) {
+      err('content/_images.json', `image "${img.id}" is ${img.licence} which requires attribution, but has no author`);
+    }
+    if (img.origin !== 'own-work' && img.origin !== 'svg' && !img.sourceUrl) {
+      err('content/_images.json', `image "${img.id}" has no sourceUrl`);
+    }
+    if (img.origin === 'generated' && img.usage !== 'illustration') {
+      err('content/_images.json', `image "${img.id}" is generated but used as "${img.usage}" — generated images may only be illustration. See docs/image-needs.md`);
+    }
+  }
+
   const files = walk(CONTENT).filter(
-    (f) => !['_taxonomy.json', '_sources.json'].includes(basename(f)),
+    (f) => !['_taxonomy.json', '_sources.json', '_images.json'].includes(basename(f)),
   );
   const seenIds = new Set();
 
@@ -297,6 +320,20 @@ function main() {
     const wordCount = body.split(/\s+/).filter(Boolean).length;
     if (data.status !== 'stub' && wordCount < 120) {
       warn(file, `body is only ${wordCount} words — thin for full-depth content`);
+    }
+
+    // --- images -------------------------------------------------------------
+    for (const m of body.matchAll(/!\[([^\]]*)\]\(([^)]+)\)/g)) {
+      const [, alt, ref] = m;
+      if (!alt.trim()) err(file, `image "${ref}" has no alt text`);
+      if (!imageById.has(ref)) {
+        err(file, `image "${ref}" is not in content/_images.json — register it first`);
+        continue;
+      }
+      const img = imageById.get(ref);
+      if (img.origin === 'generated' && known.safetyCritical) {
+        err(file, `image "${ref}" is AI-generated and cannot appear in a safety-critical chapter`);
+      }
     }
 
     // --- copyright guard ----------------------------------------------------

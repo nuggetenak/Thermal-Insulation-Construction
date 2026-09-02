@@ -1,12 +1,17 @@
 import { useMemo, useState } from 'react';
 import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import data from './generated/index.json';
+import images from '../content/_images.json';
 import { search } from './search';
 import type { Chapter, Item, Source } from './types';
 
 const chapters = data.chapters as unknown as Chapter[];
 const sources = data.sources as unknown as Source[];
 const sourceById = new Map(sources.map((s) => [s.id, s]));
+const imageById = new Map(
+  (images.images as { id: string }[]).map((i) => [i.id, i as Record<string, string>]),
+);
+const licences = images.licences as Record<string, { attribution: boolean }>;
 
 const STAGES = [
   { n: 1, label: 'Before you fly', note: 'What keeps you safe and useful in month one' },
@@ -93,6 +98,44 @@ function renderBody(md: string) {
       return;
     }
     flushTable('t' + n);
+
+    const img = /^!\[([^\]]*)\]\(([^)]+)\)/.exec(line.trim());
+    if (img) {
+      flushPara('p' + n);
+      flush('u' + n);
+      const meta = imageById.get(img[2]);
+      if (meta) {
+        const needsCredit = licences[meta.licence]?.attribution;
+        blocks.push(
+          <figure key={n} className="my-5">
+            <img
+              src={`${import.meta.env.BASE_URL}${meta.file}`}
+              alt={img[1]}
+              loading="lazy"
+              className="w-full rounded-md border border-band"
+            />
+            <figcaption className="mt-1.5 text-[13px] text-muted">
+              {img[1]}
+              {needsCredit && meta.author && (
+                <>
+                  {' — '}
+                  {meta.sourceUrl ? (
+                    <a href={meta.sourceUrl} target="_blank" rel="noreferrer noopener"
+                       className="underline underline-offset-2">
+                      {meta.author}
+                    </a>
+                  ) : (
+                    meta.author
+                  )}
+                  {`, ${meta.licence}`}
+                </>
+              )}
+            </figcaption>
+          </figure>,
+        );
+      }
+      return;
+    }
 
     const h3 = /^###\s+(.+)/.exec(line);
     const h2 = /^##\s+(.+)/.exec(line);

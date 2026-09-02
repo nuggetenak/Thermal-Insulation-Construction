@@ -17,6 +17,10 @@ Updated: 2026-09-02
 | Corpus view (filterable) | done |
 | Sources index page | done |
 | Markdown tables + h3 rendering | done |
+| Image registry + licence enforcement | done |
+| Image needs list drafted | done |
+| Photographs sourced | not started |
+| SVG diagrams authored | not started |
 | Split index for scale (see HANDOFF task 1) | not started |
 | Offline / PWA | not started |
 | Calculators | not started |

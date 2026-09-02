@@ -163,6 +163,32 @@ Full depth. Roughly 400–900 words for an article. Shorter is acceptable when
 the topic is genuinely small; padding to hit a number is not. The validator
 warns below 120 words.
 
+## Images
+
+Reference an image by its registry id, not a path:
+
+```
+![Glass wool pipe section, cut face visible](gw-section-cut)
+```
+
+The id must exist in `content/_images.json`. Alt text is mandatory — the
+validator rejects an empty one.
+
+Before referencing an image, read `docs/image-needs.md`. The short version:
+
+- **Photographs** are for recognising a real thing. Licensed only, never
+  AI-generated. Material identification, tools, PPE and defects are all
+  photographs.
+- **Diagrams** are geometry. Original SVG in this repo.
+- **AI-generated images** may only be chapter header illustration. The
+  validator blocks them from safety-critical chapters entirely.
+
+A generated photo of glass wool is a hallucination presented as evidence, and
+the whole job of that image is to show what the real thing looks like.
+
+Attribution renders automatically from the registry. CC-BY and CC-BY-SA are
+legal obligations, so the licence field is enforced rather than trusted.
+
 ## Copyright
 
 JIS, ASTM, ISO, API and ASME documents are paid publications.
