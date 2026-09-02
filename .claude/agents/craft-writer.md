@@ -11,7 +11,8 @@ You write content items for a thermal insulation trade reference.
 Before writing anything:
 1. Read `CLAUDE.md`.
 2. Read `docs/content-style-guide.md`.
-3. Read an item with `status: approved` and match its shape and voice.
+3. Read the exemplar `content/ch02/02.3.01-why-insulation-reduces-heat-flow.md`
+   and match its shape and voice.
 4. Find your item in `content/_taxonomy.json` and use its exact id and path.
 
 Then write the item, and run `npm run validate` before you finish. Fix anything
@@ -27,8 +28,9 @@ trade experience and cannot catch your error.
 
 Three rules the validator enforces, so getting them wrong wastes a whole run:
 
-- Set `status: review`, never `approved`. Approval is the owner's act, recorded
-  in `content/_approved.json`, which you never edit.
+- Set `status: review`, never `approved` — `approved` is not an allowed value
+  and the validator rejects it. `content/_approved.json` is the owner's reading
+  record, which you never edit. Nothing you write waits on it.
 - Never write in the first person. There is no narrator. "No source consulted
   states this", not "I could not find".
 - Declare a Japanese term only in the item that owns it. Elsewhere, use it and

@@ -55,7 +55,10 @@
       "quotable": false,
       "retrieved": "2026-09-02",
       "recheckAfter": "2028-01-01",
-      "note": "PAID STANDARD. Cite the number and describe what it governs. Never reproduce clauses, tables or specified values. Named in the 学科 scope."
+      "note": "PAID STANDARD. Cite the number and describe what it governs. Never reproduce clauses, tables or specified values. Named in the 学科 scope.",
+      "namedAs": [
+        "JIS A 9501"
+      ]
     },
     {
       "id": "jtia",
@@ -83,7 +86,11 @@
       "quotable": false,
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-04-01",
-      "note": "Governs work at height, PPE, scaffolding and site safety. Primary anchor for chapters 08 and 09."
+      "note": "Governs work at height, PPE, scaffolding and site safety. Primary anchor for chapters 08 and 09.",
+      "namedAs": [
+        "労働安全衛生法",
+        "労働安全衛生規則"
+      ]
     },
     {
       "id": "general-heat-transfer",
@@ -167,7 +174,10 @@
       "quotable": true,
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-04-01",
-      "note": "The Act that licenses construction businesses by trade category, bans passing a whole job straight to another company (第22条 一括下請負の禁止), requires a 主任技術者 on site for every licensed contractor (第26条), and requires the prime contractor to keep a 施工体制台帳 and post a 施工体系図 once subcontracting passes a stated value (第24条の8). Japanese statute text is outside copyright under 著作権法第13条, so it is quotable — but paraphrase anyway, because the readers here need plain English rather than legal Japanese."
+      "note": "The Act that licenses construction businesses by trade category, bans passing a whole job straight to another company (第22条 一括下請負の禁止), requires a 主任技術者 on site for every licensed contractor (第26条), and requires the prime contractor to keep a 施工体制台帳 and post a 施工体系図 once subcontracting passes a stated value (第24条の8). Japanese statute text is outside copyright under 著作権法第13条, so it is quotable — but paraphrase anyway, because the readers here need plain English rather than legal Japanese.",
+      "namedAs": [
+        "建設業法"
+      ]
     },
     {
       "id": "mlit-gyoshu-kubun",
@@ -181,7 +191,10 @@
       "quotable": false,
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-11-01",
-      "note": "Consolidates the 建設業法別表, the 告示 defining each trade category, and the 建設業許可事務ガイドライン examples. Source for what 熱絶縁工事 covers, for 管工事 including duct installation and air-conditioning, and for 電気工事 and 消防施設工事 being separate categories from it. Paraphrase; do not reproduce the table."
+      "note": "Consolidates the 建設業法別表, the 告示 defining each trade category, and the 建設業許可事務ガイドライン examples. Source for what 熱絶縁工事 covers, for 管工事 including duct installation and air-conditioning, and for 電気工事 and 消防施設工事 being separate categories from it. Paraphrase; do not reproduce the table.",
+      "namedAs": [
+        "熱絶縁工事業"
+      ]
     },
     {
       "id": "mlit-kikai-shiyosho",
@@ -209,7 +222,10 @@
       "quotable": false,
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-04-01",
-      "note": "Construction lost its exemption from the statutory overtime ceiling on 1 April 2024. Source for the limits that now apply to a construction working month and year, and for the disaster-recovery work that is still excepted from part of them."
+      "note": "Construction lost its exemption from the statutory overtime ceiling on 1 April 2024. Source for the limits that now apply to a construction working month and year, and for the disaster-recovery work that is still excepted from part of them.",
+      "namedAs": [
+        "時間外労働の上限規制"
+      ]
     },
     {
       "id": "ccus",
@@ -223,7 +239,42 @@
       "quotable": false,
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-09-01",
-      "note": "Industry-wide card and database recording who a worker is, what qualifications they hold and which sites they have worked on. Registration counts are republished monthly at a fixed URL, so any figure taken from it goes stale silently — re-read the current file rather than repeating a number from an item."
+      "note": "Industry-wide card and database recording who a worker is, what qualifications they hold and which sites they have worked on. Registration counts are republished monthly at a fixed URL, so any figure taken from it goes stale silently — re-read the current file rather than repeating a number from an item.",
+      "namedAs": [
+        "建設キャリアアップシステム"
+      ]
+    },
+    {
+      "id": "nyukeiho",
+      "title": "公共工事の入札及び契約の適正化の促進に関する法律（平成12年法律第127号）",
+      "titleEn": "Act on Promoting Proper Tendering and Contracting for Public Works",
+      "publisher": "e-Gov 法令検索 / 総務省",
+      "url": "https://laws.e-gov.go.jp/law/412AC0000000127",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": true,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "The statute that tightens 建設業法 for public work. 第15条第1項 rewrites 建設業法第24条の8 for public projects: the duty falls on any licensed contractor rather than only a 特定建設業者, the monetary threshold is replaced by the mere fact of having subcontracted at all, and the 施工体系図 must be posted where the public can see it as well as where site workers can. Read the full text through the e-Gov API rather than the web page, which is a script shell. Statute text is outside copyright under 著作権法第13条, but paraphrase anyway.",
+      "namedAs": [
+        "入契法",
+        "公共工事の入札及び契約の適正化"
+      ]
+    },
+    {
+      "id": "mlit-eizen-shukyu",
+      "title": "営繕工事における週休２日（現場閉所）工事のモニタリングについて",
+      "titleEn": "Monitoring of two-day-weekend (site closure) working on government building projects",
+      "publisher": "国土交通省大臣官房官庁営繕部計画課",
+      "url": "https://www.mlit.go.jp/gobuild/gobuild_tk2_000042.html",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "The same department that issues 公共建築工事標準仕様書 tracks whether government building sites actually close. Defines 週休2日 as 4週8休以上の現場閉所 — eight days of site closure in every four weeks — and publishes monitoring results. Source for the claim that the industry is pushing for site closure rather than merely for shorter hours. It is a target being monitored, not an achieved state, and it governs public work; how far it reaches a six-person subcontractor is not settled by it."
     }
   ]
 }

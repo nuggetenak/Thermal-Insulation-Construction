@@ -4,9 +4,15 @@ State as of 2026-09-02. Written for a session with no conversation history.
 
 ## Where the project stands
 
-The foundation is built and deployed. One exemplar item is written. Content
-writing has **not** started, and should not start until the two open questions
-below are answered.
+The foundation is built and deployed, and content writing has started. Six
+items are written:
+
+- `01.1.01` to `01.1.04` — the whole of section 01.1, merged in PR #4.
+- `02.3.01` — the general-craft exemplar, merged before that.
+- `09.1.03` — the safety-critical exemplar, merged in PR #2.
+
+Nothing is waiting on a decision. The next work is the rest of stage 1,
+chapter 01 first.
 
 ## The employer, confirmed
 
@@ -131,8 +137,8 @@ other chapter chunk loads. Search and the Corpus filter still work against
 the catalog alone. Stub items and the chapter list trigger no extra fetch at
 all.
 
-At the current one-written-item state the byte counts are close (the old
-single file was 360,786 bytes; catalog.json is 342,667 bytes plus a 6,674
+Measured when only one item was written, the byte counts were close (the old
+single file was 360,786 bytes; catalog.json was 342,667 bytes plus a 6,674
 byte `ch02.json`) because catalog metadata for 1146 items, not body text,
 dominates the file today. The split doesn't pay off yet, it pays off going
 forward: `catalog.json` stays roughly flat as content is written, while body
@@ -146,21 +152,48 @@ downloads for the chapter they open.
 1. Offline support. The site gets used in plant rooms with no signal. Service
    worker, cache the catalog and visited chapters.
 2. Second exemplar from a safety-critical chapter (08 or 09), because safety
-   content has a different shape and both exemplars need approving before the
-   writing agents run. **Done.** `09.1.03` three-point contact, merged in PR #2.
-   Two Japanese sources were added to the registry for it —
-   `jniosh-ladder-falls` and `kensaibou-low-height`. Both exemplars were set to
-   `status: approved` by the owner on 2026-09-02, so writing is unblocked.
+   content has a different shape. **Done.** `09.1.03` three-point contact,
+   merged in PR #2. Two Japanese sources were added to the registry for it —
+   `jniosh-ladder-falls` and `kensaibou-low-height`.
 
-   One caveat to carry forward: that approval was the owner's call, not the
-   output of the every-line review CLAUDE.md requires for a `safetyCritical`
-   chapter, and `reviews/` holds no record for `09.1.03`. The item is written
-   to be checkable — its numbers all trace to two named Japanese sources, and
-   the four places where no source was found say so in the text. Run the
-   fact-checker over it before chapter 09 is written against it as a pattern.
+   Both exemplars carry `status: review`, which is as far as a content file
+   goes: `approved` was removed from the allowed status values in commit
+   00841ed, and the validator now rejects it outright.
+   `content/_approved.json` is empty.
+
+   **Approval is not a gate, and writing does not wait on it.**
+   `content/_approved.json` is a reading record: an id in it means a human
+   read that item and accepted it. It grants no permission and blocks nothing.
+   What it still does is keep approval out of an agent's hands — an agent
+   cannot record acceptance of its own work (CLAUDE.md rule 6). Write against
+   the two exemplars because they are the quality bar, not because anyone
+   signed them off.
+
+   The caveat to carry forward is about review, not approval: `09.1.03` had
+   never had the every-line review CLAUDE.md requires for a `safetyCritical`
+   chapter. **That review is now done** — `reviews/ch09-factcheck.md`. Its
+   figures all check out against the two cited Japanese sources; what it found
+   was three attribution errors, the largest being that the leaflet's rule
+   about descending backwards belongs to its stepladder block, not its ladder
+   block. Read the report before writing the rest of chapter 09 against this
+   item as a pattern.
+
+   All six written items have been fact-checked, and the findings have been
+   fixed. `reviews/ch01-factcheck.md` and `reviews/ch02-factcheck.md` carry the
+   other two reports. Each keeps its findings as written and ends with a dated
+   **Resolution** section recording what was done — including what was left
+   alone on purpose, so nobody re-raises it.
+
+   Two things worth carrying forward from that round. The MLIT specification
+   was read directly rather than searched, which overturned three findings that
+   a web-only pass had reported as unconfirmed — if an item rests on a large
+   Japanese PDF, open the PDF. And `02.3.01`'s lambda table still has three
+   rows nobody has verified against their own source, because ScienceDirect
+   refuses access; the item now says so in the text.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
-   readers need it.
+   readers need it. **Section 01.1 done** (four items, PR #4); 01.2 onward
+   is the next writing work.
 4. Calculators, with unit tests and a second independent source per formula.
 5. Original SVG diagrams.
 

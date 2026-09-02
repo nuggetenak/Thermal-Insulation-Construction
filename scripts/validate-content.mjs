@@ -261,6 +261,47 @@ function main() {
       if (ref === data.id) err(file, 'seeAlso references itself');
     }
 
+    // --- body links ---------------------------------------------------------
+    // The renderer turns any body link whose href carries an id-shaped token
+    // into a live #/item/<id> link. Nothing checked those ids, so a link to an
+    // id that never existed rendered as a working link to nothing, and passed
+    // validation clean. seeAlso was the only cross-reference being validated.
+    //
+    // Linking forward to an item nobody has written yet is deliberate and
+    // correct — the app renders an unwritten item as an honest "not written"
+    // placeholder, and a reference is meant to point at its own shape before it
+    // is filled in. So the rule is only that the id must exist in the taxonomy.
+    // The id must stand alone. The renderer's pattern has no digit boundaries, so
+    // a typo with one digit too many — 01.1.011 — still contains a valid id and
+    // routes the reader to 01.1.01, quietly delivering a different item from the
+    // one the link names. Requiring the boundaries here turns that silent
+    // substitution into a build failure.
+    const ID_IN_HREF = /(?<!\d)\d{2}\.\d+\.\d{2}(?!\d)/;
+    const ID_LOOSE = /\d{2}\.\d+\.\d{2}/;
+    for (const m of body.matchAll(/(?<!!)\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
+      const href = m[2];
+      const found = ID_IN_HREF.exec(href);
+      if (found) {
+        if (!byId.has(found[0])) {
+          err(
+            file,
+            `body links to "${found[0]}" (${href}) which is not in the taxonomy — that renders as a live link to nothing. Linking to an unwritten item is fine; inventing an id is not.`,
+          );
+        }
+      } else if (ID_LOOSE.test(href)) {
+        // Digits either side of something id-shaped. The app would read an id
+        // out of it and go there, which is worse than failing to link at all.
+        err(
+          file,
+          `body link "${href}" carries a malformed id — the app would read "${ID_LOOSE.exec(href)[0]}" out of it and send the reader there instead`,
+        );
+      } else if (/(^|\/)ch\d\d\//.test(href)) {
+        // An item path carrying no readable id. The renderer cannot linkify it,
+        // so it renders as literal markdown in the middle of a sentence.
+        err(file, `body link "${href}" points into a chapter directory but carries no id the app can read`);
+      }
+    }
+
     // --- Japanese terms -----------------------------------------------------
     // Stored as discrete fields so a flashcard deck can be generated later
     // from content that already exists, rather than rewritten from scratch.
@@ -336,6 +377,26 @@ function main() {
       .replace(/`[^`]*`/g, ' ')
       .replace(/"[^"\n]{0,120}"/g, ' ')
       .replace(/\u201c[^\u201d\n]{0,120}\u201d/g, ' ');
+
+    // --- named but not cited ---------------------------------------------
+    // An item that discusses a document by name is making claims about that
+    // document, and those claims belong in the audit trail like any other.
+    // 02.3.01 named JIS A 9501 three times — that it governs Japanese practice,
+    // that it is paid, that it overrides this reference — without citing it,
+    // and nothing caught that, because the sourcing checks only ask whether the
+    // ids that ARE listed resolve. A registry entry declares the names it
+    // answers to in "namedAs"; using one of them means citing it.
+    for (const src of registry) {
+      for (const name of src.namedAs || []) {
+        if (cited.includes(src.id)) break;
+        if (!prose.includes(name)) continue;
+        err(
+          file,
+          `names "${name}" in the body but does not cite "${src.id}". A claim about a document is a claim like any other — add it to sources.`,
+        );
+        break;
+      }
+    }
 
     // Voice. The reference has no narrator. Across 1146 items written in
     // separate sessions, "I" refers to nobody the reader can identify.

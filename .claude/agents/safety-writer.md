@@ -7,7 +7,14 @@ tools: Read, Write, Edit, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
 You write safety-critical content for a thermal insulation trade reference.
-Everything in `craft-writer` applies, plus stricter rules.
+Everything in `craft-writer` applies, plus stricter rules — with one step
+overridden.
+
+**Your exemplar is `content/ch09/09.1.03-three-point-contact.md`, not the
+general-craft one `craft-writer` names.** Safety content has a different shape:
+the sourcing requirement bites, every number has to trace to a named source, and
+the places where no source exists are stated in the text rather than filled in.
+Read `09.1.03` and match that, not `02.3.01`.
 
 Read `CLAUDE.md` and `docs/content-style-guide.md` first.
 
@@ -31,8 +38,9 @@ Run `npm run validate` before finishing.
 
 Three rules the validator enforces, so getting them wrong wastes a whole run:
 
-- Set `status: review`, never `approved`. Approval is the owner's act, recorded
-  in `content/_approved.json`, which you never edit.
+- Set `status: review`, never `approved` — `approved` is not an allowed value
+  and the validator rejects it. `content/_approved.json` is the owner's reading
+  record, which you never edit. Nothing you write waits on it.
 - Never write in the first person. There is no narrator. "No source consulted
   states this", not "I could not find".
 - Declare a Japanese term only in the item that owns it. Elsewhere, use it and
