@@ -73,9 +73,11 @@ empty, `approved` is no longer an allowed status value, and the register is a
 reading record — an id in it means a human read that item and accepted it — not
 a permission to proceed. Writing is not gated on it.
 
-What has not happened is review. `09.1.03` has never had the every-line review
-CLAUDE.md asks for on a `safetyCritical` chapter. A fact-checker pass over it is the
-outstanding work; reports land in `reviews/`.
+All six have been fact-checked, adversarially, and the reports are in
+`reviews/`. That includes the every-line review CLAUDE.md asks for on a
+`safetyCritical` chapter, which `09.1.03` had never had. **Nothing found has
+been acted on** — the reports are for the owner to read and decide. No content
+file was edited.
 
 ## How to update this file
 

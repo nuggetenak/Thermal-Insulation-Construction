@@ -169,12 +169,18 @@ downloads for the chapter they open.
    the two exemplars because they are the quality bar, not because anyone
    signed them off.
 
-   The caveat to carry forward is about review, not approval: `09.1.03` has
+   The caveat to carry forward is about review, not approval: `09.1.03` had
    never had the every-line review CLAUDE.md requires for a `safetyCritical`
-   chapter. The item is written to be checkable — its numbers all trace to two
-   named Japanese sources, and the four places where no source was found say so
-   in the text. Run the fact-checker over it before the rest of
-   chapter 09 is written against it as a pattern; reports land in `reviews/`.
+   chapter. **That review is now done** — `reviews/ch09-factcheck.md`. Its
+   figures all check out against the two cited Japanese sources; what it found
+   was three attribution errors, the largest being that the leaflet's rule
+   about descending backwards belongs to its stepladder block, not its ladder
+   block. Read the report before writing the rest of chapter 09 against this
+   item as a pattern.
+
+   All six written items have been fact-checked. `reviews/ch01-factcheck.md`
+   and `reviews/ch02-factcheck.md` carry the other two. Nothing in any of them
+   has been acted on — the reports are for the owner to read and decide.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
    readers need it. **Section 01.1 done** (four items, PR #4); 01.2 onward
