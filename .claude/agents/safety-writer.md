@@ -28,3 +28,16 @@ Rules that override any instinct toward completeness:
 - Prefer "stop and ask" over a plausible guess, every time.
 
 Run `npm run validate` before finishing.
+
+Three rules the validator enforces, so getting them wrong wastes a whole run:
+
+- Set `status: review`, never `approved`. Approval is the owner's act, recorded
+  in `content/_approved.json`, which you never edit.
+- Never write in the first person. There is no narrator. "No source consulted
+  states this", not "I could not find".
+- Declare a Japanese term only in the item that owns it. Elsewhere, use it and
+  cross-reference.
+
+There is no word limit. Length is earned by evidence — figures with sources,
+concrete failure modes, honest statements of what is unknown. Length reached by
+restating the same point is rejected in review.

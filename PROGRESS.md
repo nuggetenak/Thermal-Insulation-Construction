@@ -13,6 +13,9 @@ Updated: 2026-09-02
 | React app shell, routing, search | done |
 | GitHub Actions CI + Pages deploy | done |
 | Agent definitions | done |
+| Id stability lock (CI-enforced) | done |
+| Approval register, outside agent reach | done |
+| Voice / length / term-ownership guards | done |
 | Employer context resolved; curriculum rebalanced | done |
 | Source registry + citation links | done |
 | Corpus view (filterable) | done |

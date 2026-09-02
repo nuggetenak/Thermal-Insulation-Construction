@@ -23,6 +23,7 @@ const CONTENT = resolve(ROOT, 'content');
 const TAXONOMY = resolve(CONTENT, '_taxonomy.json');
 const SOURCES = resolve(CONTENT, '_sources.json');
 const IMAGES = resolve(CONTENT, '_images.json');
+const APPROVED = resolve(CONTENT, '_approved.json');
 
 const errors = [];
 const warnings = [];
@@ -35,7 +36,7 @@ const warn = (file, msg) => warnings.push(`${file}: ${msg}`);
 
 const REQUIRED_FIELDS = ['id', 'title', 'chapter', 'section', 'stage', 'kind', 'status', 'summary'];
 
-const VALID_STATUS = ['stub', 'draft', 'review', 'approved'];
+const VALID_STATUS = ['stub', 'draft', 'review'];
 const VALID_KIND = ['article', 'vocabulary', 'practical', 'diagnostic'];
 const VALID_CONFIDENCE = ['verified', 'standard-practice', 'needs-confirmation'];
 const VALID_SOURCE_BASIS = ['general', 'cited'];
@@ -172,6 +173,7 @@ function main() {
     }
   }
 
+  const approved = new Set(JSON.parse(readFileSync(APPROVED, 'utf8')).approved || []);
   const imageData = JSON.parse(readFileSync(IMAGES, 'utf8'));
   const imageById = new Map((imageData.images || []).map((i) => [i.id, i]));
 
@@ -230,7 +232,13 @@ function main() {
 
     // --- enums --------------------------------------------------------------
     if (!VALID_STATUS.includes(data.status)) {
-      err(file, `status "${data.status}" must be one of: ${VALID_STATUS.join(', ')}`);
+      if (data.status === 'approved') {
+        // Approval is the owner's act, recorded outside the content file, so an
+        // agent cannot mark its own work approved.
+        err(file, 'status "approved" is not settable here — approval is recorded in content/_approved.json by the owner. Use "review".');
+      } else {
+        err(file, `status "${data.status}" must be one of: ${VALID_STATUS.join(', ')}`);
+      }
     }
     if (!VALID_KIND.includes(data.kind)) {
       err(file, `kind "${data.kind}" must be one of: ${VALID_KIND.join(', ')}`);
@@ -318,8 +326,22 @@ function main() {
     }
 
     const wordCount = body.split(/\s+/).filter(Boolean).length;
-    if (data.status !== 'stub' && wordCount < 120) {
+    if (wordCount < 120) {
       warn(file, `body is only ${wordCount} words — thin for full-depth content`);
+    }
+
+    // Voice. The reference has no narrator. Across 1146 items written in
+    // separate sessions, "I" refers to nobody the reader can identify.
+    const firstPerson = body.match(/(?:^|[\s("'])(I|I'm|I've|I'd|my|me|we|our|us)(?=[\s.,;:!?)"'])/g);
+    if (firstPerson) {
+      const sample = [...new Set(firstPerson.map((m) => m.trim()))].slice(0, 4).join(', ');
+      err(file, `first-person voice found (${sample}) — this reference has no narrator. Write "no source consulted states this", not "I could not find".`);
+    }
+
+    // Length is earned, not capped. A long item must carry the evidence that
+    // justifies it; a long item resting on one source is usually padding.
+    if (wordCount > 1200 && cited.length < 2) {
+      warn(file, `${wordCount} words on ${cited.length} source(s) — length must be earned by evidence, not by elaboration`);
     }
 
     // --- images -------------------------------------------------------------
@@ -345,9 +367,32 @@ function main() {
     }
   }
 
+  // Term ownership: a term is introduced once, in the item that owns it, and
+  // referenced elsewhere. Otherwise the generated glossary fills with
+  // near-duplicate entries that disagree with each other.
+  const termOwners = new Map();
+  for (const full of files) {
+    const { data } = parseFrontmatter(readFileSync(full, 'utf8'), full);
+    for (const t of data?.terms || []) {
+      if (typeof t !== 'object' || !t.term) continue;
+      termOwners.set(t.term, [...(termOwners.get(t.term) || []), data.id]);
+    }
+  }
+  for (const [term, owners] of termOwners) {
+    if (owners.length > 1) {
+      warn(
+        'content',
+        `term "${term}" is introduced in ${owners.length} items (${owners.join(', ')}) — introduce it once and cross-reference`,
+      );
+    }
+  }
+
   // --- report ---------------------------------------------------------------
   const authored = files.length;
-  console.log(`checked ${authored} content file(s) against ${byId.size} taxonomy ids`);
+  const approvedPresent = [...seenIds].filter((id) => approved.has(id)).length;
+  console.log(
+    `checked ${authored} content file(s) against ${byId.size} taxonomy ids (${approvedPresent} approved)`,
+  );
 
   if (warnings.length) {
     console.log(`\n${warnings.length} warning(s):`);

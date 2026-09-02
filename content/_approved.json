@@ -1,0 +1,4 @@
+{
+  "_comment": "Items the owner has read and approved. Approval is deliberately NOT a field in the content file, so an agent cannot mark its own work approved. Only the owner edits this list. An id here means: a human read it and accepted it as correct.",
+  "approved": []
+}

@@ -88,7 +88,32 @@ chapter: "02"          # quoted — leading zeros matter
 section: "02.3"
 stage: 2
 kind: article
-status: draft          # stub | draft | review | approved
+status: draft          # stub | draft | review — never "approved"''")
+
+s = s.replace(### Approval is not yours to give
+
+`status` accepts `stub`, `draft` and `review`. It does not accept `approved`,
+and the validator rejects it.
+
+Approval is recorded in `content/_approved.json`, edited by the owner alone. An
+id in that file means a human read the item and accepted it as correct. An agent
+marking its own work approved would make the whole review tier meaningless, so
+the field is simply not available.
+
+Set `review` when you believe an item is finished.
+
+### Term ownership
+
+A Japanese term is introduced **once**, in the item it belongs to, with its full
+`terms` entry. Elsewhere, use it in the prose and cross-reference the item that
+owns it.
+
+保護帽 belongs to the helmet item. 作業床 belongs to the work-platform item. If
+every item that mentions them re-declares them, the generated glossary fills
+with near-duplicates that quietly disagree about the meaning. The validator warns
+when a term is declared in more than one item.
+
+### Sourcing
 summary: "..."         # one sentence, under 30 words, plain language
 terms:                 # every Japanese term used in the body
   - term: 保温
@@ -157,11 +182,42 @@ Link with the item id: `[02.3.02](../ch02/02.3.02-effect-of-thickness.md)`.
 The app rewrites these to internal routes. Referencing an unwritten item is
 fine and expected — the target exists in the taxonomy from day one.
 
-## Length
+## Length is earned, not capped
 
-Full depth. Roughly 400–900 words for an article. Shorter is acceptable when
-the topic is genuinely small; padding to hit a number is not. The validator
-warns below 120 words.
+There is no maximum. An item may run to 1700 words if it has 1700 words of
+substance. The approved safety exemplar does exactly that, and every hundred
+words of it carries a figure, a source, a named failure mode, or an honest
+statement of what is not known.
+
+The test is not how long it is. The test is whether a reader would lose
+something if you cut it.
+
+**What earns length:** a real figure with a source behind it. A failure mode
+described concretely enough to recognise. A limit on the rule you just gave. A
+worked example run through to a number. A named thing the sources do not settle.
+
+**What does not earn length:** restating the summary in the opening paragraph.
+Explaining the same idea twice in different words. Hedging that carries no
+information. Transitions that announce what the next section will cover.
+
+The validator warns below 120 words, and warns above 1200 words when fewer than
+two sources are cited — a long item resting on one source is usually
+elaboration rather than evidence.
+
+## Voice: there is no narrator
+
+Never write in the first person. This reference is written across many separate
+sessions, and "I" refers to nobody a reader can identify. The validator rejects
+it.
+
+Write the finding, not the search for it:
+
+- No: "I could not find a Japanese source for this."
+- Yes: "This is not stated in any source consulted here."
+- No: "In my view the risk is..."
+- Yes: "The risk is..."
+
+Saying what is unknown is required. Attaching it to a narrator is not.
 
 ## Images
 
