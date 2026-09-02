@@ -92,6 +92,18 @@ test('rejects a filename that does not match its id', () => {
   writeFileSync(resolve(TMP, 'wrong-name.md'), `---\nid: "02.3.03"\ntitle: "x"\nchapter: "02"\nsection: "02.3"\nstage: 2\nkind: article\nstatus: review\nsummary: "x"\nsourceBasis: general\n---\n${BODY}`, 'utf8');
 }, 'must begin with its id');
 test('rejects a dangling cross-reference', () => write({}, BODY, ['seeAlso: ["99.9.99"]']), 'unknown id');
+// Body links were unchecked for a long time: seeAlso was validated, inline
+// links were not, so an invented id rendered as a live link to nothing. Both
+// directions matter — an unwritten target is legitimate and must keep passing.
+test('rejects a body link to an id that is not in the taxonomy', () =>
+  write({}, BODY.replace('## Common mistakes', 'Thickness is covered in [x](../ch01/01.3.99-nope.md).\n\n## Common mistakes')),
+  'not in the taxonomy');
+test('accepts a body link to a real but unwritten item', () =>
+  write({}, BODY.replace('## Common mistakes', 'Inspection is covered in [01.3.04](../ch01/01.3.04-inspection.md).\n\n## Common mistakes')),
+  null);
+test('rejects a body link into a chapter directory with an unreadable id', () =>
+  write({}, BODY.replace('## Common mistakes', 'Inspection is covered in [01.3.4](../ch01/01.3.4-inspection.md).\n\n## Common mistakes')),
+  'carries no id the app can read');
 test('rejects status approved set by hand', () => write({ status: 'approved' }), 'not settable here');
 test('rejects first-person voice', () => write({}, BODY.replace('## In detail', '## In detail\n\nI could not find a source for this.')), 'first-person');
 test('rejects a missing required heading', () => write({}, BODY.replace('## Common mistakes', '## Something else')), 'missing required section');

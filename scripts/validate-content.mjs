@@ -261,6 +261,35 @@ function main() {
       if (ref === data.id) err(file, 'seeAlso references itself');
     }
 
+    // --- body links ---------------------------------------------------------
+    // The renderer turns any body link whose href carries an id-shaped token
+    // into a live #/item/<id> link. Nothing checked those ids, so a link to an
+    // id that never existed rendered as a working link to nothing, and passed
+    // validation clean. seeAlso was the only cross-reference being validated.
+    //
+    // Linking forward to an item nobody has written yet is deliberate and
+    // correct — the app renders an unwritten item as an honest "not written"
+    // placeholder, and a reference is meant to point at its own shape before it
+    // is filled in. So the rule is only that the id must exist in the taxonomy.
+    const ID_IN_HREF = /\d{2}\.\d+\.\d{2}/;
+    for (const m of body.matchAll(/(?<!!)\[([^\]]*)\]\(([^)\s]+)[^)]*\)/g)) {
+      const href = m[2];
+      const found = ID_IN_HREF.exec(href);
+      if (found) {
+        // Matches how the renderer picks the id: first id-shaped token in the href.
+        if (!byId.has(found[0])) {
+          err(
+            file,
+            `body links to "${found[0]}" (${href}) which is not in the taxonomy — that renders as a live link to nothing. Linking to an unwritten item is fine; inventing an id is not.`,
+          );
+        }
+      } else if (/(^|\/)ch\d\d\//.test(href)) {
+        // An item path carrying no readable id. The renderer cannot linkify it,
+        // so it renders as literal markdown in the middle of a sentence.
+        err(file, `body link "${href}" points into a chapter directory but carries no id the app can read`);
+      }
+    }
+
     // --- Japanese terms -----------------------------------------------------
     // Stored as discrete fields so a flashcard deck can be generated later
     // from content that already exists, rather than rewritten from scratch.
