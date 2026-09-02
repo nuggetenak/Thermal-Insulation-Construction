@@ -154,7 +154,76 @@
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-09-01",
       "note": "Industry association leaflet, footer dated 2025.3. States three-point contact as a rule for climbing (3点支持), plus: do not climb holding objects, do not come down facing away from the ladder, and use a ladder for access rather than as a place to work. Also the source for the 2013-2022 fatality averages, the helmet findings, and the 75-degree / 60 cm set-up figures. The filename is a content hash, so the URL may break when the leaflet is revised — re-check at the recheck date. Paraphrase only."
+    },
+    {
+      "id": "kensetsugyoho",
+      "title": "建設業法（昭和24年法律第100号）",
+      "titleEn": "Construction Business Act",
+      "publisher": "e-Gov 法令検索 / 総務省",
+      "url": "https://laws.e-gov.go.jp/law/324AC0000000100",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": true,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "The Act that licenses construction businesses by trade category, bans passing a whole job straight to another company (第22条 一括下請負の禁止), requires a 主任技術者 on site for every licensed contractor (第26条), and requires the prime contractor to keep a 施工体制台帳 and post a 施工体系図 once subcontracting passes a stated value (第24条の8). Japanese statute text is outside copyright under 著作権法第13条, so it is quotable — but paraphrase anyway, because the readers here need plain English rather than legal Japanese."
+    },
+    {
+      "id": "mlit-gyoshu-kubun",
+      "title": "業種区分、建設工事の内容、例示、区分の考え方（平成29年11月10日改正）",
+      "titleEn": "MLIT table of construction trade categories, their scope, examples and boundaries",
+      "publisher": "国土交通省 (MLIT)",
+      "url": "https://www.mlit.go.jp/common/001209751.pdf",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-11-01",
+      "note": "Consolidates the 建設業法別表, the 告示 defining each trade category, and the 建設業許可事務ガイドライン examples. Source for what 熱絶縁工事 covers, for 管工事 including duct installation and air-conditioning, and for 電気工事 and 消防施設工事 being separate categories from it. Paraphrase; do not reproduce the table."
+    },
+    {
+      "id": "mlit-kikai-shiyosho",
+      "title": "公共建築工事標準仕様書（機械設備工事編）令和7年版",
+      "titleEn": "Standard specification for public building works, mechanical services volume, 2025 edition",
+      "publisher": "国土交通省大臣官房官庁営繕部",
+      "url": "https://www.mlit.go.jp/gobuild/gobuild_tk6_000058.html",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2028-04-01",
+      "note": "Free official specification governing mechanical services work on government building projects, and the model most private specifications in Japan follow. Source for: pressure and airtightness testing being completed before concealment, before painting and before insulation is applied (2.9.1); rock wool at the insulated penetration of a fire compartment; no metal jacketing around a dielectric joint; refrigerant lines insulated only after the airtightness test and liquid and gas lines never wrapped together; no insulation within 25 mm of a wall or floor face on steam pipework; and the duty to record and photograph work that will become concealed. Reissued every few years (2022 then 2025), so re-verify clause numbers at the recheck date. Paraphrase only."
+    },
+    {
+      "id": "mhlw-jikangai-kensetsu",
+      "title": "建設業・ドライバー・医師等の時間外労働の上限規制",
+      "titleEn": "Overtime ceiling as applied to construction, drivers and doctors",
+      "publisher": "厚生労働省 (MHLW)",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/gyosyu/topics/01.html",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "Construction lost its exemption from the statutory overtime ceiling on 1 April 2024. Source for the limits that now apply to a construction working month and year, and for the disaster-recovery work that is still excepted from part of them."
+    },
+    {
+      "id": "ccus",
+      "title": "建設キャリアアップシステム",
+      "titleEn": "Construction Career Up System",
+      "publisher": "一般財団法人 建設業振興基金",
+      "url": "https://www.ccus.jp/",
+      "language": "ja",
+      "tier": 2,
+      "access": "open",
+      "quotable": false,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-09-01",
+      "note": "Industry-wide card and database recording who a worker is, what qualifications they hold and which sites they have worked on. Registration counts are republished monthly at a fixed URL, so any figure taken from it goes stale silently — re-read the current file rather than repeating a number from an item."
     }
-
   ]
 }
