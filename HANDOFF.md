@@ -117,10 +117,17 @@ downloads for the chapter they open.
    worker, cache the catalog and visited chapters.
 2. Second exemplar from a safety-critical chapter (08 or 09), because safety
    content has a different shape and both exemplars need approving before the
-   writing agents run. **Drafted:** `09.1.03` three-point contact. Two Japanese
-   sources were added to the registry for it — `jniosh-ladder-falls` and
-   `kensaibou-low-height`. Both exemplars are still `status: draft` and neither
-   has been approved.
+   writing agents run. **Done.** `09.1.03` three-point contact, merged in PR #2.
+   Two Japanese sources were added to the registry for it —
+   `jniosh-ladder-falls` and `kensaibou-low-height`. Both exemplars were set to
+   `status: approved` by the owner on 2026-09-02, so writing is unblocked.
+
+   One caveat to carry forward: that approval was the owner's call, not the
+   output of the every-line review CLAUDE.md requires for a `safetyCritical`
+   chapter, and `reviews/` holds no record for `09.1.03`. The item is written
+   to be checkable — its numbers all trace to two named Japanese sources, and
+   the four places where no source was found say so in the text. Run the
+   fact-checker over it before chapter 09 is written against it as a pattern.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
    readers need it.
