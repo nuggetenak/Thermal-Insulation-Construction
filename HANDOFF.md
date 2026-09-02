@@ -1,51 +1,92 @@
-# HANDOFF — Baca Ini Dulu
+# HANDOFF — read after CLAUDE.md
 
-Dokumen ini buat siapa pun (agent atau sesi baru) yang lanjutin project ini tanpa konteks percakapan sebelumnya. "Do not assume anything" — semua asumsi penting ditulis di sini.
+State as of 2026-09-02. Written for a session with no conversation history.
 
-## Konteks Personal
+## Where the project stands
 
-- Owner project akan kerja sebagai mechanical/piping insulator di **日建工業 Nikken Kogyo**, bagian **Midori Group**, Iwakuni, Yamaguchi Prefecture, Jepang.
-- ZERO pengalaman/pengetahuan di trade ini sebelumnya.
-- Nggak mampu bayar kursus formal — project ini dibangun via AI-assisted self-study sebagai gantinya.
-- Owner juga menjalankan project terpisah "Nugget Nihongo" (edukasi bahasa Jepang buat kandidat SSW konstruksi Indonesia). Skill-set beririsan (bahasa Jepang, konten edukasi terstruktur), tapi project INI beda fokus: trade insulation, bukan bahasa.
-- Gaya komunikasi owner: terse, bilingual ID/EN (+ istilah Jepang di project ini), act-don't-explain, gas sekarang.
+The foundation is built and deployed. One exemplar item is written. Content
+writing has **not** started, and should not start until the two open questions
+below are answered.
 
-## Kurikulum Awal — Starting Point, Bukan Tujuan Akhir
+## Open questions that block content
 
-Owner nemu kurikulum "Insulation Inspection (Technical & Industrial Standard)" (12 poin, lihat `modules/`) lewat googling sendiri — bukan dari instansi/kursus tertentu. Gaya kurikulum ini condong ke **QA/QC Inspector** ala industri Oil & Gas / petrochemical internasional: standar ASTM/API/ASME/SSPC, dokumentasi ITP/MIR/RFI/NCR/CAR, fokus besar ke Corrosion Under Insulation.
+### 1. Building insulation or plant insulation?
 
-**INSIGHT UTAMA yang mengubah arah project:** kerjaan owner nanti itu **installer/tukang** (hands-on), BUKAN inspector. Beda emphasis:
-- Inspector → audit, dokumentasi, standar compliance
-- Installer → motong & bentuk material, bikin pola jacketing, pasang di lapangan, baca gambar kerja
+The previous scaffold's notes recorded that the employer, 日建工業 Nikken
+Kogyo (Midori Group, Iwakuni, Yamaguchi), does **building and facility**
+insulation — school air conditioning, boiler rooms, pipework in public
+buildings — rather than refinery or petrochemical plant insulation.
 
-Makanya project dipecah jadi 3 track. Kurikulum awal tetap dipakai (Track 1) sebagai fundamental teori — masih berguna, cuma bukan satu-satunya lapisan.
+The curriculum outline this project derives from reads as plant-oriented in
+places: seismic movement joints, equipment insulation, heavy jacketing systems.
 
-## 3 Track
+If the job really is building services work, a meaningful share of stage 2 and
+stage 3 is aimed at the wrong target. Writing 300 articles about refinery
+pipework for someone insulating school ductwork would be exactly the
+inconsistency this project is built to avoid.
 
-### Track 1 — `modules/` — Fundamental Teknis
-12 modul dari kurikulum awal. Modul 1 selesai, 2–12 baru outline (sub-topik dari kurikulum asli + catatan relevansi installer vs inspector di tiap file).
+**Do not scale content writing until this is settled.** It is cheap to answer
+and expensive to get wrong.
 
-### Track 2 — `trade-practicum/` — Trade Jepang + Sertifikasi
-Fokus ke kerjaan nyata:
-- Nama resmi trade: **保温工事** (hoon kouji) / **熱絶縁施工** (netsu zetsuen sekou) — sumber: situs job tag Kemenaker Jepang (MHLW)
-- Sertifikasi nasional: **熱絶縁施工技能士** (1級/2級), technical skill test (技能検定)
-- Dua sub-kategori kerja: 保温保冷工事作業 (umum) vs 吹付け硬質ウレタンフォーム断熱工事作業 (spray foam) — **belum dikonfirmasi Nikken Kogyo pakai yang mana**
-- Nikken Kogyo terkonfirmasi condong ke **building/facility insulation** (AC sekolah, boiler room, pipa gedung publik) — BUKAN plant/refinery industrial insulation
-- Data pasar kerja sangat positif: rasio lowongan 7.7 (kekurangan tenaga kerja parah), nggak butuh pendidikan formal, pass rate ujian 49–65%
+### 2. Which work category?
 
-### Track 3 — `cheat-sheet/` — Field Reference & Calculator
-Spec kalkulator pola potong (straight pipe, elbow gore, tee saddle, reducer cone). Saat ini BARU spec matematis dalam .md — belum ada implementasi kode.
+Also unresolved from the previous notes: whether the employer's work falls
+under 保温保冷工事作業 (general) or 吹付け硬質ウレタンフォーム断熱工事作業
+(sprayed rigid urethane foam). These are different skill sets. The taxonomy
+assumes the former.
 
-## Constraint yang Harus Dijaga
+## First technical task
 
-- **Copyright:** ASTM/ISO/API/ASME/SSPC = dokumen berbayar, BUKAN open source. Boleh jelasin cakupan/tujuan standar dari info publik, JANGAN PERNAH kutip/reproduksi isi pasalnya.
-- Semua konten harus original/parafrase — termasuk dari sumber "legal open" kayak 日本保温保冷工業協会 atau job tag MHLW.
-- Ilustrasi: pakai diagram/SVG original (kalkulator geometri/trigonometri legal dibikin sendiri dari nol), bukan hasil scraping gambar dari web.
+**Split the generated index.** `src/generated/index.json` currently ships every
+item body in one file. At one written item it is 267 KB. At 800 full-depth
+items it would be several megabytes, all downloaded before the first paint.
 
-## Belum Dikerjakan / Next Steps
+The fix: emit a catalog (ids, titles, summaries, terms — enough for search and
+navigation) loaded up front, plus per-chapter body chunks loaded on demand via
+dynamic import. Do this before content volume makes it painful.
 
-1. Modul 2–12 (Track 1) — baru outline, belum ditulis lengkap
-2. Implementasi teknis kalkulator (Track 3) — butuh HTML/JS, di luar scope sesi ini yang cuma ".md"
-3. Riset lanjutan: kategori 吹付け硬質ウレタンフォーム断熱工事作業, kalau ternyata itu yang dipakai Nikken Kogyo
-4. Belum ada keputusan platform format akhir (static site? PWA? plain repo doang?) — masih terbuka
-5. Glossary kosakata Jepang teknis trade ini — belum disusun, padahal overlap sama expertise "Nugget Nihongo" milik owner
+## Then, in order
+
+1. Offline support. The site gets used in plant rooms with no signal. Service
+   worker, cache the catalog and visited chapters.
+2. Second exemplar from a safety-critical chapter (08 or 09), because safety
+   content has a different shape and both exemplars need approving before the
+   writing agents run.
+3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
+   most under-weighted chapter in the source relative to how much these
+   readers need it.
+4. Calculators, with unit tests and a second independent source per formula.
+5. Original SVG diagrams.
+
+## Things already decided — do not relitigate
+
+- Stages replace the source outline's Part 1 / Part 2 split.
+- Stage 4 stays as stubs. Exam preparation is years away and 技能検定 2級
+  normally requires work experience these readers do not have.
+- Flashcards and gamification come **after** articles are done. Terms are
+  already stored as structured fields so the deck can be generated later
+  without rewriting anything.
+- Chapter 23's 57 vocabulary items were discussed for distribution into the
+  chapters that use them. Not yet done, not yet rejected.
+- Hash routing, because GitHub Pages cannot rewrite paths.
+- Zero-dependency scripts. The validator and parser run on plain Node so they
+  work anywhere without an install step.
+
+## Environment notes
+
+The owner works from the Claude mobile app using Claude Code **cloud sessions**
+— sessions run on Anthropic infrastructure, not a local machine, and persist
+after the phone is put away. There is no local dev machine most days.
+
+This means: never write instructions that assume a local terminal, and keep
+heavy work in CI rather than in-session.
+
+Single Claude Pro plan. Claude Code and chat share one quota. Writing agents
+must be pinned to `model: sonnet` — an unpinned subagent inherits the main
+session's model and silently burns Opus quota.
+
+## Security
+
+A GitHub classic personal access token with full account scope was shared in
+chat during setup. The owner chose to proceed with it. It should be rotated to
+a fine-grained token scoped to this repository alone.

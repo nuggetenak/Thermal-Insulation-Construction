@@ -1,31 +1,44 @@
-# Insulation Trade Learning Platform
+# 保温保冷工事 — Thermal Insulation Construction
 
-Persiapan mandiri buat kerja sebagai **mechanical/piping insulator** (保温工事 / 熱絶縁施工) di **日建工業 Nikken Kogyo** (Midori Group) — Iwakuni, Yamaguchi Prefecture, Jepang.
+A working reference and study platform for thermal insulation construction
+(保温保冷工事 / 熱絶縁施工), built for four people starting work in Japan with
+no prior trade experience.
 
-> Sesi baru / agent baru? Baca `HANDOFF.md` dulu sebelum ngerjain apa pun.
+**Live:** https://nuggetenak.github.io/Thermal-Insulation-Construction/
 
-## Kenapa Project Ini Ada
+## Why it exists
 
-Owner project akan mulai kerja di trade ini tanpa pengalaman atau pengetahuan sebelumnya, dan nggak mampu membiayai kursus formal. Platform ini dibangun lewat self-study berbasis AI, dengan tiga tujuan: (1) belajar dari nol, (2) siap ambil sertifikasi resmi yang relevan, (3) jadi cheat sheet praktis pas kerja di lapangan.
+Formal training is not affordable. This is the substitute: a full-depth,
+sourced reference that works as evening study at home and as a one-handed
+lookup on site.
 
-## Struktur
+Because none of the readers has trade experience, none of them can catch an
+error. Content that is uncertain says so, in the text.
+
+## How it is organised
+
+Not by textbook order — by when you need it.
+
+| Stage | Meaning | Items |
+|---|---|---|
+| 1 | Before you fly | 301 |
+| 2 | First year on the job | 317 |
+| 3 | Becoming skilled | 194 |
+| 4 | Later — certification, lead worker | 162 |
+
+974 items in total, derived from `docs/curriculum-source.md`.
+
+## Working on this
+
+Read `CLAUDE.md` first, then `HANDOFF.md`. Content writers read
+`docs/content-style-guide.md`.
 
 ```
-insulation-trade-prep/
-├── HANDOFF.md              ← baca duluan tiap mulai sesi/agent baru
-├── PROGRESS.md             ← status semua track
-├── resources.md            ← sumber legal/open buat riset lanjutan
-├── modules/                ← Track 1: fundamental teknis (12 poin)
-├── trade-practicum/        ← Track 2: trade Jepang + jalur sertifikasi
-└── cheat-sheet/            ← Track 3: kalkulator & template lapangan
+npm install
+npm run dev        # local dev server
+npm run validate   # schema, cross-references, safety sourcing
+npm run check      # validate + typecheck + build (what CI runs)
 ```
 
-## Quick Status
-
-- ✅ Modul 1 (Fundamental of Industrial Insulation)
-- ✅ Riset trade practicum (occupation, sertifikasi, konteks perusahaan)
-- ✅ Spec kalkulator cutting pattern
-- ⬜ Modul 2–12 (baru outline)
-- ⬜ Implementasi kalkulator (butuh coding agent, di luar scope .md)
-
-Detail lengkap tiap item ada di `PROGRESS.md`.
+Stack: React 19, Vite 7, TypeScript, Tailwind 4. Content is markdown compiled
+to a single JSON index at build time. No backend, no database.

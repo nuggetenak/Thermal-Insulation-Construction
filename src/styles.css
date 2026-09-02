@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f5f3;
+  --color-panel: #ffffff;
+  --color-band: #e7e9e6;
+  --color-ink: #16191c;
+  --color-muted: #5d666d;
+  --color-steel: #99a1a7;
+  --color-hot: #a33b1e;
+  --color-cold: #1b5a73;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic UI", sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+/* Readable measure for long-form technical prose. */
+.prose-body { max-width: 68ch; }
+
+.prose-body h1 { font-size: 1.6rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.25; margin: 0 0 1rem; }
+.prose-body h2 { font-size: 1.1rem; font-weight: 650; letter-spacing: -0.01em; margin: 2rem 0 0.6rem; }
+.prose-body p { margin: 0 0 1rem; }
+.prose-body ul { margin: 0 0 1rem; padding-left: 1.1rem; list-style: disc; }
+.prose-body li { margin-bottom: 0.5rem; }
+.prose-body strong { font-weight: 650; }
+.prose-body a { color: var(--color-cold); text-decoration: underline; text-underline-offset: 2px; }
+
+:focus-visible { outline: 2px solid var(--color-cold); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
