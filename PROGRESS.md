@@ -31,7 +31,7 @@ Updated: 2026-09-02
 
 | Stage | Written | Total |
 |---|---|---|
-| 1 — Before you fly | 0 | 386 |
+| 1 — Before you fly | 1 | 386 |
 | 2 — First year | 1 | 389 |
 | 3 — Becoming skilled | 0 | 209 |
 | 4 — Later (stubs only) | 0 | 162 |
@@ -39,7 +39,12 @@ Updated: 2026-09-02
 1146 items total, up from 974. Ductwork, 防露, occupied buildings, building
 services plant and systems, new build sequence, and an industrial delta chapter.
 
-Exemplar written: `02.3.01` — awaiting approval before content scales.
+Exemplars written, both awaiting approval before content scales:
+
+- `02.3.01` — general craft, chapter 02.
+- `09.1.03` — safety-critical, chapter 09. Different shape: the sourcing
+  requirement bites, and the places where no source exists are stated in the
+  text rather than filled in.
 
 ## How to update this file
 

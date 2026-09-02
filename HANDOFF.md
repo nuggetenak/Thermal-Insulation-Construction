@@ -117,7 +117,10 @@ downloads for the chapter they open.
    worker, cache the catalog and visited chapters.
 2. Second exemplar from a safety-critical chapter (08 or 09), because safety
    content has a different shape and both exemplars need approving before the
-   writing agents run.
+   writing agents run. **Drafted:** `09.1.03` three-point contact. Two Japanese
+   sources were added to the registry for it — `jniosh-ladder-falls` and
+   `kensaibou-low-height`. Both exemplars are still `status: draft` and neither
+   has been approved.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
    readers need it.
