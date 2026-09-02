@@ -39,12 +39,18 @@ Updated: 2026-09-02
 1146 items total, up from 974. Ductwork, 防露, occupied buildings, building
 services plant and systems, new build sequence, and an industrial delta chapter.
 
-Exemplars written, both awaiting approval before content scales:
+Exemplars approved by the owner on 2026-09-02. Content writing is unblocked.
+These two files are the quality bar — open one and match it before writing.
 
 - `02.3.01` — general craft, chapter 02.
 - `09.1.03` — safety-critical, chapter 09. Different shape: the sourcing
   requirement bites, and the places where no source exists are stated in the
   text rather than filled in.
+
+The `approved` status on `09.1.03` records the owner's decision. It was not
+produced by the every-line review CLAUDE.md asks for on a `safetyCritical`
+chapter, and no `reviews/` record exists for it. Worth a fact-checker pass
+before the rest of chapter 09 is written against it.
 
 ## How to update this file
 
