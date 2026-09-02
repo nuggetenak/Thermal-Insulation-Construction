@@ -16,6 +16,7 @@ Updated: 2026-09-02
 | Source registry + citation links | done |
 | Corpus view (filterable) | done |
 | Sources index page | done |
+| Markdown tables + h3 rendering | done |
 | Split index for scale (see HANDOFF task 1) | not started |
 | Offline / PWA | not started |
 | Calculators | not started |

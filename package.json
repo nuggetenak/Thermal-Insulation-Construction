@@ -3,14 +3,16 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "build": "npm run content && tsc -b && vite build",
     "preview": "vite preview",
     "content": "node scripts/parse-taxonomy.mjs && node scripts/build-index.mjs",
     "validate": "node scripts/parse-taxonomy.mjs && node scripts/validate-content.mjs",
-    "check": "npm run validate && tsc -b && vite build"
+    "check": "npm run validate && npm run content && tsc -b && vite build"
   },
   "dependencies": {
     "react": "^19.2.0",
