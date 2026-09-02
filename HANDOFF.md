@@ -27,9 +27,17 @@ Partner-company tradesmen all hold 1級熱絶縁施工技能士, so certificatio
 cultural norm there. Still stage 4 for these four, but they should know from the
 start that it is the expected path rather than an optional extra.
 
-**Confirmed by the owner:** ductwork and pipework are roughly an even split.
-Whether the work is new build or occupied-building renovation did not come up in
-his interview, and whether there is any factory work is unknown.
+**Confirmed by the owner:** ductwork and pipework are roughly an even split, and
+he wants both covered completely rather than one favoured. New build versus
+occupied-building renovation did not come up in his interview, so both are
+covered. Factory work is unknown, and is handled as a delta chapter rather than
+a parallel curriculum.
+
+**Scope decision.** The owner asked for complete coverage of every case. That is
+compatible with the deadline only because coverage and writing order are separate
+decisions here: every topic gets an id and a place in the taxonomy, and stage
+governs what actually gets written first. Do not let a request for completeness
+turn into writing stage 3 material before stage 1 exists.
 
 ### What that changed
 
@@ -48,7 +56,23 @@ appended in `docs/curriculum-extensions.md`:
   plant rooms in the holidays, offices around other trades. Chapter 01 went from
   15 items to 37.
 
-Total is now 1071 items. Nothing was renumbered; every pre-existing id is intact.
+A second pass then closed the remaining gaps the owner flagged:
+
+- **40 — building services plant.** AHUs, chillers, calorifiers, heat exchangers,
+  pumps, tanks, fan coil units. Chapter 13 covers equipment in an industrial
+  register; this is the plant they will actually meet in a building. 24 items,
+  safety-critical for surface temperature and live plant.
+- **41 — building services systems.** Chilled water, refrigerant, LTHW, domestic
+  hot and cold, drainage, risers and distribution. Identifying which system a
+  pipe belongs to before touching it. 25 items.
+- **42 — industrial work, what changes.** Deliberately a delta chapter, not a
+  parallel curriculum: higher temperatures, permits to work, confined space,
+  asbestos in older plant, heavier documentation. 15 items, stage 3.
+- **01.8 to 01.9 — new build and handover.** Sequence, phasing, working before
+  the building is closed, snagging, photographing work that will be hidden.
+
+Total is now **1146 items**. Nothing has ever been renumbered; every
+pre-existing id is intact, including the exemplar.
 
 ### Still worth demoting
 

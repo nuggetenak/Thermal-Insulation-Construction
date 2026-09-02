@@ -42,6 +42,9 @@ const OUT = resolve(ROOT, 'content/_taxonomy.json');
 const STAGE_BY_CHAPTER = {
   '37': 1, // Ductwork fundamentals & application — roughly half the daily work
   '38': 2, // Ductwork fittings, finish & defects
+  '40': 2, // Building services plant & equipment
+  '41': 2, // Building services systems
+  '42': 3, // Industrial work — deltas only, not a parallel curriculum
   '39': 1, // 防露 condensation control — named in the employer's own scope
 
   '00': 1, // Orientation & Learning System
@@ -91,7 +94,7 @@ const STAGE_BY_CHAPTER = {
  * Every item in these chapters gets full human review before merge, and the
  * safety-writer agent handles them rather than the general craft writer.
  */
-const SAFETY_CRITICAL_CHAPTERS = ['07', '08', '09', '12', '14', '15', '16', '20', '27', '39'];
+const SAFETY_CRITICAL_CHAPTERS = ['07', '08', '09', '12', '14', '15', '16', '20', '27', '39', '40', '42'];
 
 /** Content shape. Not everything is an article. */
 function inferKind(chapterNo) {

@@ -69,10 +69,14 @@ Content is therefore ordered by **when it is needed**:
 
 | Stage | Meaning | Items |
 |---|---|---|
-| 1 | Before you fly | 301 |
-| 2 | First year on the job | 317 |
-| 3 | Becoming skilled | 194 |
+| 1 | Before you fly | 386 |
+| 2 | First year on the job | 389 |
+| 3 | Becoming skilled | 209 |
 | 4 | Parked — years away, stubs only | 162 |
+
+Coverage is deliberately complete: every case has an id and a place. Writing
+order is deliberately ruthless. Those are separate decisions — do not let one
+override the other.
 
 **Write stage 1 first.** If this project runs out of time at sixty percent
 complete, the missing forty percent must be the material nobody would have

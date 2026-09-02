@@ -2,22 +2,22 @@
   "generatedFrom": "docs/curriculum-source.md",
   "generatedAt": "2026-09-02",
   "counts": {
-    "chapters": 40,
-    "sections": 224,
-    "items": 1071,
+    "chapters": 43,
+    "sections": 241,
+    "items": 1146,
     "byStage": {
-      "1": 375,
-      "2": 340,
-      "3": 194,
+      "1": 386,
+      "2": 389,
+      "3": 209,
       "4": 162
     },
     "byKind": {
-      "article": 916,
+      "article": 991,
       "vocabulary": 57,
       "practical": 71,
       "diagnostic": 27
     },
-    "safetyCritical": 272
+    "safetyCritical": 311
   },
   "chapters": [
     {
@@ -854,6 +854,163 @@
               "chapter": "01",
               "section": "01.7",
               "path": "content/ch01/01.7.05-handover-when-you-are-not-the-crew-returning-tomorrow.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "01.8",
+          "title": "New build sites",
+          "slug": "new-build-sites",
+          "items": [
+            {
+              "id": "01.8.01",
+              "title": "How a building goes up and where insulation falls in the sequence",
+              "japanese": null,
+              "slug": "how-a-building-goes-up-and-where-insulation-falls-in-the-seq",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.8",
+              "path": "content/ch01/01.8.01-how-a-building-goes-up-and-where-insulation-falls-in-the-seq.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.8.02",
+              "title": "Following the mechanical and electrical install",
+              "japanese": null,
+              "slug": "following-the-mechanical-and-electrical-install",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.8",
+              "path": "content/ch01/01.8.02-following-the-mechanical-and-electrical-install.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.8.03",
+              "title": "Working before ceilings, walls and floors are closed",
+              "japanese": null,
+              "slug": "working-before-ceilings-walls-and-floors-are-closed",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.8",
+              "path": "content/ch01/01.8.03-working-before-ceilings-walls-and-floors-are-closed.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.8.04",
+              "title": "Temporary power, lighting and access on an unfinished building",
+              "japanese": null,
+              "slug": "temporary-power-lighting-and-access-on-an-unfinished-buildin",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.8",
+              "path": "content/ch01/01.8.04-temporary-power-lighting-and-access-on-an-unfinished-buildin.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.8.05",
+              "title": "Phasing: floor by floor and zone by zone",
+              "japanese": null,
+              "slug": "phasing-floor-by-floor-and-zone-by-zone",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.8",
+              "path": "content/ch01/01.8.05-phasing-floor-by-floor-and-zone-by-zone.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.8.06",
+              "title": "Weather protection before the building is watertight",
+              "japanese": null,
+              "slug": "weather-protection-before-the-building-is-watertight",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.8",
+              "path": "content/ch01/01.8.06-weather-protection-before-the-building-is-watertight.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "01.9",
+          "title": "Handover and snagging",
+          "slug": "handover-and-snagging",
+          "items": [
+            {
+              "id": "01.9.01",
+              "title": "What snagging is and why insulation gets snagged",
+              "japanese": null,
+              "slug": "what-snagging-is-and-why-insulation-gets-snagged",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.9",
+              "path": "content/ch01/01.9.01-what-snagging-is-and-why-insulation-gets-snagged.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.9.02",
+              "title": "Inspection before a ceiling is closed",
+              "japanese": null,
+              "slug": "inspection-before-a-ceiling-is-closed",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.9",
+              "path": "content/ch01/01.9.02-inspection-before-a-ceiling-is-closed.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.9.03",
+              "title": "Photographing work that will be hidden",
+              "japanese": null,
+              "slug": "photographing-work-that-will-be-hidden",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.9",
+              "path": "content/ch01/01.9.03-photographing-work-that-will-be-hidden.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.9.04",
+              "title": "Defects found after handover and who pays",
+              "japanese": null,
+              "slug": "defects-found-after-handover-and-who-pays",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.9",
+              "path": "content/ch01/01.9.04-defects-found-after-handover-and-who-pays.md",
+              "status": "stub"
+            },
+            {
+              "id": "01.9.05",
+              "title": "Returning to a finished building to fix something",
+              "japanese": null,
+              "slug": "returning-to-a-finished-building-to-fix-something",
+              "stage": 1,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "01",
+              "section": "01.9",
+              "path": "content/ch01/01.9.05-returning-to-a-finished-building-to-fix-something.md",
               "status": "stub"
             }
           ]
@@ -15945,6 +16102,976 @@
               "chapter": "39",
               "section": "39.4",
               "path": "content/ch39/39.4.05-what-to-tell-a-supervisor-and-when.md",
+              "status": "stub"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "40",
+      "title": "Building Services Plant & Equipment",
+      "japanese": null,
+      "slug": "building-services-plant-equipment",
+      "stage": 2,
+      "safetyCritical": true,
+      "kind": "article",
+      "sections": [
+        {
+          "no": "40.1",
+          "title": "Air handling plant",
+          "slug": "air-handling-plant",
+          "items": [
+            {
+              "id": "40.1.01",
+              "title": "What an air handling unit does",
+              "japanese": null,
+              "slug": "what-an-air-handling-unit-does",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.1",
+              "path": "content/ch40/40.1.01-what-an-air-handling-unit-does.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.1.02",
+              "title": "Insulating an AHU casing",
+              "japanese": null,
+              "slug": "insulating-an-ahu-casing",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.1",
+              "path": "content/ch40/40.1.02-insulating-an-ahu-casing.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.1.03",
+              "title": "Supply and return connections at the unit",
+              "japanese": null,
+              "slug": "supply-and-return-connections-at-the-unit",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.1",
+              "path": "content/ch40/40.1.03-supply-and-return-connections-at-the-unit.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.1.04",
+              "title": "Access panels and filter sections",
+              "japanese": null,
+              "slug": "access-panels-and-filter-sections",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.1",
+              "path": "content/ch40/40.1.04-access-panels-and-filter-sections.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.1.05",
+              "title": "Condensate trays and drain lines",
+              "japanese": null,
+              "slug": "condensate-trays-and-drain-lines",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.1",
+              "path": "content/ch40/40.1.05-condensate-trays-and-drain-lines.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "40.2",
+          "title": "Chillers and refrigeration plant",
+          "slug": "chillers-and-refrigeration-plant",
+          "items": [
+            {
+              "id": "40.2.01",
+              "title": "What a chiller does and which surfaces run cold",
+              "japanese": null,
+              "slug": "what-a-chiller-does-and-which-surfaces-run-cold",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.2",
+              "path": "content/ch40/40.2.01-what-a-chiller-does-and-which-surfaces-run-cold.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.2.02",
+              "title": "Chilled water headers and manifolds",
+              "japanese": null,
+              "slug": "chilled-water-headers-and-manifolds",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.2",
+              "path": "content/ch40/40.2.02-chilled-water-headers-and-manifolds.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.2.03",
+              "title": "Refrigeration and cold-storage plant",
+              "japanese": null,
+              "slug": "refrigeration-and-cold-storage-plant",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.2",
+              "path": "content/ch40/40.2.03-refrigeration-and-cold-storage-plant.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.2.04",
+              "title": "Cold-store panel interfaces",
+              "japanese": null,
+              "slug": "cold-store-panel-interfaces",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.2",
+              "path": "content/ch40/40.2.04-cold-store-panel-interfaces.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.2.05",
+              "title": "Suction lines and where condensation forms first",
+              "japanese": null,
+              "slug": "suction-lines-and-where-condensation-forms-first",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.2",
+              "path": "content/ch40/40.2.05-suction-lines-and-where-condensation-forms-first.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "40.3",
+          "title": "Heating plant",
+          "slug": "heating-plant",
+          "items": [
+            {
+              "id": "40.3.01",
+              "title": "Boilers and boiler room pipework",
+              "japanese": null,
+              "slug": "boilers-and-boiler-room-pipework",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.3",
+              "path": "content/ch40/40.3.01-boilers-and-boiler-room-pipework.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.3.02",
+              "title": "Calorifiers and hot water storage vessels",
+              "japanese": null,
+              "slug": "calorifiers-and-hot-water-storage-vessels",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.3",
+              "path": "content/ch40/40.3.02-calorifiers-and-hot-water-storage-vessels.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.3.03",
+              "title": "Heat exchangers",
+              "japanese": null,
+              "slug": "heat-exchangers",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.3",
+              "path": "content/ch40/40.3.03-heat-exchangers.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.3.04",
+              "title": "Flues and where insulation stops",
+              "japanese": null,
+              "slug": "flues-and-where-insulation-stops",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.3",
+              "path": "content/ch40/40.3.04-flues-and-where-insulation-stops.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.3.05",
+              "title": "Surface temperature limits for touchable plant",
+              "japanese": null,
+              "slug": "surface-temperature-limits-for-touchable-plant",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.3",
+              "path": "content/ch40/40.3.05-surface-temperature-limits-for-touchable-plant.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "40.4",
+          "title": "Pumps, valves and tanks",
+          "slug": "pumps-valves-and-tanks",
+          "items": [
+            {
+              "id": "40.4.01",
+              "title": "Insulating around a pump without blocking maintenance",
+              "japanese": null,
+              "slug": "insulating-around-a-pump-without-blocking-maintenance",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.4",
+              "path": "content/ch40/40.4.01-insulating-around-a-pump-without-blocking-maintenance.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.4.02",
+              "title": "Removable covers for valves and strainers",
+              "japanese": null,
+              "slug": "removable-covers-for-valves-and-strainers",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.4",
+              "path": "content/ch40/40.4.02-removable-covers-for-valves-and-strainers.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.4.03",
+              "title": "Tanks and vessels: flat and curved surfaces together",
+              "japanese": null,
+              "slug": "tanks-and-vessels-flat-and-curved-surfaces-together",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.4",
+              "path": "content/ch40/40.4.03-tanks-and-vessels-flat-and-curved-surfaces-together.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.4.04",
+              "title": "Expansion vessels and small plant items",
+              "japanese": null,
+              "slug": "expansion-vessels-and-small-plant-items",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.4",
+              "path": "content/ch40/40.4.04-expansion-vessels-and-small-plant-items.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.4.05",
+              "title": "Nameplates, gauges and access that must stay visible",
+              "japanese": null,
+              "slug": "nameplates-gauges-and-access-that-must-stay-visible",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.4",
+              "path": "content/ch40/40.4.05-nameplates-gauges-and-access-that-must-stay-visible.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "40.5",
+          "title": "Terminal units",
+          "slug": "terminal-units",
+          "items": [
+            {
+              "id": "40.5.01",
+              "title": "Fan coil units",
+              "japanese": null,
+              "slug": "fan-coil-units",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.5",
+              "path": "content/ch40/40.5.01-fan-coil-units.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.5.02",
+              "title": "Ductwork connections at terminal units",
+              "japanese": null,
+              "slug": "ductwork-connections-at-terminal-units",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.5",
+              "path": "content/ch40/40.5.02-ductwork-connections-at-terminal-units.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.5.03",
+              "title": "Working in a ceiling void around a live unit",
+              "japanese": null,
+              "slug": "working-in-a-ceiling-void-around-a-live-unit",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.5",
+              "path": "content/ch40/40.5.03-working-in-a-ceiling-void-around-a-live-unit.md",
+              "status": "stub"
+            },
+            {
+              "id": "40.5.04",
+              "title": "What is insulated by others and what is yours",
+              "japanese": null,
+              "slug": "what-is-insulated-by-others-and-what-is-yours",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "40",
+              "section": "40.5",
+              "path": "content/ch40/40.5.04-what-is-insulated-by-others-and-what-is-yours.md",
+              "status": "stub"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "41",
+      "title": "Building Services Systems",
+      "japanese": null,
+      "slug": "building-services-systems",
+      "stage": 2,
+      "safetyCritical": false,
+      "kind": "article",
+      "sections": [
+        {
+          "no": "41.1",
+          "title": "Identifying what you are working on",
+          "slug": "identifying-what-you-are-working-on",
+          "items": [
+            {
+              "id": "41.1.01",
+              "title": "Reading a services drawing in a building",
+              "japanese": null,
+              "slug": "reading-a-services-drawing-in-a-building",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.1",
+              "path": "content/ch41/41.1.01-reading-a-services-drawing-in-a-building.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.1.02",
+              "title": "Pipe marking, colour coding and labels",
+              "japanese": null,
+              "slug": "pipe-marking-colour-coding-and-labels",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.1",
+              "path": "content/ch41/41.1.02-pipe-marking-colour-coding-and-labels.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.1.03",
+              "title": "Asking which system a pipe belongs to before you touch it",
+              "japanese": null,
+              "slug": "asking-which-system-a-pipe-belongs-to-before-you-touch-it",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.1",
+              "path": "content/ch41/41.1.03-asking-which-system-a-pipe-belongs-to-before-you-touch-it.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.1.04",
+              "title": "Hot, cold and ambient: telling them apart safely",
+              "japanese": null,
+              "slug": "hot-cold-and-ambient-telling-them-apart-safely",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.1",
+              "path": "content/ch41/41.1.04-hot-cold-and-ambient-telling-them-apart-safely.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "41.2",
+          "title": "Chilled water and refrigerant",
+          "slug": "chilled-water-and-refrigerant",
+          "items": [
+            {
+              "id": "41.2.01",
+              "title": "Chilled water flow and return",
+              "japanese": null,
+              "slug": "chilled-water-flow-and-return",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.2",
+              "path": "content/ch41/41.2.01-chilled-water-flow-and-return.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.2.02",
+              "title": "Why chilled water is the most condensation-prone system in a building",
+              "japanese": null,
+              "slug": "why-chilled-water-is-the-most-condensation-prone-system-in-a",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.2",
+              "path": "content/ch41/41.2.02-why-chilled-water-is-the-most-condensation-prone-system-in-a.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.2.03",
+              "title": "Refrigerant pipework and its differences",
+              "japanese": null,
+              "slug": "refrigerant-pipework-and-its-differences",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.2",
+              "path": "content/ch41/41.2.03-refrigerant-pipework-and-its-differences.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.2.04",
+              "title": "Small-bore copper and how it behaves",
+              "japanese": null,
+              "slug": "small-bore-copper-and-how-it-behaves",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.2",
+              "path": "content/ch41/41.2.04-small-bore-copper-and-how-it-behaves.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.2.05",
+              "title": "Insulation continuity through valves and fittings on cold lines",
+              "japanese": null,
+              "slug": "insulation-continuity-through-valves-and-fittings-on-cold-li",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.2",
+              "path": "content/ch41/41.2.05-insulation-continuity-through-valves-and-fittings-on-cold-li.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "41.3",
+          "title": "Heating systems",
+          "slug": "heating-systems",
+          "items": [
+            {
+              "id": "41.3.01",
+              "title": "Low temperature hot water heating",
+              "japanese": null,
+              "slug": "low-temperature-hot-water-heating",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.3",
+              "path": "content/ch41/41.3.01-low-temperature-hot-water-heating.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.3.02",
+              "title": "Heating flow and return in a building",
+              "japanese": null,
+              "slug": "heating-flow-and-return-in-a-building",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.3",
+              "path": "content/ch41/41.3.02-heating-flow-and-return-in-a-building.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.3.03",
+              "title": "Steam and condensate where present",
+              "japanese": null,
+              "slug": "steam-and-condensate-where-present",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.3",
+              "path": "content/ch41/41.3.03-steam-and-condensate-where-present.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.3.04",
+              "title": "Underfloor and radiator circuits",
+              "japanese": null,
+              "slug": "underfloor-and-radiator-circuits",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.3",
+              "path": "content/ch41/41.3.04-underfloor-and-radiator-circuits.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "41.4",
+          "title": "Domestic water services",
+          "slug": "domestic-water-services",
+          "items": [
+            {
+              "id": "41.4.01",
+              "title": "Cold water supply and condensation risk in warm spaces",
+              "japanese": null,
+              "slug": "cold-water-supply-and-condensation-risk-in-warm-spaces",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.4",
+              "path": "content/ch41/41.4.01-cold-water-supply-and-condensation-risk-in-warm-spaces.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.4.02",
+              "title": "Hot water supply and heat loss",
+              "japanese": null,
+              "slug": "hot-water-supply-and-heat-loss",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.4",
+              "path": "content/ch41/41.4.02-hot-water-supply-and-heat-loss.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.4.03",
+              "title": "Secondary circulation",
+              "japanese": null,
+              "slug": "secondary-circulation",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.4",
+              "path": "content/ch41/41.4.03-secondary-circulation.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.4.04",
+              "title": "Freeze protection and trace heating interfaces",
+              "japanese": null,
+              "slug": "freeze-protection-and-trace-heating-interfaces",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.4",
+              "path": "content/ch41/41.4.04-freeze-protection-and-trace-heating-interfaces.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "41.5",
+          "title": "Drainage and waste",
+          "slug": "drainage-and-waste",
+          "items": [
+            {
+              "id": "41.5.01",
+              "title": "Why drainage gets insulated at all",
+              "japanese": null,
+              "slug": "why-drainage-gets-insulated-at-all",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.5",
+              "path": "content/ch41/41.5.01-why-drainage-gets-insulated-at-all.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.5.02",
+              "title": "Condensation on cold waste pipe",
+              "japanese": null,
+              "slug": "condensation-on-cold-waste-pipe",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.5",
+              "path": "content/ch41/41.5.02-condensation-on-cold-waste-pipe.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.5.03",
+              "title": "Acoustic treatment on soil stacks",
+              "japanese": null,
+              "slug": "acoustic-treatment-on-soil-stacks",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.5",
+              "path": "content/ch41/41.5.03-acoustic-treatment-on-soil-stacks.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.5.04",
+              "title": "Rainwater pipework inside a building",
+              "japanese": null,
+              "slug": "rainwater-pipework-inside-a-building",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.5",
+              "path": "content/ch41/41.5.04-rainwater-pipework-inside-a-building.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "41.6",
+          "title": "Risers and distribution",
+          "slug": "risers-and-distribution",
+          "items": [
+            {
+              "id": "41.6.01",
+              "title": "Vertical risers and working in a riser cupboard",
+              "japanese": null,
+              "slug": "vertical-risers-and-working-in-a-riser-cupboard",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.6",
+              "path": "content/ch41/41.6.01-vertical-risers-and-working-in-a-riser-cupboard.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.6.02",
+              "title": "Horizontal distribution in a ceiling void",
+              "japanese": null,
+              "slug": "horizontal-distribution-in-a-ceiling-void",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.6",
+              "path": "content/ch41/41.6.02-horizontal-distribution-in-a-ceiling-void.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.6.03",
+              "title": "Fire stopping at floor and wall penetrations, and who does it",
+              "japanese": null,
+              "slug": "fire-stopping-at-floor-and-wall-penetrations-and-who-does-it",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.6",
+              "path": "content/ch41/41.6.03-fire-stopping-at-floor-and-wall-penetrations-and-who-does-it.md",
+              "status": "stub"
+            },
+            {
+              "id": "41.6.04",
+              "title": "Supports and anchors in a riser",
+              "japanese": null,
+              "slug": "supports-and-anchors-in-a-riser",
+              "stage": 2,
+              "kind": "article",
+              "safetyCritical": false,
+              "chapter": "41",
+              "section": "41.6",
+              "path": "content/ch41/41.6.04-supports-and-anchors-in-a-riser.md",
+              "status": "stub"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "42",
+      "title": "Industrial Work — What Changes",
+      "japanese": null,
+      "slug": "industrial-work-what-changes",
+      "stage": 3,
+      "safetyCritical": true,
+      "kind": "article",
+      "sections": [
+        {
+          "no": "42.1",
+          "title": "Where industrial work differs",
+          "slug": "where-industrial-work-differs",
+          "items": [
+            {
+              "id": "42.1.01",
+              "title": "Plant and factory work compared with building services",
+              "japanese": null,
+              "slug": "plant-and-factory-work-compared-with-building-services",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.1",
+              "path": "content/ch42/42.1.01-plant-and-factory-work-compared-with-building-services.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.1.02",
+              "title": "Scale, temperature range and material differences",
+              "japanese": null,
+              "slug": "scale-temperature-range-and-material-differences",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.1",
+              "path": "content/ch42/42.1.02-scale-temperature-range-and-material-differences.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.1.03",
+              "title": "Why specifications are stricter and inspection heavier",
+              "japanese": null,
+              "slug": "why-specifications-are-stricter-and-inspection-heavier",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.1",
+              "path": "content/ch42/42.1.03-why-specifications-are-stricter-and-inspection-heavier.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.1.04",
+              "title": "Permit to work systems",
+              "japanese": null,
+              "slug": "permit-to-work-systems",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.1",
+              "path": "content/ch42/42.1.04-permit-to-work-systems.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "42.2",
+          "title": "Higher temperature systems",
+          "slug": "higher-temperature-systems",
+          "items": [
+            {
+              "id": "42.2.01",
+              "title": "Temperature ranges you do not meet in buildings",
+              "japanese": null,
+              "slug": "temperature-ranges-you-do-not-meet-in-buildings",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.2",
+              "path": "content/ch42/42.2.01-temperature-ranges-you-do-not-meet-in-buildings.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.2.02",
+              "title": "Multi-layer insulation and staggered joints",
+              "japanese": null,
+              "slug": "multi-layer-insulation-and-staggered-joints",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.2",
+              "path": "content/ch42/42.2.02-multi-layer-insulation-and-staggered-joints.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.2.03",
+              "title": "Expansion and movement at high temperature",
+              "japanese": null,
+              "slug": "expansion-and-movement-at-high-temperature",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.2",
+              "path": "content/ch42/42.2.03-expansion-and-movement-at-high-temperature.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.2.04",
+              "title": "Personnel protection versus heat conservation",
+              "japanese": null,
+              "slug": "personnel-protection-versus-heat-conservation",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.2",
+              "path": "content/ch42/42.2.04-personnel-protection-versus-heat-conservation.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "42.3",
+          "title": "Industrial hazards not present in buildings",
+          "slug": "industrial-hazards-not-present-in-buildings",
+          "items": [
+            {
+              "id": "42.3.01",
+              "title": "Live plant and process hazards",
+              "japanese": null,
+              "slug": "live-plant-and-process-hazards",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.3",
+              "path": "content/ch42/42.3.01-live-plant-and-process-hazards.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.3.02",
+              "title": "Confined space entry in an industrial setting",
+              "japanese": null,
+              "slug": "confined-space-entry-in-an-industrial-setting",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.3",
+              "path": "content/ch42/42.3.02-confined-space-entry-in-an-industrial-setting.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.3.03",
+              "title": "Hot work and ignition sources",
+              "japanese": null,
+              "slug": "hot-work-and-ignition-sources",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.3",
+              "path": "content/ch42/42.3.03-hot-work-and-ignition-sources.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.3.04",
+              "title": "Asbestos in older industrial plant",
+              "japanese": null,
+              "slug": "asbestos-in-older-industrial-plant",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.3",
+              "path": "content/ch42/42.3.04-asbestos-in-older-industrial-plant.md",
+              "status": "stub"
+            }
+          ]
+        },
+        {
+          "no": "42.4",
+          "title": "Industrial documentation",
+          "slug": "industrial-documentation",
+          "items": [
+            {
+              "id": "42.4.01",
+              "title": "Method statements and inspection test plans",
+              "japanese": null,
+              "slug": "method-statements-and-inspection-test-plans",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.4",
+              "path": "content/ch42/42.4.01-method-statements-and-inspection-test-plans.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.4.02",
+              "title": "Why industrial work is documented far more heavily",
+              "japanese": null,
+              "slug": "why-industrial-work-is-documented-far-more-heavily",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.4",
+              "path": "content/ch42/42.4.02-why-industrial-work-is-documented-far-more-heavily.md",
+              "status": "stub"
+            },
+            {
+              "id": "42.4.03",
+              "title": "Handover documentation packs",
+              "japanese": null,
+              "slug": "handover-documentation-packs",
+              "stage": 3,
+              "kind": "article",
+              "safetyCritical": true,
+              "chapter": "42",
+              "section": "42.4",
+              "path": "content/ch42/42.4.03-handover-documentation-packs.md",
               "status": "stub"
             }
           ]

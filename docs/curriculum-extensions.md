@@ -270,3 +270,203 @@ Chapters are appended, never renumbered, so every existing id stays valid.
 ### Repair versus replacement
 
 ### What to tell a supervisor and when
+
+---
+
+# 01. Construction & Site Fundamentals
+
+## 01.8 New build sites
+
+### How a building goes up and where insulation falls in the sequence
+
+### Following the mechanical and electrical install
+
+### Working before ceilings, walls and floors are closed
+
+### Temporary power, lighting and access on an unfinished building
+
+### Phasing: floor by floor and zone by zone
+
+### Weather protection before the building is watertight
+
+## 01.9 Handover and snagging
+
+### What snagging is and why insulation gets snagged
+
+### Inspection before a ceiling is closed
+
+### Photographing work that will be hidden
+
+### Defects found after handover and who pays
+
+### Returning to a finished building to fix something
+
+---
+
+# 40. Building Services Plant & Equipment
+
+## 40.1 Air handling plant
+
+### What an air handling unit does
+
+### Insulating an AHU casing
+
+### Supply and return connections at the unit
+
+### Access panels and filter sections
+
+### Condensate trays and drain lines
+
+## 40.2 Chillers and refrigeration plant
+
+### What a chiller does and which surfaces run cold
+
+### Chilled water headers and manifolds
+
+### Refrigeration and cold-storage plant
+
+### Cold-store panel interfaces
+
+### Suction lines and where condensation forms first
+
+## 40.3 Heating plant
+
+### Boilers and boiler room pipework
+
+### Calorifiers and hot water storage vessels
+
+### Heat exchangers
+
+### Flues and where insulation stops
+
+### Surface temperature limits for touchable plant
+
+## 40.4 Pumps, valves and tanks
+
+### Insulating around a pump without blocking maintenance
+
+### Removable covers for valves and strainers
+
+### Tanks and vessels: flat and curved surfaces together
+
+### Expansion vessels and small plant items
+
+### Nameplates, gauges and access that must stay visible
+
+## 40.5 Terminal units
+
+### Fan coil units
+
+### Ductwork connections at terminal units
+
+### Working in a ceiling void around a live unit
+
+### What is insulated by others and what is yours
+
+---
+
+# 41. Building Services Systems
+
+## 41.1 Identifying what you are working on
+
+### Reading a services drawing in a building
+
+### Pipe marking, colour coding and labels
+
+### Asking which system a pipe belongs to before you touch it
+
+### Hot, cold and ambient: telling them apart safely
+
+## 41.2 Chilled water and refrigerant
+
+### Chilled water flow and return
+
+### Why chilled water is the most condensation-prone system in a building
+
+### Refrigerant pipework and its differences
+
+### Small-bore copper and how it behaves
+
+### Insulation continuity through valves and fittings on cold lines
+
+## 41.3 Heating systems
+
+### Low temperature hot water heating
+
+### Heating flow and return in a building
+
+### Steam and condensate where present
+
+### Underfloor and radiator circuits
+
+## 41.4 Domestic water services
+
+### Cold water supply and condensation risk in warm spaces
+
+### Hot water supply and heat loss
+
+### Secondary circulation
+
+### Freeze protection and trace heating interfaces
+
+## 41.5 Drainage and waste
+
+### Why drainage gets insulated at all
+
+### Condensation on cold waste pipe
+
+### Acoustic treatment on soil stacks
+
+### Rainwater pipework inside a building
+
+## 41.6 Risers and distribution
+
+### Vertical risers and working in a riser cupboard
+
+### Horizontal distribution in a ceiling void
+
+### Fire stopping at floor and wall penetrations, and who does it
+
+### Supports and anchors in a riser
+
+---
+
+# 42. Industrial Work — What Changes
+
+## 42.1 Where industrial work differs
+
+### Plant and factory work compared with building services
+
+### Scale, temperature range and material differences
+
+### Why specifications are stricter and inspection heavier
+
+### Permit to work systems
+
+## 42.2 Higher temperature systems
+
+### Temperature ranges you do not meet in buildings
+
+### Multi-layer insulation and staggered joints
+
+### Expansion and movement at high temperature
+
+### Personnel protection versus heat conservation
+
+## 42.3 Industrial hazards not present in buildings
+
+### Live plant and process hazards
+
+### Confined space entry in an industrial setting
+
+### Hot work and ignition sources
+
+### Asbestos in older industrial plant
+
+## 42.4 Industrial documentation
+
+### Method statements and inspection test plans
+
+### Why industrial work is documented far more heavily
+
+### Handover documentation packs

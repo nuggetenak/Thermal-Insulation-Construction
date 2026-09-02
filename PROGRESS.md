@@ -31,13 +31,13 @@ Updated: 2026-09-02
 
 | Stage | Written | Total |
 |---|---|---|
-| 1 — Before you fly | 0 | 375 |
-| 2 — First year | 1 | 340 |
-| 3 — Becoming skilled | 0 | 194 |
+| 1 — Before you fly | 0 | 386 |
+| 2 — First year | 1 | 389 |
+| 3 — Becoming skilled | 0 | 209 |
 | 4 — Later (stubs only) | 0 | 162 |
 
-1071 items total, up from 974 after ductwork, 防露 and occupied-building work
-were added.
+1146 items total, up from 974. Ductwork, 防露, occupied buildings, building
+services plant and systems, new build sequence, and an industrial delta chapter.
 
 Exemplar written: `02.3.01` — awaiting approval before content scales.
 
