@@ -139,6 +139,53 @@ test('rejects a reproduced block of standard text', () =>
   write({}, BODY.replace('## Common mistakes', `> ${'reproduced clause text '.repeat(15)}\n\n## Common mistakes`)),
   'long quoted passage');
 
+// --- guards added after section 01.2, each for a defect that shipped clean ---
+
+test('rejects a body link whose filename is not the one the taxonomy holds', () =>
+  write({}, BODY.replace('## Common mistakes', 'See [02.3.01](../ch02/02.3.01-wrong-file-name.md).\n\n## Common mistakes')),
+  'names a file that does not exist');
+
+test('accepts a body link whose filename matches the taxonomy', () =>
+  write({}, BODY.replace('## Common mistakes', 'See [02.3.01](../ch02/02.3.01-why-insulation-reduces-heat-flow.md).\n\n## Common mistakes')),
+  null);
+
+test('rejects a Japanese term in the prose that no item declares', () =>
+  write({}, BODY.replace('Adding thickness', 'Adding 換気扇 thickness')),
+  'no item declares it');
+
+test('accepts a Japanese term another item already declares', () =>
+  write({}, BODY.replace('Adding thickness', 'Adding 保温 thickness')),
+  null);
+
+test('accepts a longer word built around a declared term', () =>
+  write({}, BODY.replace('Adding thickness', 'Adding 熱伝導率測定 thickness')),
+  null);
+
+test('rejects a clause reference to a registry document that is not cited', () =>
+  write({}, BODY.replace('Adding thickness', 'Clause 1.3.6 of the specification applies, and adding thickness')),
+  'does not cite it');
+
+test('accepts a clause reference when the document is cited', () =>
+  write({ sourceBasis: 'cited' }, BODY.replace('Adding thickness', 'Clause 1.3.6 of the specification applies, and adding thickness'), ['sources:', '  - mlit-kikai-shiyosho']),
+  null);
+
+test('rejects prose that points at the writer\'s briefing', () =>
+  write({}, BODY.replace('Adding thickness', 'That is not settled by anything in this pack, and adding thickness')),
+  "refers to the writer's briefing");
+
+test('rejects prose that cites a section letter of the briefing', () =>
+  write({}, BODY.replace('Adding thickness', 'See section D below. Adding thickness')),
+  "refers to the writer's briefing");
+
+// Regressions: both of these used to be rejected, and both are correct content.
+test('accepts two separately quoted words far apart in one paragraph', () =>
+  write({}, BODY.replace('Adding thickness', `The "boundary" here is not a fence. ${'Filler that pushes the two quoted words well past two hundred characters apart. '.repeat(4)}The "public" is a patient on a trolley. Adding thickness`)),
+  null);
+
+test('accepts a quoted example phrase that wraps a source line', () =>
+  write({}, BODY.replace('Adding thickness', 'Somebody may say "that one is not\nabout us" on site. Adding thickness')),
+  null);
+
 let passed = 0;
 const failures = [];
 

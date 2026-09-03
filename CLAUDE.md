@@ -71,11 +71,20 @@ src/                       React 19 + Vite + Tailwind 4, TypeScript
 ## Commands
 
 ```
+npm ci             # first, in a fresh session — see below
+node scripts/primary-sweep.mjs --law <e-gov id> --cited <articles>
+                   # authoring aid for a source pack — see docs/source-pack-protocol.md
 npm run validate   # ids, schema, cross-references, terminology, sourcing
 npm test           # tests the guardrails themselves
 npm run check      # everything above, then typecheck and build. CI runs this.
 npm run dev        # local dev server
 ```
+
+A cloud session starts with no `node_modules`. `validate` and `test` are
+zero-dependency and run anyway, so it is easy to believe everything passes;
+`npm run check` then fails at the typecheck step with `Cannot find type
+definition file for 'vite/client'`, which looks like a code error and is not.
+Run `npm ci` once before trusting `npm run check`.
 
 ## Stages, not chapters
 
@@ -109,8 +118,15 @@ one usage pool.
 - Writing agents run **Sonnet**, `effort: medium`. Set `model: sonnet`
   explicitly in agent frontmatter — a subagent with no model specified inherits
   the main session's model, which silently burns Opus quota.
-- Review runs **Opus**, high effort.
-- Run agents **one or two at a time**, not ten. Check `/usage` between batches.
+- Review runs **Opus**, high effort. `.claude/agents/fact-checker.md` is pinned
+  to it; if that frontmatter and this line ever disagree again, this line wins.
+- Run writing agents **one at a time**. Two in parallel is not twice as fast:
+  both compete for the same session quota, and when it runs out they die
+  mid-write, leaving half-finished files that still have to be reviewed or
+  thrown away. That happened on section 01.2 — two agents launched together,
+  both killed, one file salvaged. One at a time, checking `/usage` between.
+- A killed agent leaves its file on disk, unvalidated and possibly truncated.
+  Check headings and word count before trusting anything a failed run produced.
 
 ## Review tiers
 
@@ -131,3 +147,43 @@ two sessions writing different chapters will both append to them and collide.
 Read `docs/content-style-guide.md` first. Then read an exemplar as an example —
 `02.3.01` for general craft, `09.1.03` for safety-critical. Match it. Do not
 invent a new structure.
+
+### Brief writers from primary sources, not from memory
+
+The single largest quality lever found so far, and the largest single point of
+failure. **Read `docs/source-pack-protocol.md` before building one.** It carries
+the method and the post-mortem of the two errors that got into section 01.2 —
+both omissions, one from choosing articles by expectation instead of sweeping
+the neighbourhood, one from a summary silently dropping a parenthetical
+exclusion.
+
+Before commissioning a section, open the documents it will rest on and extract
+the exact clauses into a pack: clause number, what it says, and — this is the
+part that earns its keep — what it does **not** say, and where its scope stops.
+Hand writers that pack and tell them to work only from it. Run
+`node scripts/primary-sweep.mjs` over your citation list first; it prints the
+uncited articles next to the ones you took, which is where the missing duty
+usually is.
+
+Section 01.2 was written this way. The MLIT specification was re-read from the
+PDF and the statutes pulled through the e-Gov API, and the pack carried
+cautions like "these pedestrian-route widths are a roads clause, do not apply
+them to a corridor". The writers then held those limits on their own.
+
+Two things follow, and both matter:
+
+- **The pack is a single point of failure.** Every item written from it
+  inherits any misreading, and they will all agree with each other. When the
+  fact-checker runs, give it a verbatim extraction of the primaries and tell it
+  the pack is under test too. Never let it check items against the pack.
+- **Keep the pack out of the content.** The reader has never seen it. See
+  `docs/content-style-guide.md` on referring to the brief.
+
+### Review the writers' output before committing it
+
+A writing agent that reports success has satisfied the validator, which is a
+floor and not a standard. Every item in section 01.2 needed at least one fix
+after its agent reported clean: a clause stated more firmly than it reads, a
+cross-reference to a filename that does not exist, an undeclared term, a
+sentence pointing at the brief. Several of those are now machine-checked
+because of it. Read what the agent wrote.

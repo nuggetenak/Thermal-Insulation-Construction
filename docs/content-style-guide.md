@@ -140,6 +140,19 @@ allowVariants: ["lagging"]
 That makes it a visible decision rather than drift. If you need a term the
 lockfile does not cover, add it to the lockfile in the same commit.
 
+### Every Japanese word must belong to some item
+
+A Japanese term is declared once, in the item that owns it, and used freely
+elsewhere. The other half of that rule is easy to miss: a word no item declares
+has no glossary entry at all, so a reader with no Japanese meets it undefined
+and cannot look it up. The validator now rejects a Japanese run in the prose
+that no item in the project declares.
+
+That includes abbreviations. 安衛則 is what people say for 労働安全衛生規則, and
+it is not the name of anything the glossary carries — write the full name on
+first mention and "those regulations" afterwards. A word built around a declared
+term is fine (元請業者 around 元請); a genuinely new word is not.
+
 ### Term ownership
 
 A Japanese term is introduced **once**, in the item it belongs to, with its full
@@ -206,6 +219,13 @@ Link with the item id: `[02.3.02](../ch02/02.3.02-effect-of-thickness.md)`.
 The app rewrites these to internal routes. Referencing an unwritten item is
 fine and expected — the target exists in the taxonomy from day one.
 
+**Take the path from the taxonomy, not from memory.** The id inside the link is
+what routes the reader, so a correct id wrapped in a filename that does not
+exist still renders as a working link. Three of those shipped in one section
+and a hand review caught none of them, because the page they produce looks
+right. The validator now compares the whole path against the taxonomy and fails
+on a mismatch.
+
 ## Length is earned, not capped
 
 There is no maximum. An item may run to 1700 words if it has 1700 words of
@@ -227,6 +247,21 @@ information. Transitions that announce what the next section will cover.
 The validator warns below 120 words, and warns above 1200 words when fewer than
 two sources are cited — a long item resting on one source is usually
 elaboration rather than evidence.
+
+## The reader has not seen your instructions
+
+Whoever commissioned an item wrote a prompt, and often a pack of verified
+clauses to write from. None of that reaches the reader. Sentences like "see
+section D below" or "not settled by anything in this pack" point at a document
+that, from where the reader sits, does not exist. Two items shipped with
+exactly that before it was caught by eye.
+
+Name the document and the clause instead. The validator rejects the commonest
+phrasings, which is a backstop and not a substitute for not writing them.
+
+The same goes the other way: a claim about a document is a claim like any
+other, so citing it is required whether the prose names it in Japanese or calls
+it "the specification" and gives a clause number.
 
 ## Voice: there is no narrator
 
@@ -289,3 +324,7 @@ Diagrams must be original SVG drawn from geometry, never traced or scraped.
 - A Japanese term in the prose that is missing from `terms`
 - Reproduced standard text
 - A new heading structure invented for one item
+- A cross-reference whose path is not the one in the taxonomy
+- A Japanese word, or an abbreviation of one, that no item declares
+- A sentence that refers to the brief the writer was given
+- Scare quotes, which read badly and are hard to tell from a quotation
