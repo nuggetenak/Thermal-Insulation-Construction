@@ -448,6 +448,25 @@ function main() {
       }
     }
 
+    // --- a cited source that grounds nothing ---------------------------------
+    // 01.1.03 listed four sources when only one did evidentiary work, so a
+    // single-source item presented as a four-source item and the concentration
+    // risk was invisible. A source cannot always be detected in the prose — a
+    // physics claim rests on a reference nobody names — so this warns rather
+    // than fails, and only where the registry gave us something to look for.
+    for (const sid of cited) {
+      const src = sourceById.get(sid);
+      if (!src || !(src.namedAs || src.clausePattern)) continue;
+      const named = (src.namedAs || []).some((h) => prose.includes(h));
+      const clause = src.clausePattern && new RegExp(src.clausePattern, 'i').test(prose);
+      if (!named && !clause) {
+        warn(
+          file,
+          `cites "${sid}" but never names it or one of its clauses in the body — check it grounds a real sentence rather than sitting in the list because it looks related`,
+        );
+      }
+    }
+
     // --- a document referred to in English, still uncited --------------------
     // "namedAs" only matches the document's own name, so an item could lean on
     // a source all the way through while referring to it as "the specification"
