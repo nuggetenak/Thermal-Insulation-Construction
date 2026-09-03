@@ -157,6 +157,14 @@ test('accepts a Japanese term another item already declares', () =>
   write({}, BODY.replace('Adding thickness', 'Adding 保温 thickness')),
   null);
 
+test('accepts a Japanese function word without a glossary entry', () =>
+  write({}, BODY.replace('Adding thickness', 'The clause carries a ただし proviso, so adding thickness')),
+  null);
+
+test('still rejects a trade term dressed up next to a function word', () =>
+  write({}, BODY.replace('Adding thickness', 'The clause carries a ただし proviso on 換気扇 work, so adding thickness')),
+  'no item declares it');
+
 test('accepts a longer word built around a declared term', () =>
   write({}, BODY.replace('Adding thickness', 'Adding 熱伝導率測定 thickness')),
   null);

@@ -80,6 +80,12 @@ npm run check      # everything above, then typecheck and build. CI runs this.
 npm run dev        # local dev server
 ```
 
+`npm test` writes fixtures into `content/_test/` and removes them on exit. If a
+writing agent happens to run `npm run validate` during that window it will see
+an error for a file it did not write and has no way to explain — tell agents
+that errors in files they did not write are not theirs, or avoid running the
+two at once.
+
 A cloud session starts with no `node_modules`. `validate` and `test` are
 zero-dependency and run anyway, so it is easy to believe everything passes;
 `npm run check` then fails at the typecheck step with `Cannot find type

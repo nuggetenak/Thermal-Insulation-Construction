@@ -4,21 +4,53 @@ State as of 2026-09-03. Written for a session with no conversation history.
 
 ## Where the project stands
 
-The foundation is built and deployed, and content writing has started. Eleven
+The foundation is built and deployed, and content writing has started. Seventeen
 items are written:
 
 - `01.1.01` to `01.1.04` — the whole of section 01.1, merged in PR #4.
-- `01.2.01` to `01.2.05` — the whole of section 01.2, in PR #6.
+- `01.2.01` to `01.2.05` — the whole of section 01.2, merged in PR #6.
+- `01.3.01` to `01.3.06` — the whole of section 01.3. `01.3.01` merged in PR #6;
+  the rest are in PR #7, fact-checked and resolved.
 - `02.3.01` — the general-craft exemplar, merged before that.
 - `09.1.03` — the safety-critical exemplar, merged in PR #2.
 
-The next work is the rest of stage 1, chapter 01 first: section 01.3.
+The next work is the rest of stage 1, chapter 01 first: section 01.4, working
+inside occupied buildings.
 
 **One decision is open**, from `reviews/ch01.2-factcheck.md` finding 24: all
 five 01.2 items carry `confidence: standard-practice`, and after the review
 almost everything actionable in them is clause text checked against a primary
 document. The reviewer's position is that `verified` is now defensible. That is
 a reading decision rather than a correction, so it was left alone.
+
+## What sections 01.2 and 01.3 taught, which changes how the next one gets written
+
+Read `docs/source-pack-protocol.md` before building a pack, and read both
+`reviews/ch01.2-factcheck.md` and `reviews/ch01.3-factcheck.md` before writing
+against either section as a pattern. The protocol was written after 01.2's pack
+put two critical errors into five items; 01.3 was the first section built under
+it, and its review answered the question the protocol needed answering.
+
+**The verdict: the protocol works exactly as far as it is mechanised, and its
+hand-done substitute did not work at all.** 01.3 shipped zero critical findings
+against 01.2's two, and the mechanical sweep over 建設業法 surfaced three
+articles that choosing from expectation would have missed — including the
+20-day inspection clock and a duty binding the reader personally. But eleven of
+sixteen findings came from clauses no sweep ever surfaced, because the pack
+claimed that reading the specification's seven section headings was "the same
+discipline done by hand". It is not. Reading all 590 lines of that part took one
+tool call and found four clauses the pack had missed, two of them immediately
+adjacent to clauses it had taken.
+
+**The structural lesson, which is the one to carry forward: sweeping by number
+cannot find definitions.** A document's definition clause is never numerically
+adjacent to the clause that uses it. 建設業法第2条第5項 defines 元請負人 as the
+party ordering work under any subcontract — whoever engaged your company, at any
+tier — and two 01.3 items rendered it "the prime contractor", telling a reader
+the 20-day duty was owed by a company their employer has no contract with. The
+specification's 1.1.2 defines 一工程の施工 and 工事関係図書, both of which were
+glossed wrongly. Protocol rule 1c now requires the definition clause to be read
+every time, and it kills three of the sixteen findings on its own.
 
 ## What section 01.2 taught, which changes how the next section gets written
 
@@ -237,8 +269,8 @@ downloads for the chapter they open.
    refuses access; the item now says so in the text.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
-   readers need it. **Sections 01.1 and 01.2 done** (nine items, PRs #4 and
-   #6); 01.3 onward is the next writing work.
+   readers need it. **Sections 01.1, 01.2 and 01.3 done** (fifteen items, PRs
+   #4, #6 and #7); 01.4 onward is the next writing work.
 4. Calculators, with unit tests and a second independent source per formula.
 5. Original SVG diagrams.
 

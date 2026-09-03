@@ -56,6 +56,24 @@ const REQUIRED_HEADINGS = {
 
 const SUMMARY_MAX_WORDS = 30;
 
+/**
+ * Japanese function words, exempt from the declare-every-term rule.
+ *
+ * That rule exists so a reader can look a word up in the generated glossary.
+ * It is the right rule for a trade term and the wrong one for a conjunction:
+ * an item explaining that a clause carries a ただし proviso is naming the
+ * grammar of the clause, not teaching vocabulary, and a glossary entry for
+ * "however" helps nobody. 01.3.04 hit this while describing the proviso in
+ * specification clause 1.5.4.
+ *
+ * Keep this list short and grammatical. A word that carries trade meaning
+ * belongs in an item's "terms", not here. Gloss a function word in English on
+ * first use — the exemption is from declaring it, not from explaining it.
+ */
+const JP_FUNCTION_WORDS = new Set([
+  'ただし', 'なお', 'かつ', '及び', 'または', '又は', 'その他', 'ほか',
+]);
+
 // ---------------------------------------------------------------------------
 // Minimal frontmatter parser
 // ---------------------------------------------------------------------------
@@ -525,6 +543,7 @@ function main() {
       .replace(/第[0-9０-９一二三四五六七八九十百千]+条(の[0-9０-９]+)?/g, ' ')
       .replace(/第[0-9０-９一二三四五六七八九十]+[項号編章節]/g, ' ');
     for (const run of new Set(jpProse.match(/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9fff]{2,}/g) || [])) {
+      if (JP_FUNCTION_WORDS.has(run)) continue;
       if (declaredAnywhere.has(run) || registryNames.has(run)) continue;
       if ([...declaredAnywhere].some((t) => t.length >= 2 && run.includes(t))) continue;
       if ([...registryNames].some((n) => n.includes(run) || run.includes(n))) continue;
