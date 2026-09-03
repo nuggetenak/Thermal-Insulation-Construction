@@ -275,6 +275,42 @@
       "retrieved": "2026-09-02",
       "recheckAfter": "2027-04-01",
       "note": "The same department that issues 公共建築工事標準仕様書 tracks whether government building sites actually close. Defines 週休2日 as 4週8休以上の現場閉所 — eight days of site closure in every four weeks — and publishes monitoring results. Source for the claim that the industry is pushing for site closure rather than merely for shorter hours. It is a target being monitored, not an achieved state, and it governs public work; how far it reaches a six-person subcontractor is not settled by it."
+    },
+    {
+      "id": "mlit-koshu-saigai",
+      "title": "建設工事公衆災害防止対策要綱（建築工事等編）",
+      "titleEn": "Outline of measures to prevent public damage from construction work, building works volume",
+      "publisher": "国土交通省 (MLIT) — 令和元年9月2日 国土交通省告示第496号",
+      "url": "https://www.mlit.go.jp/tec/content/001305480.pdf",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": true,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-09-01",
+      "note": "The national rule set for protecting people who are not part of the work — 公衆 — from a building job. Defines 公衆災害 as harm to the life, body and property of third parties AND nuisance to them (第1), and applies to building, repair, alteration and removal work, so renovation inside an occupied building is in scope (第2). Source for: keeping the work area and its surroundings tidy so dust does not reach the neighbours (第14); damping or covering a dust source (第16); providing lighting where existing lighting is removed or moved (第17); fire prevention where fire or sparks are used, including a watcher and limiting spark travel (第18); storage of flammable materials in a labelled, ventilated store with a named supervisor (第19); 1.8 m hoarding, gates kept closed and signed against public entry (第21); surveying the delivery route in advance (第22); safety patrol of the area and its surroundings (第30); and the pedestrian route dimensions where a job restricts a route the public uses — 0.90 m wide, 0.75 m where elderly and wheelchair users are not expected, 1.5 m where there are many pedestrians, 2.1 m effective height (第33). 第33 sits in the traffic chapter and is written for restricting roads and public footways, not for a corridor inside a building — do not present it as an internal rule. A 告示 is outside copyright under 著作権法第13条, so it is quotable, but paraphrase anyway. The civil-works volume in the same document has clauses the building volume does not, notably 第15 作業場の区分 — check which volume a clause is in before citing it.",
+      "namedAs": [
+        "建設工事公衆災害防止対策要綱",
+        "公衆災害防止対策要綱"
+      ]
+    },
+    {
+      "id": "haikibutsu-shoriho",
+      "title": "廃棄物の処理及び清掃に関する法律（昭和45年法律第137号）及び同法施行規則",
+      "titleEn": "Waste Management and Public Cleansing Act, and its enforcement ordinance",
+      "publisher": "e-Gov 法令検索 / 総務省",
+      "url": "https://laws.e-gov.go.jp/law/345AC0000000137",
+      "language": "ja",
+      "tier": 1,
+      "access": "open",
+      "quotable": true,
+      "retrieved": "2026-09-02",
+      "recheckAfter": "2027-04-01",
+      "note": "Decides who owns the waste a construction job produces. 第21条の3第1項: where the work is carried out through successive subcontracts, the 元請業者 — the contractor that took the job directly from the client — is the 事業者 for the waste arising from it, so disposal and its paperwork are the prime contractor's duty and not the subcontractor's. 第2項: the subcontractor is nevertheless deemed the 事業者 for storage, so the storage standards in 第12条第2項 apply to how it stacks and contains waste on site. 第3項, read with 施行規則第18条の2: a subcontractor may carry the waste itself only where the written subcontract provides for it and every one of these holds — the work is not demolition, new build or extension and its contract value is 5,000,000 yen or less (or is defect-remedy work of equivalent value at that limit); each load is 1 cubic metre or less and segregated so that is evident; the destination is a facility in the same prefecture or one adjacent to it that the prime contractor owns or has the right to use; and the waste is not stored anywhere on the way. Read through the e-Gov API rather than the web page. Statute text is outside copyright under 著作権法第13条, but paraphrase anyway.",
+      "namedAs": [
+        "廃棄物処理法",
+        "廃棄物の処理及び清掃に関する法律"
+      ]
     }
   ]
 }
