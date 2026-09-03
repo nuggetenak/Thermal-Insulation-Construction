@@ -86,6 +86,18 @@ surfaced two further clauses that a full Opus fact-check had missed:
 Both are now in `01.2.03` and `01.2.04`. Neither would have been found by
 reading more carefully; both were found by looking one article to the side.
 
+### 1b. A clause number is not an address until you say which part
+
+Both documents this project leans on hardest reuse their numbering. The MLIT
+outline has two volumes where 第16 is 粉塵対策 in one and 作業場の出入口 in the
+other. The MLIT specification repeats clause numbers across its 編 — 1.5.3 is
+一工程の施工の確認及び報告, 冷凍機, and 連結送水管, three subjects under one
+number in one file.
+
+So: name the volume, the 編, or the part, every time. Section 01.2 got the right
+clauses and cited eight of them by bare number, which left nothing a reviewer
+could check without re-deriving the whole thing.
+
 ### 2. Copy the qualifiers, not the gist
 
 For every clause in the pack, carry across:
