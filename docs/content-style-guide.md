@@ -153,6 +153,13 @@ it is not the name of anything the glossary carries — write the full name on
 first mention and "those regulations" afterwards. A word built around a declared
 term is fine (元請業者 around 元請); a genuinely new word is not.
 
+Japanese **function words** are exempt: ただし, なお, かつ, 及び, 又は and a few
+others. An item explaining that a clause carries a ただし proviso is naming the
+grammar of the clause, not teaching vocabulary, and a glossary entry for
+"however" helps nobody. The exemption is from *declaring* the word, not from
+*explaining* it — gloss it in English on first use, the way you would any other
+word a reader has not met.
+
 ### Term ownership
 
 A Japanese term is introduced **once**, in the item it belongs to, with its full
