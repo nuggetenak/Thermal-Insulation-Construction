@@ -37,6 +37,14 @@ against the actual document. Whoever runs you should hand you a verbatim
 extraction of the clauses at issue; if they have not, say so in the report and
 verify what you can from the registry URLs with WebFetch.
 
+One thing a review is **not** good at, so do not rely on it for this: finding a
+clause nobody cited. A review checks the claims in front of it, and a duty that
+appears in no item produces no claim to check. The Opus review of section 01.2
+found two critical omissions and still missed two more — 安衛則第549条 and
+第536条 — which a mechanical neighbour sweep surfaced in seconds afterwards.
+If a pack was built without `scripts/primary-sweep.mjs`, say so in your report
+as a limitation on your own coverage.
+
 `reviews/ch01-factcheck.md` shows why this matters in both directions. A
 web-only first pass reported three findings that reading the primary document
 overturned — including a "critical" one that would have deleted a correct

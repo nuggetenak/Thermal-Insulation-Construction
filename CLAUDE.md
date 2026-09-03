@@ -72,6 +72,8 @@ src/                       React 19 + Vite + Tailwind 4, TypeScript
 
 ```
 npm ci             # first, in a fresh session — see below
+node scripts/primary-sweep.mjs --law <e-gov id> --cited <articles>
+                   # authoring aid for a source pack — see docs/source-pack-protocol.md
 npm run validate   # ids, schema, cross-references, terminology, sourcing
 npm test           # tests the guardrails themselves
 npm run check      # everything above, then typecheck and build. CI runs this.
@@ -148,11 +150,20 @@ invent a new structure.
 
 ### Brief writers from primary sources, not from memory
 
-The single largest quality lever found so far. Before commissioning a section,
-open the documents it will rest on and extract the exact clauses into a pack:
-clause number, what it says, and — this is the part that earns its keep — what
-it does **not** say, and where its scope stops. Hand writers that pack and tell
-them to work only from it.
+The single largest quality lever found so far, and the largest single point of
+failure. **Read `docs/source-pack-protocol.md` before building one.** It carries
+the method and the post-mortem of the two errors that got into section 01.2 —
+both omissions, one from choosing articles by expectation instead of sweeping
+the neighbourhood, one from a summary silently dropping a parenthetical
+exclusion.
+
+Before commissioning a section, open the documents it will rest on and extract
+the exact clauses into a pack: clause number, what it says, and — this is the
+part that earns its keep — what it does **not** say, and where its scope stops.
+Hand writers that pack and tell them to work only from it. Run
+`node scripts/primary-sweep.mjs` over your citation list first; it prints the
+uncited articles next to the ones you took, which is where the missing duty
+usually is.
 
 Section 01.2 was written this way. The MLIT specification was re-read from the
 PDF and the statutes pulled through the e-Gov API, and the pack carried
