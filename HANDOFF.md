@@ -17,7 +17,20 @@ items are written:
 The next work is the rest of stage 1, chapter 01 first: section 01.4, working
 inside occupied buildings.
 
-**One decision is open**, from `reviews/ch01.2-factcheck.md` finding 24: all
+**Two decisions are open, both the owner's, both about `confidence` labels.**
+Neither blocks any writing.
+
+1. `reviews/ch01.2-factcheck.md` finding 24 — section 01.2's five items.
+2. `reviews/ch01.3-factcheck.md` finding 16 — `01.3.04` Inspection, which is
+   almost entirely clause description and by the style guide's table reads as
+   `verified`.
+
+Both reviews argue `verified` is now defensible: the clause content is checked
+against primary text and the inferences are marked as inferences. Both were left
+alone because it is a reading decision about the labelling scheme rather than a
+correction. The detail of the first:
+
+From `reviews/ch01.2-factcheck.md` finding 24: all
 five 01.2 items carry `confidence: standard-practice`, and after the review
 almost everything actionable in them is clause text checked against a primary
 document. The reviewer's position is that `verified` is now defensible. That is
