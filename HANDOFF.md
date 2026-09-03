@@ -1,18 +1,63 @@
 # HANDOFF — read after CLAUDE.md
 
-State as of 2026-09-02. Written for a session with no conversation history.
+State as of 2026-09-03. Written for a session with no conversation history.
 
 ## Where the project stands
 
-The foundation is built and deployed, and content writing has started. Six
+The foundation is built and deployed, and content writing has started. Eleven
 items are written:
 
 - `01.1.01` to `01.1.04` — the whole of section 01.1, merged in PR #4.
+- `01.2.01` to `01.2.05` — the whole of section 01.2, in PR #6.
 - `02.3.01` — the general-craft exemplar, merged before that.
 - `09.1.03` — the safety-critical exemplar, merged in PR #2.
 
-Nothing is waiting on a decision. The next work is the rest of stage 1,
-chapter 01 first.
+The next work is the rest of stage 1, chapter 01 first: section 01.3.
+
+**One decision is open**, from `reviews/ch01.2-factcheck.md` finding 24: all
+five 01.2 items carry `confidence: standard-practice`, and after the review
+almost everything actionable in them is clause text checked against a primary
+document. The reviewer's position is that `verified` is now defensible. That is
+a reading decision rather than a correction, so it was left alone.
+
+## What section 01.2 taught, which changes how the next section gets written
+
+Read `reviews/ch01.2-factcheck.md` before writing 01.3. The short version:
+
+**Brief writers from primary sources.** Before commissioning the section, the
+MLIT specification was re-read from the PDF and the statutes pulled through the
+e-Gov API, and the exact clauses were extracted into a pack — including what
+each clause does *not* say and where its scope stops. Writers worked only from
+that. It is the largest quality lever found so far, and the pack is preserved
+at `docs/source-packs/01.2-site-zones-and-rules.md`.
+
+**And then treat the pack as the thing most likely to be wrong.** One pack fed
+five items, so a misreading in it would appear in all five and they would agree
+with each other perfectly. The fact-checker was given verbatim primary text and
+told to test the pack, not to check items against it. It found two critical
+errors, both in the pack, both omissions rather than misreadings — a condition
+left out of a list, an article never looked up. A pack looks complete, which is
+exactly its danger. Never let a reviewer verify against the notes the writer
+worked from.
+
+**Review what the writing agents produce.** Every one of the five items needed
+at least one fix after its agent reported the validator clean. The validator is
+a floor, not a standard.
+
+**Run one writing agent at a time.** Two in parallel starved each other's
+session quota and both died mid-write, leaving half-finished files.
+
+### The guardrails grew because of it
+
+Six defects reached a clean validator run in this section and were caught by
+eye. Four are now machine-checked and two validator bugs that rejected correct
+content are fixed. `npm test` goes 23 to 34. The new checks: a cross-reference
+path must match the taxonomy (the id is what routes, so a wrong filename still
+renders as a working link); every Japanese run in the prose must be declared by
+some item, abbreviations included; a registry entry may declare a
+`clausePattern` so an item leaning on a document while calling it "the
+specification" must still cite it; and prose may not point at the writer's
+briefing.
 
 ## The employer, confirmed
 
@@ -192,8 +237,8 @@ downloads for the chapter they open.
    refuses access; the item now says so in the text.
 3. Stage 1 content, chapter by chapter. Chapter 01 first — it is the
    most under-weighted chapter in the source relative to how much these
-   readers need it. **Section 01.1 done** (four items, PR #4); 01.2 onward
-   is the next writing work.
+   readers need it. **Sections 01.1 and 01.2 done** (nine items, PRs #4 and
+   #6); 01.3 onward is the next writing work.
 4. Calculators, with unit tests and a second independent source per formula.
 5. Original SVG diagrams.
 
