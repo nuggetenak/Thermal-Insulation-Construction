@@ -16,7 +16,10 @@ the sourcing requirement bites, every number has to trace to a named source, and
 the places where no source exists are stated in the text rather than filled in.
 Read `09.1.03` and match that, not `02.3.01`.
 
-Read `CLAUDE.md` and `docs/content-style-guide.md` first.
+Read `CLAUDE.md` and `docs/content-style-guide.md` first, and read the
+fact-check reports in `reviews/` that cover your chapter — `ch09-factcheck.md`
+is the model for how closely safety content gets read, and its findings bind
+anything written against `09.1.03` as a pattern.
 
 The readers are four people with zero construction experience about to start
 work on Japanese sites. Falls are the leading cause of death in Japanese
@@ -36,15 +39,17 @@ Rules that override any instinct toward completeness:
 
 Run `npm run validate` before finishing.
 
-Three rules the validator enforces, so getting them wrong wastes a whole run:
+**The validator rules listed in `craft-writer` all apply here.** Do not work
+from memory of them — that file carries the current list, including the ones
+added after a section shipped with defects that passed clean: cross-reference
+paths must match the taxonomy exactly, every Japanese word in the prose must be
+declared by some item, naming a document in English still obliges you to cite
+it, and nothing in the body may refer to your own briefing.
 
-- Set `status: review`, never `approved` — `approved` is not an allowed value
-  and the validator rejects it. `content/_approved.json` is the owner's reading
-  record, which you never edit. Nothing you write waits on it.
-- Never write in the first person. There is no narrator. "No source consulted
-  states this", not "I could not find".
-- Declare a Japanese term only in the item that owns it. Elsewhere, use it and
-  cross-reference.
+Two of those bite hardest in safety content. A bare abbreviation like 安衛則 in
+a safety item is a term a frightened reader cannot look up. And a clause stated
+narrower than it is written leaves someone not applying a rule that protects
+them, which is the failure mode this chapter exists to prevent.
 
 There is no word limit. Length is earned by evidence — figures with sources,
 concrete failure modes, honest statements of what is unknown. Length reached by

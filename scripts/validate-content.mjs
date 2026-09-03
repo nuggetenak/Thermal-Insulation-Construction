@@ -131,6 +131,28 @@ function parseFrontmatter(raw, file) {
 }
 
 const unquote = (s) => s.replace(/^["']|["']$/g, '');
+
+/**
+ * Paired quotation spans, paragraph by paragraph.
+ *
+ * Two separate short quotes in one paragraph are not one long quotation, and a
+ * quotation that wraps across a source line is still one quotation. Treating
+ * any stretch between two quote characters as a quote got both of those wrong:
+ * the copyright guard fired on a paragraph carrying two scare-quoted words 200
+ * characters apart, and the voice check missed an "us" inside a quotation that
+ * happened to wrap a line. Pair the quote characters in order within each
+ * paragraph instead, which is what a quotation actually is.
+ */
+function quotedSpans(body) {
+  const spans = [];
+  for (const para of body.split(/\n\s*\n/)) {
+    const marks = [...para.matchAll(/["\u201c\u201d]/g)].map((m) => m.index);
+    for (let i = 0; i + 1 < marks.length; i += 2) {
+      spans.push(para.slice(marks[i] + 1, marks[i + 1]));
+    }
+  }
+  return spans;
+}
 const coerce = (s) => {
   if (s === 'true') return true;
   if (s === 'false') return false;
@@ -198,6 +220,16 @@ function main() {
     (f) => !['_taxonomy.json', '_sources.json', '_images.json'].includes(basename(f)),
   );
   const seenIds = new Set();
+
+  // Every Japanese term declared anywhere, and every name the registry answers
+  // to. A term is introduced once and used freely elsewhere, so the check below
+  // needs the whole corpus before it can judge any single item.
+  const declaredAnywhere = new Set();
+  for (const full of files) {
+    const { data } = parseFrontmatter(readFileSync(full, 'utf8'), full);
+    for (const t of data?.terms || []) if (typeof t === 'object' && t.term) declaredAnywhere.add(t.term);
+  }
+  const registryNames = new Set(registry.flatMap((src) => src.namedAs || []));
 
   for (const full of files) {
     const file = full.replace(ROOT + '/', '');
@@ -287,6 +319,21 @@ function main() {
             file,
             `body links to "${found[0]}" (${href}) which is not in the taxonomy — that renders as a live link to nothing. Linking to an unwritten item is fine; inventing an id is not.`,
           );
+        } else if (/(^|\/)ch\d\d\//.test(href)) {
+          // The id routes correctly, so a wrong filename wrapped around it still
+          // renders as a working link and passes every check that reads the id
+          // alone. 01.2.04 shipped a link to "01.2.05-daily-housekeeping.md" for
+          // an item actually named 01.2.05-housekeeping-expectations.md, and two
+          // more like it survived a hand review of the same section. The
+          // taxonomy holds the real path, so compare against it.
+          const want = byId.get(found[0]).path;
+          const got = 'content/' + href.replace(/^\.\.\//, '');
+          if (got !== want) {
+            err(
+              file,
+              `body link "${href}" names a file that does not exist — ${found[0]} is at "${want}". The id still routes, so this renders as a working link and nothing else catches it.`,
+            );
+          }
         }
       } else if (ID_LOOSE.test(href)) {
         // Digits either side of something id-shaped. The app would read an id
@@ -372,11 +419,14 @@ function main() {
     // Chapter 24 teaches Japanese phrases, and glossing 分かりません as
     // "I don't understand" is not narration. Strip code spans and quoted
     // example phrases before checking voice and terminology.
-    const prose = body
-      .replace(/```[\s\S]*?```/g, ' ')
-      .replace(/`[^`]*`/g, ' ')
-      .replace(/"[^"\n]{0,120}"/g, ' ')
-      .replace(/\u201c[^\u201d\n]{0,120}\u201d/g, ' ');
+    let prose = body.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ');
+    // Strip quoted example phrases before the voice and terminology checks.
+    // The old pattern refused to match across a newline, so a quotation that
+    // wrapped a source line stayed in the prose and tripped the voice check on
+    // its contents — 01.2.01 was rejected for an "us" inside quoted speech.
+    for (const span of quotedSpans(prose)) {
+      if (span.length <= 200) prose = prose.split(`"${span}"`).join(' ');
+    }
 
     // --- named but not cited ---------------------------------------------
     // An item that discusses a document by name is making claims about that
@@ -396,6 +446,73 @@ function main() {
         );
         break;
       }
+    }
+
+    // --- a document referred to in English, still uncited --------------------
+    // "namedAs" only matches the document's own name, so an item could lean on
+    // a source all the way through while referring to it as "the specification"
+    // with a clause number and never cite it. 01.2.03 did exactly that with
+    // clause 1.3.6. A registry entry can declare the shape its clause numbers
+    // take, which catches the reference however the prose words it.
+    for (const src of registry) {
+      if (!src.clausePattern || cited.includes(src.id)) continue;
+      if (new RegExp(src.clausePattern, 'i').test(prose)) {
+        err(
+          file,
+          `refers to a clause of "${src.id}" (matching ${src.clausePattern}) but does not cite it. Naming a document in English rather than Japanese does not make it a smaller claim.`,
+        );
+      }
+    }
+
+    // --- the briefing is not part of the item --------------------------------
+    // A writing agent works from a brief the reader has never seen. Two items in
+    // section 01.2 shipped sentences pointing at it — "see section D below",
+    // "not settled by anything in this pack" — which read to a trainee as a
+    // reference to a document that does not exist. Nothing caught either.
+    const LEAKS = [
+      /\bthis pack\b/i,
+      /\bthe (?:source )?pack\b/i,
+      /\bsections?\s+[A-H]\s+(?:of the pack|below|above)\b/i,
+      /\b(?:your|the) brief\b/i,
+      /\bas instructed\b/i,
+      /\bthe instructions? (?:above|below)\b/i,
+      /\bper the (?:brief|pack)\b/i,
+    ];
+    for (const re of LEAKS) {
+      const hit = re.exec(prose);
+      if (hit) {
+        err(
+          file,
+          `body refers to the writer's briefing ("${hit[0].trim()}") — the reader has no access to it. Name the document and the clause instead.`,
+        );
+        break;
+      }
+    }
+
+    // --- Japanese in the prose that nobody defines -------------------------
+    // The style guide makes an undeclared Japanese term grounds for rejection,
+    // and nothing enforced it. 01.2.04 shipped 危険物 in the prose while no item
+    // in the project declared it, so the generated glossary had no entry and a
+    // reader with no Japanese met an undefined word. Bare abbreviations are the
+    // same failure: 01.2.01 used 安衛則, which is not the name of anything the
+    // registry or the glossary knows.
+    //
+    // A term is introduced once and used freely afterwards, so anything declared
+    // anywhere passes. So does a document name the registry answers to, and a
+    // longer word built around a declared one — 元請業者 around 元請 — which is
+    // morphology rather than a new term.
+    const jpProse = prose
+      .replace(/\]\([^)]*\)/g, ' ')
+      .replace(/第[0-9０-９一二三四五六七八九十百千]+条(の[0-9０-９]+)?/g, ' ')
+      .replace(/第[0-9０-９一二三四五六七八九十]+[項号編章節]/g, ' ');
+    for (const run of new Set(jpProse.match(/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9fff]{2,}/g) || [])) {
+      if (declaredAnywhere.has(run) || registryNames.has(run)) continue;
+      if ([...declaredAnywhere].some((t) => t.length >= 2 && run.includes(t))) continue;
+      if ([...registryNames].some((n) => n.includes(run) || run.includes(n))) continue;
+      err(
+        file,
+        `uses the Japanese term "${run}" in the prose but no item declares it. Declare it in "terms" here if this item owns it, or use a term another item already introduces. Never use a bare abbreviation the glossary does not carry.`,
+      );
     }
 
     // Voice. The reference has no narrator. Across 1146 items written in
@@ -447,8 +564,12 @@ function main() {
     // --- copyright guard ----------------------------------------------------
     // ASTM / ISO / JIS / API texts are paid documents. Their scope may be
     // described; their clauses may never be reproduced.
-    const longQuote = /^>\s*.{200,}$/m.test(body) || /"[^"]{200,}"/.test(body);
-    if (longQuote) {
+    // A reproduced clause is one long quotation. Two separately quoted words in
+    // the same paragraph are not, however far apart they sit — the old pattern
+    // read everything between them as a single quote and failed 01.2.01 for a
+    // paragraph that quoted nothing at all.
+    const longestQuote = Math.max(0, ...quotedSpans(body).map((q) => q.length));
+    if (/^>\s*.{200,}$/m.test(body) || longestQuote >= 200) {
       err(file, 'long quoted passage detected — paraphrase instead, never reproduce standard text');
     }
   }

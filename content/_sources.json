@@ -208,7 +208,8 @@
       "quotable": false,
       "retrieved": "2026-09-02",
       "recheckAfter": "2028-04-01",
-      "note": "Free official specification governing mechanical services work on government building projects, and the model most private specifications in Japan follow. Source for: pressure and airtightness testing being completed before concealment, before painting and before insulation is applied (2.9.1); rock wool at the insulated penetration of a fire compartment; no metal jacketing around a dielectric joint; refrigerant lines insulated only after the airtightness test and liquid and gas lines never wrapped together; no insulation within 25 mm of a wall or floor face on steam pipework; and the duty to record and photograph work that will become concealed. Reissued every few years (2022 then 2025), so re-verify clause numbers at the recheck date. Paraphrase only."
+      "note": "Free official specification governing mechanical services work on government building projects, and the model most private specifications in Japan follow. Source for: pressure and airtightness testing being completed before concealment, before painting and before insulation is applied (2.9.1); rock wool at the insulated penetration of a fire compartment; no metal jacketing around a dielectric joint; refrigerant lines insulated only after the airtightness test and liquid and gas lines never wrapped together; no insulation within 25 mm of a wall or floor face on steam pipework; and the duty to record and photograph work that will become concealed. Reissued every few years (2022 then 2025), so re-verify clause numbers at the recheck date. Paraphrase only.",
+      "clausePattern": "clauses?\\s+\\d\\.\\d\\.\\d+|\\d\\.\\d\\.\\d+\\s+of the specification"
     },
     {
       "id": "mhlw-jikangai-kensetsu",
