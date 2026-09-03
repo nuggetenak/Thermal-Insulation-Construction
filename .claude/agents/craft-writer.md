@@ -65,6 +65,12 @@ phrasings, but it cannot catch every one, so simply never refer to the brief.
   cross-reference. **Every Japanese word in your prose must be declared by some
   item** — yours or another's. Never use a bare abbreviation the glossary does
   not carry: write 労働安全衛生規則, not 安衛則.
+- Where a brief assigns you specific terms, that list is a floor, not a ceiling.
+  If your item genuinely introduces a term the trade uses and no other item
+  owns — check with `grep -rn "term: X" content/` — declare it rather than
+  writing around it in English. `01.3.01` first rendered 施工図 as "construction
+  drawings" because its brief listed three terms and it read that as a limit;
+  the reader would have met the word on site with no glossary entry to reach for.
 - A cross-reference link must use the **exact path from the taxonomy**. The id
   inside the link is what routes, so a wrong filename around a correct id still
   renders as a working link — but it is wrong, and it is now a build failure.
