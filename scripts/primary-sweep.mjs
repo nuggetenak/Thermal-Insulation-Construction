@@ -157,7 +157,11 @@ console.log('-'.repeat(78));
 console.log('Read every caption. Dismiss each one deliberately. This is the list');
 console.log('第620条 would have been on.\n');
 for (const [num, { a, near }] of [...neighbours].sort((x, y) => index.get(x[0]) - index.get(y[0]))) {
-  const cap = a.caption || '(no caption — often a deleted article)';
+  // Never guess why a caption is absent. The old fallback here read "often a
+  // deleted article", and the 01.3 pack recorded that hint as fact for 第26条の3
+  // — which is in force, and is the 特定専門工事 provision. The tool must not
+  // put words in the sweeper's mouth.
+  const cap = a.caption || '(no caption — read the article text before dismissing)';
   console.log(`  第${num}条 ${cap}`.padEnd(58) + `near 第${near.join(', 第')}条`);
 }
 console.log(`\n${neighbours.size} uncited neighbour(s) to review.`);

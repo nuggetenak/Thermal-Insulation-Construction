@@ -98,13 +98,48 @@ So: name the volume, the 編, or the part, every time. Section 01.2 got the righ
 clauses and cited eight of them by bare number, which left nothing a reviewer
 could check without re-deriving the whole thing.
 
+### 1c. Read the definition clause. Always. Sweeping cannot find it.
+
+`primary-sweep.mjs` sweeps neighbours **by number**, and a document's
+definitions are never numerically adjacent to the clause that uses them. This
+is a blind spot in the method, not in how carefully it was applied.
+
+Section 01.3 proved it. Three of its findings die on this one rule:
+
+- 建設業法第2条第5項 defines 元請負人 as **the party that orders work under a
+  subcontract** — whoever engaged you, at any tier. The pack rendered it "the
+  prime contractor", and two items then told the reader the 20-day inspection
+  duty was owed by a company their employer has no contract with.
+- Specification 1.1.2 defines 一工程の施工 as work using the same material and
+  the same method **that the 監督職員 has consented to**. Two items glossed it
+  as "a stage the job is divided into", and both then asked, as an open
+  question, something the definition answers.
+- Specification 1.1.2 also defines 工事関係図書 as a class of documents. One
+  item defined it instead by the single clause that uses it, which is circular.
+
+So, before choosing any clause from a document:
+
+1. Read its definition article — 第2条 in a statute, 用語の定義 in a
+   specification — in full.
+2. Carry every defined term the pack will use, with the document's own words.
+3. Check the pack's glossary entries against those definitions, not against
+   what the term appears to mean in the clause you happen to be citing.
+
+The same applies to a statute's foundation articles. 建設業法第19条, which
+requires a construction contract to state the completion-inspection timing, the
+handover time and the defect-liability terms, is nowhere near 第24条の4 and is
+directly relevant to it.
+
 ### 2. Copy the qualifiers, not the gist
 
 For every clause in the pack, carry across:
 
 - every parenthetical, especially one containing 除く
 - every ただし proviso and every 限る restriction
-- 等, which makes a rule wider than the examples it names
+- 等 **and その他の**, both of which make a rule wider than the examples it
+  names. その他の is the commoner of the two in statute and was the one missed:
+  第26条の4第1項's 「その他の技術上の管理」 turned a list of examples into a
+  closed list of four in two items
 - whether the duty is しなければならない or 努める, because a pack that renders
   an endeavour duty as a flat obligation produces content that overstates the law
 - who the duty binds — 事業者, 注文者, 元請業者, or 労働者. A duty on the worker
@@ -137,7 +172,10 @@ three shows will not happen by itself.
 ### 5. Keep the verbatim extract, and keep it out of the repo
 
 Extract the clauses verbatim into a working file and keep it beside the pack for
-as long as the section is being written. The reviewer needs it (see below), and
+as long as the section is being written. **Build that extract from the source's
+structural unit, not from the list of clauses you ended up citing** — otherwise
+the reviewer inherits the pack's blind spot in a new wrapper, and confirms the
+selection instead of testing it. The reviewer needs it (see below), and
 so does anyone re-checking a finding.
 
 Statutes and 告示 are outside copyright under 著作権法第13条. **The MLIT
